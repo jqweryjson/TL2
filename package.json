@@ -2,7 +2,7 @@
   "name": "promotele2",
   "version": "0.1.0",
   "private": true,
-  "homepage": "./1"
+  "homepage": "/1/"
   "dependencies": {
     "fabric": "^2.7.0",
     "node-sass": "^4.11.0",
