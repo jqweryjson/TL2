@@ -7,6 +7,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
+  overflow:hidden;
 }
 
 code {
@@ -31,43 +32,75 @@ code {
   height: 100%;
   overflow:hidden;
 }
+@keyframes header {
+  100% {
+    transform:translate3d(0,0,0);
+  }
+}
 .header {
   position: fixed;
   left: 0;
   top:0;
   z-index:10;
+  transform:translate3d(0,-100px,0);
+  animation:header 1s ease-in-out both;
+  animation-delay: 1.5s;
+  &.isBlackScreen{
+    svg > path {
+      fill:#fff;
+    }
+  }
 }
-.infoBlock {
+.wrapInfoBlock {
+  overflow: hidden;
   position: absolute;
   left: 10%;
-  top: 20%;
+  top: 17%;
   width:35%;
-  padding: 2em 3em 2em 2em;
   z-index:3;
+  padding-top: 3rem;
   background: none;
+}
+.infoBlock {
+  transform:translate3d(-100%,0,0);
+  animation:header 1s ease-in-out both;
+  padding: 2rem 3rem 2rem 2rem;
   &__header {
     font-family: Standard CT Stencil;
-    font-size: 2.813em;
+    font-size: 2.813rem;
     line-height: normal;
     color: #000;
     margin: 0;
     text-transform: uppercase;
+    transform:translate3d(-120%,0,0);
+    animation:header 1s ease-in-out both;
+    animation-delay: .5s;
   }
   &__text {
     font-family: Tele2 DisplaySerif;
     line-height: normal;
     color: #000;
-    margin: 2em 0;
+    margin: 2rem 0;
+    transform:translate3d(-120%,0,0);
+    animation:header 1s ease-in-out both;
+    animation-delay: 1s;
   }
   &__button {
     background: #C3E400;
-    border-radius: 1.875em;
+    border-radius: 1.875rem;
     margin: 0;
     font-family: Tele2 TextSans;
-    font-size: 1.125em;
+    font-size: 1.125rem;
     line-height: normal;
     border:none;
-    padding: 0.750em 3.125em;
+    padding: 0.750rem 3.125rem;
+    cursor: pointer;
+    transform:translate3d(-120%,0,0);
+    animation:header 1s ease-in-out both;
+    animation-delay: 1.5s;
+    &:focus{
+      outline:none;
+    }
   }
 }
 .hasBg.infoBlock{
@@ -114,7 +147,12 @@ code {
   & .slick-dots{
     position: absolute;
     left: 0;
-    bottom:0;
+    bottom: 0;
+    width: auto;
+    padding: 1.1rem 2rem;
+    transform:translate3d(0,100px,0);
+    animation:header 1s ease-in-out both;
+    animation-delay: 1.5s;
   }
   & .slick-arrow {
     position: absolute;
@@ -127,19 +165,31 @@ code {
   & .slick-next {
     right: 0;
   }
+  & .slick-dots  li.slick-active button:before{
+    content:'';
+    border:2px solid;
+  }
   & .slick-dots li button:before{
       content:'■';
-      font-size: 16px;
+      opacity:1;
+      font-size: 1rem;
+      line-height: 1rem;
   }
+}
+.slick-dots#dotsBlack li button:before{
+  color:#fff;
 }
 .footer {
   position: absolute;
   bottom:0;
   right: 0;
+  transform:translate3d(0,100px,0);
+  animation:header 1s ease-in-out both;
+  animation-delay: 1.5s;
   &__soc{
     display:flex;
     justify-content: space-around;
-    padding: 1em 2em;
+    padding: 1rem 2rem;
     &-link{
       display: block;
     }
@@ -147,25 +197,104 @@ code {
 }
 
 .blackSection {
+  background: #000;
+  height: 100vh;
   &__block{
-
+    position: absolute;
+    left: 10%;
+    top:10%;
+    width: 50%;
   }
   &__h2{
-
+    font-family: Standard CT Stencil;
+    font-size: 4.375em;
+    line-height: normal;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    margin: 0;
   }
   &__text{
-    
+    font-family: Tele2 TextSans;
+    font-size: 1rem;
+    line-height: normal;
+    text-align: center;
+    color: #FFFFFF;
+    &_f {
+      flex:1;
+      text-align:right;
+    }
     &_upper{
-
+      font-family: Tele2 TextSans;
+      font-size: 1.250em;
+      line-height: normal;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      
     }
     &-mark{
-
+      font-family: Standard CT Stencil;
+      font-size: 2.500em;
+      line-height: normal;
+      text-align: center;
+      text-transform: uppercase;
+      color: #C3E400;
     }
   }
   &__row{
-
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+    align-items: center;
+    margin-top:3rem;
   }
   &__button{
-
+    background: #C3E400;
+    border-radius: 1.875em;
+    border:0;
+    font-family: Tele2 TextSans;
+    font-size: 1.125em;
+    line-height: normal;
+    text-align: center;
+    color: #000000;
+    display: block;
+    padding: .7rem 3rem;
+    cursor: pointer;
+    &:focus{
+      outline:none;
+    }
   }
+}
+
+.blackSection__block_m {
+  width: 70%;
+  & .blackSection__button {
+    width: 100%;
+  }
+  & .blackSection__block-row {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;   
+      margin-top: 2rem; 
+    & .blackSection__row {
+      margin: 0;
+      align-items: flex-end;
+      justify-content: flex-end;
+      flex: 1;
+    }
+    &_t {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-between;
+      flex: 2;
+      & .blackSection__text {
+        text-align: left;
+        width: 55%;
+      }
+    }
+  }
+}
+.iconSec {
+  position: absolute;
+  top:0;
+  left: 2rem;
 }

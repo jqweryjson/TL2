@@ -3908,6 +3908,10 @@ growly@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/growly/-/growly-1.3.0.tgz#f10748cbe76af964b7c96c93c6bcc28af120c081"
 
+gsap@^2.0.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/gsap/-/gsap-2.1.2.tgz#2ad017608f883379e546d8bcc3046182083d4da2"
+
 gzip-size@5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/gzip-size/-/gzip-size-5.0.0.tgz#a55ecd99222f4c48fd8c01c625ce3b349d0a0e80"
@@ -7368,6 +7372,12 @@ react-fabricjs@^0.1.6:
     deep-diff "~0.3.3"
     fabric-webpack "~1.6.0-rc.1"
     object-assign "~4.0.1"
+
+react-gsap@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-gsap/-/react-gsap-1.2.0.tgz#38e89b6802c5521fd27677ce27ba6ac119f7348e"
+  dependencies:
+    gsap "^2.0.2"
 
 react-is@^16.3.2:
   version "16.8.6"
