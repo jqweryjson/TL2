@@ -5540,6 +5540,10 @@ mdn-data@~1.1.0:
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/mdn-data/-/mdn-data-1.1.4.tgz#50b5d4ffc4575276573c4eedb8780812a8419f01"
 
+media-queries@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/media-queries/-/media-queries-1.0.5.tgz#f2a5004d4067795731c20d494c8a8c774b112a7f"
+
 media-typer@0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"

@@ -22,9 +22,11 @@ import { ReactComponent as Onhand } from './components/img/onhand.svg';
 
 export default class App extends Component {
   state = {
-    isBlackScreen: false
+    isBlackScreen: false,
+    playStartAnimText: true,
+    currentSlideNumber: null
   }
-  test = false;
+
   sliderRef = React.createRef();
   componentDidMount() {
     window.addEventListener('wheel', event => this.mouseWheelHandler(event));
@@ -33,20 +35,30 @@ export default class App extends Component {
     //event.preventDefault();
     const delta = event.deltaY;
     if (delta > 0) {
+
       this.sliderRef.current.slickNext();
     } else {
       this.sliderRef.current.slickPrev();
     }
   }
   beforeChange(oldIndex, newIndex){
-    if(newIndex >= 4) {
+    this.setState({
+      playStartAnimText:false
+    });
+  }  
+  afterChange(index){
+
+    if(index >= 4) {
       this.setState({
-        isBlackScreen:true
+        isBlackScreen:true,
       });
       document.getElementsByClassName('slick-dots')[0].id = 'dotsBlack';
-    } else if (newIndex < 4){
+
+    } else if (index < 4){
       this.setState({
-        isBlackScreen:false
+        isBlackScreen:false,
+        playStartAnimText:true,
+        currentSlideNumber:index
       });
       document.getElementsByClassName('slick-dots')[0].id = null;
     }
@@ -59,7 +71,7 @@ export default class App extends Component {
       infinite: false,
       adaptiveHeight:true,
       //initialSlide:5,
-      speed: 400,
+      speed: 300,
       slidesToShow: 1,
       //className:'LOH',
       slidesToScroll: 1
@@ -69,46 +81,58 @@ export default class App extends Component {
         <Header isBlackScreen={this.state.isBlackScreen}/>
         <Slider 
           className="custom-slick" {...settings}
+          afterChange={this.afterChange.bind(this)}
           beforeChange={this.beforeChange.bind(this)}
           ref={this.sliderRef}>
           <Section
             title="Теперь вы сами решаете, как использовать оставшиеся гигабайты: делитесь ими с друзьями, родственниками и просто знакомыми."
             header="ДЕЛИТЕСЬ ГИГАБАЙТАМИ"
-            playStartAnim={true}
+            playStartAnimText={this.state.playStartAnimText}
             btnText="Подробнее"
             hasBg={true}
             canvasId="sec1"
             fill="#C3E400"
             image={Couple}
+            number={0}
+            currentSlideNumber={this.state.currentSlideNumber}
           />
           <Section
             title="Не требует дополнительной платы для использования."
             header="Бесплатно и ЛЕГКО"
+            playStartAnimText={this.state.playStartAnimText}
             btnText="Погнали!"
             hasBg={false}
             canvasId="sec2"
             fill="#FF59A3"
             image={Pig}
+            number={1}
+            currentSlideNumber={this.state.currentSlideNumber}
             icon={<Ball  className="iconSec"/>}
           />
           <Section
             title="Услуга доступна автоматически на открытых тарифах «Мой Tele2»"
             header="Не надо ничего подключать"
+            playStartAnimText={this.state.playStartAnimText}
             btnText="Погнали!"
             hasBg={false}
             canvasId="sec3"
             fill="#1EE7CA"
             image={Robot}
+            number={2}
+            currentSlideNumber={this.state.currentSlideNumber}
             icon={<Connect  className="iconSec"/>}
           />
           <Section
             title="Передавайте пакет интернета от 1 ГБ до 30 ГБ. Переданный пакет гигабайт действует 7 дней, но можно продлить и до 30 дней."
             header="делись со всеми tele2 друзьями"
             btnText="Погнали!"
+            playStartAnimText={this.state.playStartAnimText}
             hasBg={false}
             canvasId="sec4"
             fill="#FF6633"
             image={Girls}
+            number={3}
+            currentSlideNumber={this.state.currentSlideNumber}
             icon={<Onhand className="iconSec" />}
           />
           <BlackSection 

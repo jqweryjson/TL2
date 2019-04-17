@@ -1,20 +1,32 @@
 import * as React from 'react';
+import classnames from 'classnames';
 import {fabric} from 'fabric';
 import InfoBlock from '../InfoBlock';
 
 
-export default class Section extends React.PureComponent {
-
+export default class Section extends React.Component {
     state = {
-
+        playStartAnimText: null
     }
     sectionRef = React.createRef();
+    static getDerivedStateFromProps(nextProps, prevState) {
+        if(prevState.playStartAnimText !== nextProps.playStartAnimText){
+            return {
+              playStartAnimText: nextProps.playStartAnimText
+            };
+        }
+        return null;
+    }
+    shouldComponentUpdate(nextProps, nextState) {
+        if(nextProps.currentSlideNumber === this.props.number){
+            return true;
+        }
+        return false;
+    }
     componentDidMount(){
         const container = document.getElementById(this.props.canvasId);
-        // container.width = this.sectionRef.current.offsetWidth;
-        // container.height = this.sectionRef.current.offsetHeight;
-         container.width = window.innerWidth;
-         container.height  = window.innerHeight      
+        container.width = window.innerWidth;
+        container.height  = window.innerHeight      
         this.canvas = new fabric.Canvas(container);
         fabric.Object.prototype.selectable = false;
         fabric.Object.prototype.hasRotatingPoint = false;
@@ -31,51 +43,21 @@ export default class Section extends React.PureComponent {
             opacity: 0.3,
             originX: 'right'
         });
-        console.log(path)
-        fabric.Image.fromURL(this.props.image, img => this.addCouPleIMg(img,path));
-
-    }
-    addCouPleIMg(img,path){
-        //img.filters.push(new fabric.Image.filters.Grayscale());
-        //img.applyFilters(this.canvas.renderAll());
-        // добавляем изображения на холст
-        //img.scale(0.5);
-        img.scaleToHeight(this.canvas.height);
-        //img.scaleToWidth(300);
-        img.set({
-            left:this.canvas.width,
-            top:this.canvas.height,
-            originY: 'bottom',
-            originX: 'right'
-        })
-//this.canvas.getContext().globalCompositeOperation = 'xor';
-
-// var filter = new fabric.Image.filters.HueRotation({
-//     rotation: -5.5
-// });
-
-// img.filters.push(filter);
-// img.applyFilters();
-//path.toObject();
-
-        //    const group = new fabric.Group([ img, path ], {
-        //     left: 0,
-        //     top: 0,
-        //   });
-        //   group.clipPath = img;
-        //   this.canvas.add(group);
-        //this.canvas.bringToFront(path)
-        //path.set({globalCompositeOperation: 'lighter'}); //set gCO for yellow
-
-        this.canvas.add(img,path);
-        //this.canvas.bringToFront(img);
+        this.canvas.add(path);
         this.canvas.bringToFront(path);
-        this.canvas.renderAll();
+
     }
     render(){
-        const {canvasId} = this.props;
+        const {canvasId, image} = this.props;
+        const imgClass = classnames({
+            mainImgWrap:true,
+            playStartAnimText: this.state.playStartAnimText
+        })
         return (
             <section ref={this.sectionRef} className="section">
+                <div className={imgClass}> 
+                    <img className="mainImg" src={image} alt=""/>
+                </div>
                 <canvas className="canvas" id={canvasId}></canvas>
                 <InfoBlock {...this.props} />
             </section>

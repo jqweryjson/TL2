@@ -1,3 +1,9 @@
+@mixin for-big-desktop-up {
+  @media (min-width: 1800px) { @content; }
+}
+@mixin for-phone-only {
+  @media (max-width: 599px) { @content; }
+}
 body {
   margin: 0;
   padding: 0;
@@ -8,6 +14,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
   overflow:hidden;
+  @include for-big-desktop-up {
+    font-size: 23px;
+  }
+  @include for-phone-only {
+    //font-size: 8px;
+  }
 }
 
 code {
@@ -32,9 +44,17 @@ code {
   height: 100%;
   overflow:hidden;
 }
-@keyframes header {
+@keyframes playStartAnimText {
   100% {
     transform:translate3d(0,0,0);
+  }
+}
+@keyframes sss {
+  50%{
+    transform:scale(1.1);
+  }
+  100%{
+    transform:scale(1);
   }
 }
 .header {
@@ -43,7 +63,7 @@ code {
   top:0;
   z-index:10;
   transform:translate3d(0,-100px,0);
-  animation:header 1s ease-in-out both;
+  animation:playStartAnimText 1s ease-in-out both;
   animation-delay: 1.5s;
   &.isBlackScreen{
     svg > path {
@@ -56,14 +76,54 @@ code {
   position: absolute;
   left: 10%;
   top: 17%;
-  width:35%;
+  width:70vmin;
   z-index:3;
   padding-top: 3rem;
   background: none;
 }
+.mainImgWrap {
+  position: absolute;
+  right: 0;
+  top:0;
+  bottom:0;
+  height: 100%;
+  transform: translate3d(-100vw, 0, 0);
+}
+
+.mainImg{
+  animation:sss 15s ease-in-out infinite;
+  position: relative;
+  height: 100%;
+}
+//animate---------------------------------
+.playStartAnimText {
+  &.mainImgWrap {
+    animation:playStartAnimText .5s ease-in-out both;
+  }
+  &.infoBlock {
+      &.hasBg{
+        animation:playStartAnimText .6s ease-in-out both;
+      }
+      &:not(.hasBg){
+        transform:translate3d(0,0,0);
+      }
+      & .infoBlock__header{
+        animation:playStartAnimText .4s ease-in-out both;
+        animation-delay: .1s;
+      }
+      & .infoBlock__text {
+        animation:playStartAnimText .4s ease-in-out both;
+        animation-delay: .2s;
+      }
+      & .infoBlock__button {
+        animation:playStartAnimText .4s ease-in-out both;
+        animation-delay: .3s;
+      }
+  }
+}
+//animate---------------------------------
 .infoBlock {
   transform:translate3d(-100%,0,0);
-  animation:header 1s ease-in-out both;
   padding: 2rem 3rem 2rem 2rem;
   &__header {
     font-family: Standard CT Stencil;
@@ -73,8 +133,6 @@ code {
     margin: 0;
     text-transform: uppercase;
     transform:translate3d(-120%,0,0);
-    animation:header 1s ease-in-out both;
-    animation-delay: .5s;
   }
   &__text {
     font-family: Tele2 DisplaySerif;
@@ -82,8 +140,6 @@ code {
     color: #000;
     margin: 2rem 0;
     transform:translate3d(-120%,0,0);
-    animation:header 1s ease-in-out both;
-    animation-delay: 1s;
   }
   &__button {
     background: #C3E400;
@@ -95,9 +151,7 @@ code {
     border:none;
     padding: 0.750rem 3.125rem;
     cursor: pointer;
-    transform:translate3d(-120%,0,0);
-    animation:header 1s ease-in-out both;
-    animation-delay: 1.5s;
+    transform:translate3d(-200%,0,0);
     &:focus{
       outline:none;
     }
@@ -121,19 +175,10 @@ code {
     background-color: #000;
     color: #FFFFFF;
 }
-@keyframes sss {
-  50%{
-    transform:scale(1.1);
-  }
-  100%{
-    transform:scale(1);
-  }
-}
 .canvas {
   height: 100vh;
   width: 100vw;
   display: block;
-  animation:sss 20s ease-in-out infinite;
 }
 .couple {
   width: 100%;
@@ -151,7 +196,7 @@ code {
     width: auto;
     padding: 1.1rem 2rem;
     transform:translate3d(0,100px,0);
-    animation:header 1s ease-in-out both;
+    animation:playStartAnimText 1s ease-in-out both;
     animation-delay: 1.5s;
   }
   & .slick-arrow {
@@ -167,7 +212,7 @@ code {
   }
   & .slick-dots  li.slick-active button:before{
     content:'';
-    border:2px solid;
+    border:0.125em solid;
   }
   & .slick-dots li button:before{
       content:'■';
@@ -184,7 +229,7 @@ code {
   bottom:0;
   right: 0;
   transform:translate3d(0,100px,0);
-  animation:header 1s ease-in-out both;
+  animation:playStartAnimText 1s ease-in-out both;
   animation-delay: 1.5s;
   &__soc{
     display:flex;
@@ -297,4 +342,15 @@ code {
   position: absolute;
   top:0;
   left: 2rem;
+  transform: translate3d(0,100%,0);
+  animation:playStartAnimText .4s ease-in-out both;
+  animation-delay: .3s;
+}
+@keyframes render {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
