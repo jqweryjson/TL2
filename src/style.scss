@@ -57,6 +57,11 @@ code {
     transform:scale(1);
   }
 }
+@keyframes playEndAnimText {
+  100% {
+    transform:translate3d(100%,0,0);
+  }
+}
 .header {
   position: fixed;
   left: 0;
@@ -75,10 +80,11 @@ code {
   overflow: hidden;
   position: absolute;
   left: 10%;
-  top: 17%;
+  top: 10%;
   width:70vmin;
+  height:63vmin;
   z-index:3;
-  padding-top: 3rem;
+  padding-top: 3%;
   background: none;
 }
 .mainImgWrap {
@@ -96,35 +102,66 @@ code {
   height: 100%;
 }
 //animate---------------------------------
-.playStartAnimText {
-  &.mainImgWrap {
-    animation:playStartAnimText .5s ease-in-out both;
-  }
-  &.infoBlock {
-      &.hasBg{
-        animation:playStartAnimText .6s ease-in-out both;
-      }
-      &:not(.hasBg){
-        transform:translate3d(0,0,0);
-      }
-      & .infoBlock__header{
-        animation:playStartAnimText .4s ease-in-out both;
-        animation-delay: .1s;
-      }
-      & .infoBlock__text {
-        animation:playStartAnimText .4s ease-in-out both;
-        animation-delay: .2s;
-      }
-      & .infoBlock__button {
-        animation:playStartAnimText .4s ease-in-out both;
-        animation-delay: .3s;
-      }
-  }
-}
+// .playStartAnimText {
+//   &.mainImgWrap {
+//     animation:playStartAnimText .5s ease-in-out both;
+//   }
+//   &.infoBlock {
+//       &.hasBg{
+//         animation:playStartAnimText .6s ease-in-out both;
+//       }
+//       &:not(.hasBg){
+//         transform:translate3d(0,0,0);
+//       }
+//       & .infoBlock__header{
+//         animation:playStartAnimText .4s ease-in-out both;
+//         animation-delay: .1s;
+//       }
+//       & .infoBlock__text {
+//         animation:playStartAnimText .4s ease-in-out both;
+//         animation-delay: .2s;
+//       }
+//       & .infoBlock__button {
+//         animation:playStartAnimText .4s ease-in-out both;
+//         animation-delay: .3s;
+//       }
+//   }
+// }
+// .playEndAnimText {
+//   &.mainImgWrap {
+//     animation:playEndAnimText .5s ease-in-out both;
+//   }
+//   &.infoBlock {
+//       &.hasBg{
+//         animation:playEndAnimText .6s ease-in-out both;
+//       }
+//       &:not(.hasBg){
+//         transform:translate3d(0,0,0);
+//       }
+//       & .infoBlock__header{
+//         animation:playEndAnimText .4s ease-in-out both;
+//         animation-delay: .1s;
+//       }
+//       & .infoBlock__text {
+//         animation:playEndAnimText .4s ease-in-out both;
+//         animation-delay: .2s;
+//       }
+//       & .infoBlock__button {
+//         animation:playEndAnimText .4s ease-in-out both;
+//         animation-delay: .3s;
+//       }
+//   }
+// }
 //animate---------------------------------
 .infoBlock {
-  transform:translate3d(-100%,0,0);
+  //transform:translate3d(-100%,0,0);
+  //transform: matrix(0, 0, 0, 0, -1000, 0);
   padding: 2rem 3rem 2rem 2rem;
+  position:relative;
+  height: 80%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
   &__header {
     font-family: Standard CT Stencil;
     font-size: 2.813rem;
@@ -132,14 +169,18 @@ code {
     color: #000;
     margin: 0;
     text-transform: uppercase;
-    transform:translate3d(-120%,0,0);
+    //transform:translate3d(-120%,0,0);
+    //transform:translate3d(0,0,0);
+    //animation:playEndAnimText 10s ease-in-out both;
+    //transform: matrix(0, 0, 0, 0, -1000, 0);
   }
   &__text {
     font-family: Tele2 DisplaySerif;
     line-height: normal;
     color: #000;
-    margin: 2rem 0;
-    transform:translate3d(-120%,0,0);
+    //margin: 2rem 0;
+    //transform:translate3d(-120%,0,0);
+    //transform: matrix(0, 0, 0, 0, -1000, 0);
   }
   &__button {
     background: #C3E400;
@@ -147,11 +188,13 @@ code {
     margin: 0;
     font-family: Tele2 TextSans;
     font-size: 1.125rem;
+    width: 60%;
     line-height: normal;
     border:none;
     padding: 0.750rem 3.125rem;
     cursor: pointer;
-    transform:translate3d(-200%,0,0);
+    //transform:translate3d(-200%,0,0);
+    //transform: matrix(0, 0, 0, 0, -1000, 0);
     &:focus{
       outline:none;
     }
@@ -179,6 +222,7 @@ code {
   height: 100vh;
   width: 100vw;
   display: block;
+  animation:sss 15s ease-in-out infinite;
 }
 .couple {
   width: 100%;
