@@ -2,6 +2,7 @@ import React, { Component, PureComponent } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { TweenLite} from 'gsap';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -9,10 +10,10 @@ import Section from './components/Section/';
 import BlackSection from './components/BlackSection';
 import BlackSection2 from './components/BlackSection2';
 
-import Couple from './components/img/couple.svg';
-import Pig from './components/img/pig.svg';
-import Robot from './components/img/robot.svg';
-import Girls from './components/img/girls.svg';
+import Couple from './components/img/couple.png';
+import Pig from './components/img/pig.png';
+import Robot from './components/img/robot.png';
+import Girls from './components/img/girls.png';
 
 
 import { ReactComponent as Ball } from './components/img/ball.svg';
@@ -20,12 +21,14 @@ import { ReactComponent as Connect } from './components/img/connect.svg';
 import { ReactComponent as Onhand } from './components/img/onhand.svg';
 
 
+
 export default class App extends Component {
   state = {
     isBlackScreen: false,
     currentSlideNumber: 0,
     slideRigtAnim: false,
-    slideLeftAnim: false
+    slideLeftAnim: false,
+    fills: ['#C3E400','#FF59A3','#1EE7CA','#FF6633']
   }
   sliderRef = React.createRef();
   currentSlideNumber = 0;
@@ -37,46 +40,67 @@ export default class App extends Component {
     if(this.inProgress){
       return false;
     }
-
     event.preventDefault();
     const delta = event.wheelDelta;
-    if (delta >= 100 && delta <= 150 && this.currentSlideNumber !== 5) {
-      this.inProgress = true;
-        this.preNext()
-    } else if(delta <= -100 &&  delta >= -150 && this.currentSlideNumber !== 0) {
+    if (delta >= 100 && delta <= 150 && this.currentSlideNumber !== 0) {
       this.inProgress = true;
       this.prePrev()
+      //this.sliderRef.current.slickPrev()
+    } else if(delta <= -100 &&  delta >= -150 && this.currentSlideNumber !== 5) {
+      this.inProgress = true;
+      this.preNext()
+      //this.sliderRef.current.slickNext()
     }
   }
-  preNext() {
-    if(this.currentSlideNumber === 4){
-      this.sliderRef.current.slickNext();
-      return;
-    }
-     this.setState({
-       slideRigtAnim:true,
-     });
+  animateWave(nextSlideNumber) {
+    document.getElementById( `sec${this.currentSlideNumber}` ).getElementsByClassName( 'waveAnimation' )[0].beginElement();
+    // if(nextSlideNumber === 4){
+    //   return false;
+    // }
+    document.getElementById( `sec${nextSlideNumber}` ).getElementsByTagName( 'path' )[0].setAttribute('fill', `${this.state.fills[nextSlideNumber]}`)
+    document.getElementById( `sec${this.currentSlideNumber}` ).getElementsByTagName( 'path' )[0].setAttribute('fill', `${this.state.fills[nextSlideNumber]}`)
   }
   prePrev() {
+    //if(this.currentSlideNumber === 4){
+      if(this.currentSlideNumber >= 4){
+        this.sliderRef.current.slickPrev();
+      } else {
+        this.animateWave(this.currentSlideNumber-1);
+        setTimeout(()=>{
+          this.sliderRef.current.slickPrev();
+        },800);
+      }
 
-    if(this.currentSlideNumber === 5 || this.currentSlideNumber === 4){
-      this.sliderRef.current.slickPrev();
-      return;
-    }
-    this.setState({
-      slideLeftAnim:true,
-    });
+      //return;
+    //}
+    //  this.setState({
+    //    slideRigtAnim:true,
+    //  });
+  }
+  preNext() {
+      if(this.currentSlideNumber < 3){
+        this.animateWave(this.currentSlideNumber+1);
+        setTimeout(()=>{
+          this.sliderRef.current.slickNext();
+        },800);
+      } else {
+        this.sliderRef.current.slickNext();
+      }
   }
   beforeChange(oldIndex, newIndex){
     this.currentSlideNumber = newIndex;
+
+    if(oldIndex == 3){
+      //TweenLite.from('#blackSection__slideLeft', 2, {width:0});
+      //document.getElementsByClassName('slick-current')[0].style.position = 'absolute';
+    }
   }  
   afterChange(index) {
 
     this.inProgress = false;
-      this.setState({
-        slideRigtAnim:false,
-        slideLeftAnim:false,
-      });
+
+
+
     if(index >= 4) {
       // this.setState({
       //   isBlackScreen:true,
@@ -103,6 +127,8 @@ export default class App extends Component {
       swipe:false,
       swipeToSlide:false,
       adaptiveHeight:true,
+      //autoplay:true,
+      //autoplaySpeed:6000,
       //initialSlide:5,
       speed: 400,
       slidesToShow: 1,
@@ -121,8 +147,8 @@ export default class App extends Component {
             header="ДЕЛИТЕСЬ ГИГАБАЙТАМИ"
             btnText="Подробнее"
             hasBg={true}
-            canvasId="sec1"
-            fill="#C3E400"
+            svgId={`sec0`}
+
             image={Couple}
             number={0}
             slickSliderRef={this.sliderRef}
@@ -135,8 +161,8 @@ export default class App extends Component {
             header="Бесплатно и ЛЕГКО"
             btnText="Погнали!"
             hasBg={false}
-            canvasId="sec2"
-            fill="#FF59A3"
+            svgId={`sec1`}
+
             image={Pig}
             number={1}
             slickSliderRef={this.sliderRef}
@@ -150,8 +176,8 @@ export default class App extends Component {
             header="Не надо ничего подключать"
             btnText="Погнали!"
             hasBg={false}
-            canvasId="sec3"
-            fill="#1EE7CA"
+            svgId={`sec2`}
+
             image={Robot}
             number={2}
             slickSliderRef={this.sliderRef}
@@ -165,8 +191,7 @@ export default class App extends Component {
             header="делись со всеми tele2 друзьями"
             btnText="Погнали!"
             hasBg={false}
-            canvasId="sec4"
-            fill="#FF6633"
+            svgId={`sec3`}
             image={Girls}
             number={3}
             slickSliderRef={this.sliderRef}

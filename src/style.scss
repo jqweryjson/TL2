@@ -7,7 +7,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  font-family: -apple-systrem, BlinkMacSystremFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -41,7 +41,8 @@ code {
 }
 .section {
   position: relative;
-  height: 100%;
+  height: 100vh;
+  display:block;
   overflow:hidden;
 }
 @keyframes playStartAnimText {
@@ -68,8 +69,8 @@ code {
   top:0;
   z-index:10;
   transform:translate3d(0,-100px,0);
-  animation:playStartAnimText 1s ease-in-out both;
-  animation-delay: 1.5s;
+  animation:playStartAnimText 1s cubic-bezier(0, 0, 0, 1) both;
+  animation-delay: 1s;
   &.isBlackScreen{
     svg > path {
       fill:#fff;
@@ -77,15 +78,18 @@ code {
   }
 }
 .wrapInfoBlock {
-  overflow: hidden;
+
   position: absolute;
   left: 10%;
-  top: 10%;
-  width:70vmin;
-  height:63vmin;
+  top: 20%;
+  font-size:16px;
+  @include for-big-desktop-up {
+    font-size: 23px;
+  }
+  width:28.125em;
+  height:21.250em;
   z-index:3;
-  padding-top: 3%;
-  background: none;
+  //padding-top: 3%;
 }
 .mainImgWrap {
   position: absolute;
@@ -101,74 +105,31 @@ code {
   position: relative;
   height: 100%;
 }
-//animate---------------------------------
-// .playStartAnimText {
-//   &.mainImgWrap {
-//     animation:playStartAnimText .5s ease-in-out both;
-//   }
-//   &.infoBlock {
-//       &.hasBg{
-//         animation:playStartAnimText .6s ease-in-out both;
-//       }
-//       &:not(.hasBg){
-//         transform:translate3d(0,0,0);
-//       }
-//       & .infoBlock__header{
-//         animation:playStartAnimText .4s ease-in-out both;
-//         animation-delay: .1s;
-//       }
-//       & .infoBlock__text {
-//         animation:playStartAnimText .4s ease-in-out both;
-//         animation-delay: .2s;
-//       }
-//       & .infoBlock__button {
-//         animation:playStartAnimText .4s ease-in-out both;
-//         animation-delay: .3s;
-//       }
-//   }
-// }
-// .playEndAnimText {
-//   &.mainImgWrap {
-//     animation:playEndAnimText .5s ease-in-out both;
-//   }
-//   &.infoBlock {
-//       &.hasBg{
-//         animation:playEndAnimText .6s ease-in-out both;
-//       }
-//       &:not(.hasBg){
-//         transform:translate3d(0,0,0);
-//       }
-//       & .infoBlock__header{
-//         animation:playEndAnimText .4s ease-in-out both;
-//         animation-delay: .1s;
-//       }
-//       & .infoBlock__text {
-//         animation:playEndAnimText .4s ease-in-out both;
-//         animation-delay: .2s;
-//       }
-//       & .infoBlock__button {
-//         animation:playEndAnimText .4s ease-in-out both;
-//         animation-delay: .3s;
-//       }
-//   }
-// }
-//animate---------------------------------
+
 .infoBlock {
   //transform:translate3d(-100%,0,0);
   //transform: matrix(0, 0, 0, 0, -1000, 0);
-  padding: 2rem 3rem 2rem 2rem;
+  //padding: 2rem 3rem 2rem 2rem;
   position:relative;
-  height: 80%;
+  overflow: hidden;
+  height: 100%;
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-around;
+  font-size:16px;
+  @include for-big-desktop-up {
+    font-size: 23px;
+  }
   &__header {
     font-family: Standard CT Stencil;
-    font-size: 2.813rem;
+    font-size: 2.813em;
     line-height: normal;
+    opacity:0;
     color: #000;
     margin: 0;
     text-transform: uppercase;
+    padding: 0rem 1.813rem;
+    padding-top: 1.438rem;
     //transform:translate3d(-120%,0,0);
     //transform:translate3d(0,0,0);
     //animation:playEndAnimText 10s ease-in-out both;
@@ -178,29 +139,49 @@ code {
     font-family: Tele2 DisplaySerif;
     line-height: normal;
     color: #000;
-    //margin: 2rem 0;
+    opacity:0;
+    padding: 0rem 1.813rem;
+    //margin: 2em 0;
     //transform:translate3d(-120%,0,0);
     //transform: matrix(0, 0, 0, 0, -1000, 0);
   }
   &__button {
     background: #C3E400;
-    border-radius: 1.875rem;
+    border-radius: 1.875em;
     margin: 0;
+    opacity:0;
     font-family: Tele2 TextSans;
-    font-size: 1.125rem;
-    width: 60%;
+    font-size: 1.125em;
+    width: 14.188em;
+    min-height: 3.125em;
+    max-height: 3.125em;
     line-height: normal;
     border:none;
-    padding: 0.750rem 3.125rem;
     cursor: pointer;
-    //transform:translate3d(-200%,0,0);
-    //transform: matrix(0, 0, 0, 0, -1000, 0);
+    margin: 1.538rem 1.813rem;
+    text-align: left;
+    padding-left: 2.125rem;
+    position: relative;
+    &:after{
+      content:'';
+      background: 0 0 no-repeat;
+      background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAABRSURBVHgB7dOxCQAgDATAH8ERfnPdJKM4iqawEBFFo10ennRHmgfWoVbavQq1WVvaJQ7DDigWKA2IQx+hPIHkBIjWTxwAAh5thzCuuIcEG6ACBWJPgu9bRdEAAAAASUVORK5CYII=');
+      display: block;
+      width: 0.6em;
+      background-size: contain;
+      height: 0.6em;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 1.500em;
+      margin: auto;
+    }
     &:focus{
       outline:none;
     }
   }
 }
-.hasBg.infoBlock{
+.hasBg.wrapInfoBlock{
   background-color: #000;
 }
 .hasBg {
@@ -222,7 +203,7 @@ code {
   height: 100vh;
   width: 100vw;
   display: block;
-  animation:sss 15s ease-in-out infinite;
+  //animation:sss 15s ease-in-out infinite;
 }
 .couple {
   width: 100%;
@@ -240,8 +221,8 @@ code {
     width: auto;
     padding: 1.1rem 2rem;
     transform:translate3d(0,100px,0);
-    animation:playStartAnimText 1s ease-in-out both;
-    animation-delay: 1.5s;
+    animation:playStartAnimText 1s cubic-bezier(0, 0, 0, 1) both;
+    animation-delay: 1s;
   }
   & .slick-arrow {
     position: absolute;
@@ -256,7 +237,7 @@ code {
   }
   & .slick-dots  li.slick-active button:before{
     content:'';
-    border:0.125em solid;
+    border:0.125rem solid;
   }
   & .slick-dots li button:before{
       content:'■';
@@ -273,8 +254,8 @@ code {
   bottom:0;
   right: 0;
   transform:translate3d(0,100px,0);
-  animation:playStartAnimText 1s ease-in-out both;
-  animation-delay: 1.5s;
+  animation:playStartAnimText 1s cubic-bezier(0, 0, 0, 1) both;
+  animation-delay: 1s;
   &__soc{
     display:flex;
     justify-content: space-around;
@@ -284,15 +265,18 @@ code {
     }
   }
 }
-
 .blackSection {
-  background: #000;
+
   height: 100vh;
+  font-size:16px;
+  @include for-big-desktop-up {
+    font-size: 23px;
+  }
   &__block{
     position: absolute;
     left: 10%;
     top:10%;
-    width: 50%;
+    width: 130vmin;
   }
   &__h2{
     font-family: Standard CT Stencil;
@@ -304,7 +288,7 @@ code {
   }
   &__text{
     font-family: Tele2 TextSans;
-    font-size: 1rem;
+    font-size: 1em;
     line-height: normal;
     text-align: center;
     color: #FFFFFF;
@@ -314,7 +298,7 @@ code {
     }
     &_upper{
       font-family: Tele2 TextSans;
-      font-size: 1.250em;
+      font-size: 1.250rem;
       line-height: normal;
       text-transform: uppercase;
       color: #FFFFFF;
@@ -332,13 +316,13 @@ code {
   &__row{
     display: flex;
     justify-content: space-between;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
     align-items: center;
     margin-top:3rem;
   }
   &__button{
     background: #C3E400;
-    border-radius: 1.875em;
+    border-radius: 1.875rem;
     border:0;
     font-family: Tele2 TextSans;
     font-size: 1.125em;
@@ -346,16 +330,23 @@ code {
     text-align: center;
     color: #000000;
     display: block;
-    padding: .7rem 3rem;
+    width:18.750em;
+    height: 3.125em;
     cursor: pointer;
     &:focus{
       outline:none;
     }
   }
 }
-
+#blackSection__slideLeft {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #000;
+}
 .blackSection__block_m {
   width: 70%;
+  height: 100%;
   & .blackSection__button {
     width: 100%;
   }
@@ -369,6 +360,7 @@ code {
       align-items: flex-end;
       justify-content: flex-end;
       flex: 1;
+      flex-wrap: wrap;
     }
     &_t {
       display: flex;
@@ -384,11 +376,11 @@ code {
 }
 .iconSec {
   position: absolute;
-  top:0;
-  left: 2rem;
-  transform: translate3d(0,100%,0);
-  animation:playStartAnimText .4s ease-in-out both;
-  animation-delay: .3s;
+  top: -3rem;
+  left: 1.5rem;
+  // transform: translate3d(0,100%,0);
+  // animation:playStartAnimText .4s cubic-bezier(0, 0, 0, 1) both;
+  // animation-delay: .3s;
 }
 @keyframes render {
   0% {
@@ -397,4 +389,44 @@ code {
   100% {
     opacity: 1;
   }
+}
+
+.subject-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: auto;
+}
+.svgWave {
+  position: absolute;
+  top: 0;
+  right: 0%;
+  height: 100%;
+  width: auto;
+  mix-blend-mode: multiply;
+  z-index: 10; 
+  & path {
+    transition: fill 1.5s .25s;
+  }
+}
+#sec0{
+ & path {
+   fill:'#C3E400'
+ }
+}
+#sec1{
+ & path {
+   fill:'#FF59A3'
+ }
+}
+#sec2{
+ & path {
+   fill:'#1EE7CA'
+ }
+}
+#sec3{
+ & path {
+   fill:'#FF6633'
+ }
 }
