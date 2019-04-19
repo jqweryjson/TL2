@@ -19,6 +19,7 @@ import Girls from './components/img/girls.png';
 import { ReactComponent as Ball } from './components/img/ball.svg';
 import { ReactComponent as Connect } from './components/img/connect.svg';
 import { ReactComponent as Onhand } from './components/img/onhand.svg';
+import { ReactComponent as Wave } from './components/img/wave.svg';
 
 
 
@@ -53,22 +54,33 @@ export default class App extends Component {
     }
   }
   animateWave(nextSlideNumber) {
-    document.getElementById( `sec${this.currentSlideNumber}` ).getElementsByClassName( 'waveAnimation' )[0].beginElement();
+    document.getElementById( 'svgWave' ).getElementsByClassName( 'waveAnimation' )[0].beginElement();
     // if(nextSlideNumber === 4){
     //   return false;
     // }
-    document.getElementById( `sec${nextSlideNumber}` ).getElementsByTagName( 'path' )[0].setAttribute('fill', `${this.state.fills[nextSlideNumber]}`)
-    document.getElementById( `sec${this.currentSlideNumber}` ).getElementsByTagName( 'path' )[0].setAttribute('fill', `${this.state.fills[nextSlideNumber]}`)
+    //document.getElementById( `sec${nextSlideNumber}` ).getElementsByTagName( 'path' )[0].setAttribute('fill', `${this.state.fills[nextSlideNumber]}`)
+    if(nextSlideNumber === 4){
+        document.getElementById( 'svgWave' ).getElementsByTagName( 'path' )[0].setAttribute('fill', `rgba(0,0,0,0)`)
+        return;
+    }
+    document.getElementById( 'svgWave' ).getElementsByTagName( 'path' )[0].setAttribute('fill', `${this.state.fills[nextSlideNumber]}`)
   }
   prePrev() {
     //if(this.currentSlideNumber === 4){
-      if(this.currentSlideNumber >= 4){
+
+      if(this.currentSlideNumber > 4){
+        
         this.sliderRef.current.slickPrev();
       } else {
+        if(this.currentSlideNumber === 4) {
+          document.getElementById( 'svgWave' ).getElementsByTagName( 'path' )[0].setAttribute('fill', `${this.state.fills[this.currentSlideNumber-1]}`)
+          this.sliderRef.current.slickPrev();
+          return;
+        }
         this.animateWave(this.currentSlideNumber-1);
         setTimeout(()=>{
           this.sliderRef.current.slickPrev();
-        },800);
+        },1000);
       }
 
       //return;
@@ -78,11 +90,11 @@ export default class App extends Component {
     //  });
   }
   preNext() {
-      if(this.currentSlideNumber < 3){
+      if(this.currentSlideNumber <= 3){
         this.animateWave(this.currentSlideNumber+1);
         setTimeout(()=>{
           this.sliderRef.current.slickNext();
-        },800);
+        },1000);
       } else {
         this.sliderRef.current.slickNext();
       }
@@ -90,7 +102,7 @@ export default class App extends Component {
   beforeChange(oldIndex, newIndex){
     this.currentSlideNumber = newIndex;
 
-    if(oldIndex == 3){
+    if(oldIndex == 3) {
       //TweenLite.from('#blackSection__slideLeft', 2, {width:0});
       //document.getElementsByClassName('slick-current')[0].style.position = 'absolute';
     }
@@ -98,9 +110,6 @@ export default class App extends Component {
   afterChange(index) {
 
     this.inProgress = false;
-
-
-
     if(index >= 4) {
       // this.setState({
       //   isBlackScreen:true,
@@ -137,6 +146,7 @@ export default class App extends Component {
     return (
       <React.Fragment>
         <Header isBlackScreen={this.state.isBlackScreen}/>
+        <Wave className="svgWave" id="svgWave" />
         <Slider 
           className="custom-slick" {...settings}
           afterChange={this.afterChange.bind(this)}
@@ -147,8 +157,6 @@ export default class App extends Component {
             header="ДЕЛИТЕСЬ ГИГАБАЙТАМИ"
             btnText="Подробнее"
             hasBg={true}
-            svgId={`sec0`}
-
             image={Couple}
             number={0}
             slickSliderRef={this.sliderRef}
@@ -161,8 +169,6 @@ export default class App extends Component {
             header="Бесплатно и ЛЕГКО"
             btnText="Погнали!"
             hasBg={false}
-            svgId={`sec1`}
-
             image={Pig}
             number={1}
             slickSliderRef={this.sliderRef}
@@ -176,8 +182,6 @@ export default class App extends Component {
             header="Не надо ничего подключать"
             btnText="Погнали!"
             hasBg={false}
-            svgId={`sec2`}
-
             image={Robot}
             number={2}
             slickSliderRef={this.sliderRef}
@@ -191,7 +195,6 @@ export default class App extends Component {
             header="делись со всеми tele2 друзьями"
             btnText="Погнали!"
             hasBg={false}
-            svgId={`sec3`}
             image={Girls}
             number={3}
             slickSliderRef={this.sliderRef}

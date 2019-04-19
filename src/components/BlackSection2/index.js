@@ -29,8 +29,10 @@ export default class BlackSection2 extends React.PureComponent {
   render() {
     return (
       <section className="section blackSection">
-        <div className="blackSection__block blackSection__block_m">
-          {<Blockrow {...this.props} />}
+        <div className="blackSection__slideLeft">
+          <div className="blackSection__block blackSection__block_m">
+            {<Blockrow {...this.props} />}
+          </div>
         </div>
       </section>
     );

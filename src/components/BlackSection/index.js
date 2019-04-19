@@ -9,7 +9,7 @@ export default class BlackSection extends React.PureComponent {
         const {header,upperText, textMark, text, btn} = this.props;
         return (
             <section className="section blackSection">
-                <div id="blackSection__slideLeft">
+                <div className="blackSection__slideLeft">
                     <div className="blackSection__block">
                         <h2 className="blackSection__h2">{ header }</h2>
                         <div className="blackSection__row">
