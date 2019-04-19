@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "ced611daf7709cc778da928fec876475",
-    "url": "/1/static/media/slick.ced611da.eot"
+    "revision": "b7c9e1e479de3b53f1e4e30ebac2403a",
+    "url": "/1/static/media/slick.b7c9e1e4.woff"
   },
   {
-    "revision": "e29c08140727aea9bfa8",
-    "url": "/1/static/css/main.bebe0966.chunk.css"
+    "revision": "cb5d731faf929dc6e1a5",
+    "url": "/1/static/css/main.5dbf270c.chunk.css"
   },
   {
     "revision": "ecf45d1f754fb630230b",
@@ -36,28 +36,28 @@ self.__precacheManifest = [
     "url": "/1/static/media/girls.7a787073.png"
   },
   {
-    "revision": "7c10bf754477d763bb4be788141d912f",
-    "url": "/1/static/media/Tele2DisplaySerif-Regular.7c10bf75.otf"
-  },
-  {
     "revision": "7fb8d89e3b25c43fdd878d4191702fa3",
     "url": "/1/static/media/StandardStencil-Bold.7fb8d89e.otf"
+  },
+  {
+    "revision": "7c10bf754477d763bb4be788141d912f",
+    "url": "/1/static/media/Tele2DisplaySerif-Regular.7c10bf75.otf"
   },
   {
     "revision": "adbf0ede6d4ca62c83599a296cffbb4d",
     "url": "/1/static/media/Tele2TextSans-Regular.adbf0ede.otf"
   },
   {
-    "revision": "d41f55a78e6f49a5512878df1737e58a",
-    "url": "/1/static/media/slick.d41f55a7.ttf"
+    "revision": "ced611daf7709cc778da928fec876475",
+    "url": "/1/static/media/slick.ced611da.eot"
   },
   {
-    "revision": "e29c08140727aea9bfa8",
+    "revision": "cb5d731faf929dc6e1a5",
     "url": "/1/static/js/main.757d65d9.chunk.js"
   },
   {
-    "revision": "b7c9e1e479de3b53f1e4e30ebac2403a",
-    "url": "/1/static/media/slick.b7c9e1e4.woff"
+    "revision": "d41f55a78e6f49a5512878df1737e58a",
+    "url": "/1/static/media/slick.d41f55a7.ttf"
   },
   {
     "revision": "f97e3bbf73254b0112091d0192f17aec",
@@ -100,7 +100,7 @@ self.__precacheManifest = [
     "url": "/1/static/css/2.5de87ebe.chunk.css"
   },
   {
-    "revision": "071d8f68137e6a786b21614df4de531a",
+    "revision": "9a0ee754b1f0788a6f49128cf758f8ca",
     "url": "/1/index.html"
   }
 ];
