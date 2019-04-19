@@ -37,7 +37,6 @@ export default class App extends Component {
   inProgress = false;
   svgStarIsOver = false;
   componentDidMount() {
-    //
     document.getElementById('svgWave').style.visibility = 'hidden';
     document.getElementsByClassName('subject-image')[0].style.visibility = 'hidden';
     document.getElementById('startSVG').classList += ' initial-animation';
@@ -50,7 +49,7 @@ export default class App extends Component {
        self.hideStartScgAnim();
     },5000);
   }
-  hideStartScgAnim(){
+  hideStartScgAnim() {
     document.getElementById('startSVG').style.display='none';
     document.getElementsByClassName('svgST__image')[0].style.visibility = 'hidden';
     this.svgStarIsOver = true;

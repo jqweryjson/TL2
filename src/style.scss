@@ -58,6 +58,9 @@ code {
     transform:scale(1);
   }
 }
+.subject-image{
+  animation:sss 16s ease-in-out both;
+}
 @keyframes playEndAnimText {
   100% {
     transform:translate3d(100%,0,0);
@@ -489,7 +492,7 @@ code {
   right: 0;
   top: 0;
   transform-origin: 100% 100%; 
-  transform: scale(1.5);
+  transform: scale(1.1);
   transition: opacity .5s 1.25s, transform 1.5s 1.45s;
 }
 #startSVG{
