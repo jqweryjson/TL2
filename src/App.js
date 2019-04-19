@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import Section from './components/Section/';
 import BlackSection from './components/BlackSection';
 import BlackSection2 from './components/BlackSection2';
+import StartWaveComp from './components/StartWaveComp.js';
 
 import Couple from './components/img/couple.png';
 import Pig from './components/img/pig.png';
@@ -22,22 +23,43 @@ import { ReactComponent as Onhand } from './components/img/onhand.svg';
 import { ReactComponent as Wave } from './components/img/wave.svg';
 
 
-
 export default class App extends Component {
   state = {
     isBlackScreen: false,
     currentSlideNumber: 0,
     slideRigtAnim: false,
     slideLeftAnim: false,
+    startSVG:true,
     fills: ['#C3E400','#FF59A3','#1EE7CA','#FF6633']
   }
   sliderRef = React.createRef();
   currentSlideNumber = 0;
   inProgress = false;
+  svgStarIsOver = false;
   componentDidMount() {
+    //
+    document.getElementById('svgWave').style.visibility = 'hidden';
+    document.getElementsByClassName('subject-image')[0].style.visibility = 'hidden';
+    document.getElementById('startSVG').classList += ' initial-animation';
+    document.getElementsByClassName('svgST__image')[0].classList += ' initial-animation'
     window.addEventListener('wheel', event => this.mouseWheelHandler(event), { passive: false });
+    let self = this;
+    setTimeout(() => {
+       document.getElementById('svgWave').style.visibility = 'visible';
+       document.getElementsByClassName('subject-image')[0].style.visibility = 'visible';
+       self.hideStartScgAnim();
+    },5000);
+  }
+  hideStartScgAnim(){
+    document.getElementById('startSVG').style.display='none';
+    document.getElementsByClassName('svgST__image')[0].style.visibility = 'hidden';
+    this.svgStarIsOver = true;
   }
   mouseWheelHandler(event) {
+
+    if(!this.svgStarIsOver){
+      return false;
+    }    
     if(this.inProgress){
       return false;
     }
@@ -146,7 +168,9 @@ export default class App extends Component {
     return (
       <React.Fragment>
         <Header isBlackScreen={this.state.isBlackScreen}/>
-        <Wave className="svgWave" id="svgWave" />
+       {/* { this.state.startSVG ? <StartWaveComp/> : <Wave id="svgWave"/>}  */}
+       <Wave id="svgWave"/>
+       <StartWaveComp/> 
         <Slider 
           className="custom-slick" {...settings}
           afterChange={this.afterChange.bind(this)}

@@ -17,7 +17,7 @@ export default class Section extends React.Component {
     const { image } = this.props;
     return (
       <section ref={this.sectionRef} className="section">
-        <img className="subject-image" src={image} alt="subjects" />
+        {image && <img className="subject-image" src={image} alt="subjects" /> }
         <InfoBlock {...this.props} />
       </section>
     );

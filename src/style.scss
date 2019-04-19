@@ -1,5 +1,5 @@
 @mixin for-big-desktop-up {
-  @media (min-width: 1800px) { @content; }
+  @media (min-width: 1600px) { @content; }
 }
 @mixin for-phone-only {
   @media (max-width: 599px) { @content; }
@@ -70,7 +70,7 @@ code {
   z-index:10;
   transform:translate3d(0,-100px,0);
   animation:playStartAnimText 1s cubic-bezier(0, 0, 0, 1) both;
-  animation-delay: 1s;
+  animation-delay: 2s;
   &.isBlackScreen{
     svg > path {
       fill:#fff;
@@ -146,7 +146,8 @@ code {
     //transform: matrix(0, 0, 0, 0, -1000, 0);
   }
   &__button {
-    background: #C3E400;
+    background: #000;
+    color:#fff;
     border-radius: 1.875em;
     margin: 0;
     opacity:0;
@@ -159,8 +160,9 @@ code {
     border:none;
     cursor: pointer;
     margin: 1.538rem 1.813rem;
-    text-align: left;
+    text-align: center;
     padding-left: 2.125rem;
+    padding-right: 2.125rem;
     position: relative;
     &:after{
       content:'';
@@ -192,6 +194,11 @@ code {
     &__text {
       color: #FFFFFF;
     }
+    &__button {
+      background: #C3E400;
+      color: #000;
+      text-align: left;
+    }
   }
 }
 
@@ -219,10 +226,10 @@ code {
     left: 0;
     bottom: 0;
     width: auto;
-    padding: 1.1rem 2rem;
+    padding: 1.5rem 2rem;
     transform:translate3d(0,100px,0);
     animation:playStartAnimText 1s cubic-bezier(0, 0, 0, 1) both;
-    animation-delay: 1s;
+    animation-delay: 2s;
   }
   & .slick-arrow {
     position: absolute;
@@ -251,11 +258,12 @@ code {
 }
 .footer {
   position: absolute;
+  z-index: 11;
   bottom:0;
   right: 0;
   transform:translate3d(0,100px,0);
   animation:playStartAnimText 1s cubic-bezier(0, 0, 0, 1) both;
-  animation-delay: 1s;
+  animation-delay: 2s;
   &__soc{
     display:flex;
     justify-content: space-around;
@@ -265,18 +273,23 @@ code {
     }
   }
 }
-.blackSection {
-
-  height: 100vh;
-  font-size:16px;
+.blackSection__block{
   @include for-big-desktop-up {
     font-size: 23px;
+    top:40%;
   }
+}
+.blackSection {
+  height: 100vh;
+  font-size:16px;
+
   &__block{
     position: absolute;
-    left: 10%;
-    top:10%;
-    width: 130vmin;
+    left: 14.063em;
+    top: 5.188em;
+    width: 46.063em;
+    display: flex;
+    flex-flow: column nowrap;
   }
   &__h2{
     font-family: Standard CT Stencil;
@@ -293,8 +306,9 @@ code {
     text-align: center;
     color: #FFFFFF;
     &_f {
-      flex:1;
       text-align:right;
+      text-align: right;
+      flex-basis: 100%;
     }
     &_upper{
       font-family: Tele2 TextSans;
@@ -316,13 +330,13 @@ code {
   &__row{
     display: flex;
     justify-content: space-between;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     align-items: center;
     margin-top:3rem;
   }
   &__button{
     background: #C3E400;
-    border-radius: 1.875rem;
+    border-radius: 1.875em;
     border:0;
     font-family: Tele2 TextSans;
     font-size: 1.125em;
@@ -345,8 +359,10 @@ code {
   background: #000;
 }
 .blackSection__block_m {
-  width: 70%;
-  height: 100%;
+
+  width: 51.063em;
+  top: 3em;
+  justify-content: start;
   & .blackSection__button {
     width: 100%;
   }
@@ -398,7 +414,7 @@ code {
   height: 100vh;
   width: auto;
 }
-.svgWave {
+#svgWave {
   position: absolute;
   top: 0;
   right: 0%;
@@ -429,4 +445,63 @@ code {
  & path {
    fill:'#FF6633'
  }
+}
+
+// #startSVG {
+//   img {
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     height: 100vh;
+//     width: auto;
+//     opacity: 0;
+//     transform-origin: 100% 100%;
+//     transform: scale(1.1);
+//     transition: opacity .5s 1.25s, transform 1.5s 1.45s;
+//    }
+//    svg {
+//     position: fixed;
+//     top: 0;
+//     right: 0%;
+//     height: 100%;
+//     width: auto;
+//     z-index: 10;
+//     transition: all .75s;
+//     opacity: 1;
+//     mix-blend-mode: multiply;
+//    }
+   
+//    #rectangle {
+//     transform: rotate(-43.7deg) translate3d(-50%, -2430px, 0);
+//     transition: all .75s .75s;
+//    }
+   
+//    #line {
+//     transform: translate3d(753px, -100%, 0);
+//     transition: all .75s;
+//    }
+// }
+.svgST__image {
+  height: 100%;
+  width: auto;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform-origin: 100% 100%; 
+  transform: scale(1.5);
+  transition: opacity .5s 1.25s, transform 1.5s 1.45s;
+}
+#startSVG{
+
+  &.initial-animation #rectangle {
+   transform: rotate(-43.7deg) translate3d(-50%, -1430px, 0);
+  }
+  &.initial-animation #line {
+   transform: translate3d(0, 0, 0);
+  }
+}
+.initial-animation.svgST__image {
+  opacity: 1;
+  transform: scale(1);
 }
