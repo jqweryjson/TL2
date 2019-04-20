@@ -9,7 +9,7 @@ const Header = ({ isBlackScreen }) => {
     });
     return (
         <header className={headerClass}>
-            <Logo /> 
+            <Logo className="logoClass" id="logoBlac"/> 
         </header>
     );
 }

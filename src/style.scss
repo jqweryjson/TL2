@@ -82,7 +82,6 @@ code {
   }
 }
 .wrapInfoBlock {
-
   position: absolute;
   left: 18%;
   top: 19%;
@@ -92,6 +91,16 @@ code {
   }
   width:31.688em;
   height:21.250em;
+  @include for-phone-only{
+    height:auto;
+    padding-bottom:2em;
+    font-size: 16px;
+    left:0;
+    right:0;
+    margin:0 auto;
+    top:3em;
+    width:18.625em;
+  }
   z-index:3;
   //padding-top: 3%;
 }
@@ -136,6 +145,9 @@ code {
   &__header {
     font-family: Standard CT Stencil;
     font-size: 2.813em;
+    @include for-phone-only{
+      font-size: 1.875em;
+    }
     line-height: normal;
     opacity:0;
     color: #000;
@@ -157,6 +169,9 @@ code {
     opacity:0;
     padding: 0rem 1.813rem;
     width:23.125em;
+    @include for-phone-only{
+      width:auto;
+    }
     //margin: 2em 0;
     //transform:translate3d(-120%,0,0);
     //transform: matrix(0, 0, 0, 0, -1000, 0);
@@ -181,12 +196,18 @@ code {
     padding-left: 2.125rem;
     padding-right: 2.125rem;
     position: relative;
+      @include for-phone-only{
+        display:none;
+      }
     &:focus{
       outline:none;
     }
   }
 }
 .hasBg.wrapInfoBlock{
+  @include for-phone-only {
+    width: 90vmin;
+  }
   background-color: #000;
   width:28.125em;
 }
@@ -198,6 +219,9 @@ code {
     &__text {
       color: #FFFFFF;
       width:24.188em;
+      @include for-phone-only{
+        width:auto;
+      }
     }
     &__button {
       background: #C3E400;
@@ -265,6 +289,10 @@ code {
   & .slick-dots  li.slick-active button:before{
     content:'';
     border:0.125rem solid;
+    opacity:1;
+  }
+  & .slick-dots  li.slick-active button{
+    animation:render .5s ease both;
   }
   & .slick-dots li button:before{
       content:'■';
@@ -417,10 +445,10 @@ code {
 }
 @keyframes render {
   0% {
-    opacity: 0;
+    transform: scale(0)
   }
   100% {
-    opacity: 1;
+    transform: scale(1)
   }
 }
 
@@ -430,6 +458,12 @@ code {
   right: 0;
   height: 100vh;
   width: auto;
+  @include for-phone-only {
+    height: auto;
+    width: 100%;
+    top: auto;
+    bottom:0;
+  }
 }
 #svgWave {
   position: absolute;
@@ -439,6 +473,13 @@ code {
   width: auto;
   mix-blend-mode: multiply;
   z-index: 10; 
+  @include for-phone-only {
+    height: 62%;
+    width: auto;
+    top: auto;
+    bottom: 0;
+    right: -33%;
+  }
   & path {
     transition: fill 1.5s .25s;
   }
@@ -521,4 +562,14 @@ code {
 .initial-animation.svgST__image {
   opacity: 1;
   transform: scale(1);
+}
+
+.logoClass#logoBlac path{
+  fill:'#000'
+}
+.logoClass#logoWgite path{
+  fill:#fff
+}
+.slick-slider {
+  //z-index: 10;
 }

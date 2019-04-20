@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "b7c9e1e479de3b53f1e4e30ebac2403a",
-    "url": "/1/static/media/slick.b7c9e1e4.woff"
+    "revision": "d41f55a78e6f49a5512878df1737e58a",
+    "url": "/1/static/media/slick.d41f55a7.ttf"
   },
   {
-    "revision": "3db6beaa507483a45ee8",
-    "url": "/1/static/css/main.9a89d935.chunk.css"
+    "revision": "b0a18e562a15c81604ae",
+    "url": "/1/static/css/main.5ab9d54a.chunk.css"
   },
   {
     "revision": "ecf45d1f754fb630230b",
@@ -36,32 +36,32 @@ self.__precacheManifest = [
     "url": "/1/static/media/girls.7a787073.png"
   },
   {
-    "revision": "adbf0ede6d4ca62c83599a296cffbb4d",
-    "url": "/1/static/media/Tele2TextSans-Regular.adbf0ede.otf"
+    "revision": "7c10bf754477d763bb4be788141d912f",
+    "url": "/1/static/media/Tele2DisplaySerif-Regular.7c10bf75.otf"
   },
   {
     "revision": "7fb8d89e3b25c43fdd878d4191702fa3",
     "url": "/1/static/media/StandardStencil-Bold.7fb8d89e.otf"
   },
   {
-    "revision": "7c10bf754477d763bb4be788141d912f",
-    "url": "/1/static/media/Tele2DisplaySerif-Regular.7c10bf75.otf"
+    "revision": "adbf0ede6d4ca62c83599a296cffbb4d",
+    "url": "/1/static/media/Tele2TextSans-Regular.adbf0ede.otf"
   },
   {
     "revision": "ced611daf7709cc778da928fec876475",
     "url": "/1/static/media/slick.ced611da.eot"
   },
   {
-    "revision": "3db6beaa507483a45ee8",
-    "url": "/1/static/js/main.a4922444.chunk.js"
+    "revision": "b0a18e562a15c81604ae",
+    "url": "/1/static/js/main.53702a13.chunk.js"
+  },
+  {
+    "revision": "b7c9e1e479de3b53f1e4e30ebac2403a",
+    "url": "/1/static/media/slick.b7c9e1e4.woff"
   },
   {
     "revision": "f97e3bbf73254b0112091d0192f17aec",
     "url": "/1/static/media/slick.f97e3bbf.svg"
-  },
-  {
-    "revision": "d41f55a78e6f49a5512878df1737e58a",
-    "url": "/1/static/media/slick.d41f55a7.ttf"
   },
   {
     "revision": "722acd42f05dff1b62a31c0935954ea4",
@@ -100,7 +100,7 @@ self.__precacheManifest = [
     "url": "/1/static/css/2.5de87ebe.chunk.css"
   },
   {
-    "revision": "c9b4415b5db307188126de390f78b209",
+    "revision": "627a57e0d7fad8eb86fb3bfea222db1e",
     "url": "/1/index.html"
   }
 ];

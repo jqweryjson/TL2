@@ -62,7 +62,7 @@ export default class App extends Component {
         'visible';
       self.hideStartScgAnim();
     }, 5000);
-    // this.autoplay = setInterval(this.autoplayStart.bind(this),  this.autoplayDelay);
+    this.autoplay = setInterval(this.autoplayStart.bind(this),  this.autoplayDelay);
   }
   autoplayStart(){
     if (this.currentSlideNumber === 5) {
@@ -80,7 +80,7 @@ export default class App extends Component {
   }
   mouseWheelHandler(event) {
     clearInterval(this.autoplay);
-    // this.autoplay = setInterval(this.autoplayStart.bind(this), this.autoplayDelay);
+    this.autoplay = setInterval(this.autoplayStart.bind(this), this.autoplayDelay);
     if (!this.svgStarIsOver) {
       return false;
     }
@@ -199,6 +199,13 @@ export default class App extends Component {
       },1000)
     } else {
       this.inProgress = false;
+    }
+    if(this.currentSlideNumber >= 4) {
+      document.getElementsByClassName('slick-dots')[0].id = 'dotsBlack';
+      document.getElementsByClassName('logoClass')[0].id = 'logoWgite';
+    } else if (this.currentSlideNumber  < 4) { 
+      document.getElementsByClassName('slick-dots')[0].id = 'null';
+      document.getElementsByClassName('logoClass')[0].id = 'logoBlac';
     }
     this.setState({
       animateTextDirection:'fromLeft'
