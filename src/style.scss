@@ -124,6 +124,15 @@ code {
   @include for-big-desktop-up {
     font-size: 23px;
   }
+  &__whiteSlide {
+    position: absolute;
+    left: -120%;
+    width: 100%;
+    top:0;
+    bottom:0;
+    background: #fff;
+    z-index: 20;
+  }
   &__header {
     font-family: Standard CT Stencil;
     font-size: 2.813em;
@@ -131,6 +140,7 @@ code {
     opacity:0;
     color: #000;
     margin: 0;
+    position:relative;
     text-transform: uppercase;
     padding: 0rem 1.813rem;
     padding-top: 1.438rem;
@@ -143,6 +153,7 @@ code {
     font-family: Tele2 DisplaySerif;
     line-height: normal;
     color: #000;
+    position:relative;
     opacity:0;
     padding: 0rem 1.813rem;
     //margin: 2em 0;
@@ -154,6 +165,7 @@ code {
     color:#fff;
     border-radius: 1.875em;
     margin: 0;
+    position:relative;
     opacity:0;
     font-family: Tele2 TextSans;
     font-size: 1.125em;
@@ -168,20 +180,6 @@ code {
     padding-left: 2.125rem;
     padding-right: 2.125rem;
     position: relative;
-    &:after{
-      content:'';
-      background: 0 0 no-repeat;
-      background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAABRSURBVHgB7dOxCQAgDATAH8ERfnPdJKM4iqawEBFFo10ennRHmgfWoVbavQq1WVvaJQ7DDigWKA2IQx+hPIHkBIjWTxwAAh5thzCuuIcEG6ACBWJPgu9bRdEAAAAASUVORK5CYII=');
-      display: block;
-      width: 0.6em;
-      background-size: contain;
-      height: 0.6em;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      right: 1.500em;
-      margin: auto;
-    }
     &:focus{
       outline:none;
     }
@@ -202,6 +200,20 @@ code {
       background: #C3E400;
       color: #000;
       text-align: left;
+      &:after{
+        content:'';
+        background: 0 0 no-repeat;
+        background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAABRSURBVHgB7dOxCQAgDATAH8ERfnPdJKM4iqawEBFFo10ennRHmgfWoVbavQq1WVvaJQ7DDigWKA2IQx+hPIHkBIjWTxwAAh5thzCuuIcEG6ACBWJPgu9bRdEAAAAASUVORK5CYII=');
+        display: block;
+        width: 0.6em;
+        background-size: contain;
+        height: 0.6em;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 1.500em;
+        margin: auto;
+      }
     }
   }
 }
@@ -234,6 +246,7 @@ code {
     transform:translate3d(0,100px,0);
     animation:playStartAnimText 1s cubic-bezier(0, 0, 0, 1) both;
     animation-delay: 2s;
+    z-index:11;
   }
   & .slick-arrow {
     position: absolute;

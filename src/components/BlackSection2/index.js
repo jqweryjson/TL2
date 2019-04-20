@@ -17,7 +17,7 @@ const Blockrow = ({ body }) => {
         </div>
         <div className="blackSection__row">
           {item.buttons.map(item => (
-            <Button {...item} />
+            <Button key={item.id} {...item} />
           ))}
         </div>
       </div>
@@ -31,7 +31,7 @@ export default class BlackSection2 extends React.PureComponent {
       <section className="section blackSection">
         <div className="blackSection__slideLeft">
           <div className="blackSection__block blackSection__block_m">
-            {<Blockrow {...this.props} />}
+            {<Blockrow  {...this.props} />}
           </div>
         </div>
       </section>

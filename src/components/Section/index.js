@@ -4,10 +4,8 @@ import InfoBlock from '../InfoBlock';
 
 
 export default class Section extends React.Component {
-  state = {};
-  sectionRef = React.createRef();
   shouldComponentUpdate(nextProps, nextState) {
-    if (nextProps.currentSlideNumber === this.props.number) {
+    if (nextProps.currentSlideNumber === this.props.number || nextProps.animateTextDirection !== this.props.animateTextDirection) {
       return true;
     }
     return false;
@@ -16,7 +14,7 @@ export default class Section extends React.Component {
   render() {
     const { image } = this.props;
     return (
-      <section ref={this.sectionRef} className="section">
+      <section className="section">
         {image && <img className="subject-image" src={image} alt="subjects" /> }
         <InfoBlock {...this.props} />
       </section>
