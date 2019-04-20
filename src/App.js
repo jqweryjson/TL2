@@ -61,8 +61,8 @@ export default class App extends Component {
       document.getElementsByClassName('subject-image')[0].style.visibility =
         'visible';
       self.hideStartScgAnim();
+      self.autoplay = setInterval(this.autoplayStart.bind(this),  this.autoplayDelay);
     }, 5000);
-    this.autoplay = setInterval(this.autoplayStart.bind(this),  this.autoplayDelay);
   }
   autoplayStart(){
     if (this.currentSlideNumber === 5) {

@@ -1,10 +1,10 @@
 self.__precacheManifest = [
   {
-    "revision": "d41f55a78e6f49a5512878df1737e58a",
-    "url": "/1/static/media/slick.d41f55a7.ttf"
+    "revision": "b7c9e1e479de3b53f1e4e30ebac2403a",
+    "url": "/1/static/media/slick.b7c9e1e4.woff"
   },
   {
-    "revision": "b0a18e562a15c81604ae",
+    "revision": "52cbf0d317234a96c2bb",
     "url": "/1/static/css/main.5ab9d54a.chunk.css"
   },
   {
@@ -36,12 +36,12 @@ self.__precacheManifest = [
     "url": "/1/static/media/girls.7a787073.png"
   },
   {
-    "revision": "7c10bf754477d763bb4be788141d912f",
-    "url": "/1/static/media/Tele2DisplaySerif-Regular.7c10bf75.otf"
-  },
-  {
     "revision": "7fb8d89e3b25c43fdd878d4191702fa3",
     "url": "/1/static/media/StandardStencil-Bold.7fb8d89e.otf"
+  },
+  {
+    "revision": "7c10bf754477d763bb4be788141d912f",
+    "url": "/1/static/media/Tele2DisplaySerif-Regular.7c10bf75.otf"
   },
   {
     "revision": "adbf0ede6d4ca62c83599a296cffbb4d",
@@ -52,12 +52,12 @@ self.__precacheManifest = [
     "url": "/1/static/media/slick.ced611da.eot"
   },
   {
-    "revision": "b0a18e562a15c81604ae",
-    "url": "/1/static/js/main.53702a13.chunk.js"
+    "revision": "52cbf0d317234a96c2bb",
+    "url": "/1/static/js/main.7be7f183.chunk.js"
   },
   {
-    "revision": "b7c9e1e479de3b53f1e4e30ebac2403a",
-    "url": "/1/static/media/slick.b7c9e1e4.woff"
+    "revision": "d41f55a78e6f49a5512878df1737e58a",
+    "url": "/1/static/media/slick.d41f55a7.ttf"
   },
   {
     "revision": "f97e3bbf73254b0112091d0192f17aec",
@@ -100,7 +100,7 @@ self.__precacheManifest = [
     "url": "/1/static/css/2.5de87ebe.chunk.css"
   },
   {
-    "revision": "627a57e0d7fad8eb86fb3bfea222db1e",
+    "revision": "8268acc6125f3ef6a87e075eaa3b599c",
     "url": "/1/index.html"
   }
 ];
