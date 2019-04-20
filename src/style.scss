@@ -84,13 +84,13 @@ code {
 .wrapInfoBlock {
 
   position: absolute;
-  left: 10%;
-  top: 20%;
+  left: 18%;
+  top: 19%;
   font-size:16px;
   @include for-big-desktop-up {
     font-size: 23px;
   }
-  width:28.125em;
+  width:31.688em;
   height:21.250em;
   z-index:3;
   //padding-top: 3%;
@@ -156,6 +156,7 @@ code {
     position:relative;
     opacity:0;
     padding: 0rem 1.813rem;
+    width:23.125em;
     //margin: 2em 0;
     //transform:translate3d(-120%,0,0);
     //transform: matrix(0, 0, 0, 0, -1000, 0);
@@ -170,8 +171,8 @@ code {
     font-family: Tele2 TextSans;
     font-size: 1.125em;
     width: 14.188em;
-    min-height: 3.125em;
-    max-height: 3.125em;
+    min-height: 3em;
+    max-height: 3em;
     line-height: normal;
     border:none;
     cursor: pointer;
@@ -187,6 +188,7 @@ code {
 }
 .hasBg.wrapInfoBlock{
   background-color: #000;
+  width:28.125em;
 }
 .hasBg {
   & .infoBlock{
@@ -195,6 +197,7 @@ code {
     }
     &__text {
       color: #FFFFFF;
+      width:24.188em;
     }
     &__button {
       background: #C3E400;
@@ -362,7 +365,7 @@ code {
     color: #000000;
     display: block;
     width:18.750em;
-    height: 3.125em;
+    height: 3em;
     cursor: pointer;
     &:focus{
       outline:none;
@@ -377,12 +380,9 @@ code {
 }
 .blackSection__block_m {
 
-  width: 51.063em;
+  width: 56.063em;
   top: 3em;
   justify-content: start;
-  & .blackSection__button {
-    width: 100%;
-  }
   & .blackSection__block-row {
       display: flex;
       flex-flow: row nowrap;
@@ -402,7 +402,7 @@ code {
       flex: 2;
       & .blackSection__text {
         text-align: left;
-        width: 55%;
+        width: 67%;
       }
     }
   }

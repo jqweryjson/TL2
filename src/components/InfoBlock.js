@@ -29,6 +29,7 @@ export default class InfoBlock extends React.Component {
   headerT =.5;
   textT = .5;
   btnT = .5;
+  iconRefT = .1
 
   blockWrapRefT = 1;
   whiteSlideT = .6;
@@ -49,6 +50,7 @@ export default class InfoBlock extends React.Component {
         } else {
           this.tl
           .set(this.whiteSlide.current,{left:"-120%",immediateRender:true})
+          .to(this.props.icon.ref.current,this.iconRefT,{scale:0,immediateRender:true})
           .to(this.whiteSlide2.current, this.whiteSlideT, {left :0,immediateRender:false})
           .to(this.whiteSlide3.current, this.whiteSlideT, {left :0,immediateRender:false},this.whiteSlide3DEl)
           .to(this.buttonRef.current, this.btnT, {scale :0,immediateRender:false,onComplete:()=>{}}, this.btnTDEL)
@@ -76,9 +78,11 @@ export default class InfoBlock extends React.Component {
         }
         this.tl
         .set(this.whiteSlide.current,{left:"-120%",immediateRender:true})
+        .set(this.props.icon.ref.current,{scale:0,immediateRender:true})
         .set(this.whiteSlide2.current, {left :"-120%",immediateRender:true})
         .set(this.whiteSlide3.current, {left :"-120%",immediateRender:true})
         .set(this.buttonRef.current,{scale:1,immediateRender:true})
+        .to(this.props.icon.ref.current,this.iconRefT,{scale:1,immediateRender:true})
         .to(this.headerRef.current, this.headerT, {x :'0%',opacity:1,immediateRender:false})
         .to(this.titleRef.current, this.textT, {x :'0%',opacity:1,immediateRender:false},this.textTDEL)
         .to(this.buttonRef.current, this.btnT, {opacity :1,immediateRender:true})
@@ -100,6 +104,7 @@ export default class InfoBlock extends React.Component {
     } else {
       this.tl
       .from(this.blockWrapRef.current, 0, { width: 0 ,immediateRender:true,onComplete:()=>{}})
+      .set(this.props.icon.ref.current,{scale:0,immediateRender:true})
       .set(this.headerRef.current,{x :'-100%',immediateRender:true})
       .set(this.titleRef.current,{x :'-100%',immediateRender:true})
       .set(this.buttonRef.current,{opacity :0,immediateRender:true})

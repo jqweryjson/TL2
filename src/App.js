@@ -37,6 +37,9 @@ export default class App extends Component {
     fills: ['#C3E400', '#FF59A3', '#1EE7CA', '#FF6633']
   };
   sliderRef = React.createRef();
+  BallRef = React.createRef();
+  ConnectRef = React.createRef();
+  OnhandRef = React.createRef();
   currentSlideNumber = 0;
   inProgress = false;
   svgStarIsOver = false;
@@ -59,7 +62,7 @@ export default class App extends Component {
         'visible';
       self.hideStartScgAnim();
     }, 5000);
-    this.autoplay = setInterval(this.autoplayStart.bind(this),  this.autoplayDelay);
+    // this.autoplay = setInterval(this.autoplayStart.bind(this),  this.autoplayDelay);
   }
   autoplayStart(){
     if (this.currentSlideNumber === 5) {
@@ -77,7 +80,7 @@ export default class App extends Component {
   }
   mouseWheelHandler(event) {
     clearInterval(this.autoplay);
-    this.autoplay = setInterval(this.autoplayStart.bind(this), this.autoplayDelay);
+    // this.autoplay = setInterval(this.autoplayStart.bind(this), this.autoplayDelay);
     if (!this.svgStarIsOver) {
       return false;
     }
@@ -205,7 +208,7 @@ export default class App extends Component {
     let settings = {
       dots: true,
       arrows: false,
-      easing: 'ease-in-out',
+      easing: 'ease-in',
       infinite: false,
       draggable: false,
       swipe: false,
@@ -251,7 +254,7 @@ export default class App extends Component {
               slickSliderRef={this.sliderRef}
               animateTextDirection={this.state.animateTextDirection}
               currentSlideNumber={this.currentSlideNumber}
-              icon={<Ball className="iconSec" />}
+              icon={<Ball ref={this.BallRef} className="iconSec" />}
             />
             <Section
               title="Услуга доступна автоматически на открытых тарифах «Мой Tele2»"
@@ -263,7 +266,7 @@ export default class App extends Component {
               slickSliderRef={this.sliderRef}
               animateTextDirection={this.state.animateTextDirection}
               currentSlideNumber={this.currentSlideNumber}
-              icon={<Connect className="iconSec" />}
+              icon={<Connect ref={this.ConnectRef}  className="iconSec" />}
             />
             <Section
               title="Передавайте пакет интернета от 1 ГБ до 30 ГБ. Переданный пакет гигабайт действует 7 дней, но можно продлить и до 30 дней."
@@ -275,7 +278,7 @@ export default class App extends Component {
               slickSliderRef={this.sliderRef}
               animateTextDirection={this.state.animateTextDirection}
               currentSlideNumber={this.currentSlideNumber}
-              icon={<Onhand className="iconSec" />}
+              icon={<Onhand ref={this.OnhandRef}  className="iconSec" />}
             />
             <BlackSection
               header="воспользуйтесь прямо сейчас"
