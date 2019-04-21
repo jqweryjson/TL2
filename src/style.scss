@@ -4,6 +4,9 @@
 @mixin for-phone-only {
   @media (max-width: 599px) { @content; }
 }
+@mixin for-smallPhone-only {
+  @media (max-width: 480px) { @content; }
+}
 body {
   margin: 0;
   padding: 0;
@@ -14,11 +17,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
   overflow:hidden;
+  -webkit-overflow-scrolling: touch;
   @include for-big-desktop-up {
     font-size: 23px;
   }
-  @include for-phone-only {
-    //font-size: 8px;
+  @include for-smallPhone-only {
+    font-size: 14px;
   }
 }
 
@@ -44,6 +48,9 @@ code {
   height: 100vh;
   display:block;
   overflow:hidden;
+  @include for-phone-only {
+    //height: 100vh;
+  }
 }
 @keyframes playStartAnimText {
   100% {
@@ -51,6 +58,9 @@ code {
   }
 }
 @keyframes sss {
+  0% {
+    transform:scale(1);
+  }
   50%{
     transform:scale(1.1);
   }
@@ -59,7 +69,7 @@ code {
   }
 }
 .subject-image{
-  animation:sss 16s ease-in-out both;
+  animation:sss 16s ease-in-out alternate infinite;
   animation-delay:6s;
 }
 @keyframes playEndAnimText {
@@ -75,7 +85,14 @@ code {
   transform:translate3d(0,-100px,0);
   animation:playStartAnimText 1s cubic-bezier(0, 0, 0, 1) both;
   animation-delay: 2s;
+  @include for-phone-only {
+    background:#fff;
+    width:100%;
+  }
   &.isBlackScreen{
+    @include for-phone-only {
+      background:#000;
+    }
     svg > path {
       fill:#fff;
     }
@@ -85,20 +102,16 @@ code {
   position: absolute;
   left: 18%;
   top: 19%;
-  font-size:16px;
+
   @include for-big-desktop-up {
     font-size: 23px;
   }
   width:31.688em;
   height:21.250em;
   @include for-phone-only{
-    height:auto;
-    padding-bottom:2em;
-    font-size: 16px;
-    left:0;
-    right:0;
-    margin:0 auto;
-    top:3em;
+    height:90%;
+    left:5vmin;
+    top:0;
     width:18.625em;
   }
   z-index:3;
@@ -123,13 +136,16 @@ code {
   //transform:translate3d(-100%,0,0);
   //transform: matrix(0, 0, 0, 0, -1000, 0);
   //padding: 2rem 3rem 2rem 2rem;
+  @include for-phone-only{
+    justify-content: flex-start;
+  }
   position:relative;
   overflow: hidden;
   height: 100%;
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-around;
-  font-size:16px;
+
   @include for-big-desktop-up {
     font-size: 23px;
   }
@@ -147,6 +163,8 @@ code {
     font-size: 2.813em;
     @include for-phone-only{
       font-size: 1.875em;
+      padding:0;
+      padding-top: 1.438rem;
     }
     line-height: normal;
     opacity:0;
@@ -171,6 +189,7 @@ code {
     width:23.125em;
     @include for-phone-only{
       width:auto;
+      padding:0;
     }
     //margin: 2em 0;
     //transform:translate3d(-120%,0,0);
@@ -197,7 +216,11 @@ code {
     padding-right: 2.125rem;
     position: relative;
       @include for-phone-only{
-        display:none;
+        position:absolute;
+        bottom:3em;
+        left:0;
+        right:0;
+        margin:0 auto;
       }
     &:focus{
       outline:none;
@@ -207,6 +230,8 @@ code {
 .hasBg.wrapInfoBlock{
   @include for-phone-only {
     width: 90vmin;
+    height:16.0em;
+    max-height:16.0em;
   }
   background-color: #000;
   width:28.125em;
@@ -215,18 +240,28 @@ code {
   & .infoBlock{
     &__header {
       color: #FFFFFF;
+      @include for-phone-only{
+        padding: 0rem 1.813rem;
+        padding-top: 1.438rem;
+      }
     }
     &__text {
       color: #FFFFFF;
       width:24.188em;
       @include for-phone-only{
         width:auto;
+        padding: 0rem 1.813rem;
+        padding-top: .4em;
+        margin-bottom: 1.438rem;
       }
     }
     &__button {
       background: #C3E400;
       color: #000;
       text-align: left;
+      @include for-phone-only{
+        display:none;
+      }
       &:after{
         content:'';
         background: 0 0 no-repeat;
@@ -274,6 +309,12 @@ code {
     animation:playStartAnimText 1s cubic-bezier(0, 0, 0, 1) both;
     animation-delay: 2s;
     z-index:11;
+    @include for-phone-only{
+      display: flex!important;
+      width:100%;
+      padding: 1.5rem 0;
+      justify-content: space-around;
+    }
   }
   & .slick-arrow {
     position: absolute;
@@ -290,6 +331,9 @@ code {
     content:'';
     border:0.125rem solid;
     opacity:1;
+    @include for-phone-only{
+      color:#fff;
+    }
   }
   & .slick-dots  li.slick-active button{
     animation:render .5s ease both;
@@ -299,6 +343,9 @@ code {
       opacity:1;
       font-size: 1rem;
       line-height: 1rem;
+      @include for-phone-only{
+        color:#fff;
+      }
   }
 }
 .slick-dots#dotsBlack li button:before{
@@ -316,7 +363,10 @@ code {
     display:flex;
     justify-content: space-around;
     padding: 1rem 2rem;
-    &-link{
+    @include for-phone-only{
+      display:none;
+    }
+    &-link {
       display: block;
     }
   }
@@ -329,7 +379,7 @@ code {
 }
 .blackSection {
   height: 100vh;
-  font-size:16px;
+
 
   &__block{
     position: absolute;
@@ -338,6 +388,12 @@ code {
     width: 46.063em;
     display: flex;
     flex-flow: column nowrap;
+    @include for-phone-only{
+      left:0;
+      top:4em;
+      width:auto;
+      padding: 0 1.875em;
+    }
   }
   &__h2{
     font-family: Standard CT Stencil;
@@ -346,6 +402,10 @@ code {
     text-transform: uppercase;
     color: #FFFFFF;
     margin: 0;
+    @include for-phone-only{
+      font-size: 1.875em;
+      padding-top: 1.438rem;
+    }
   }
   &__text{
     font-family: Tele2 TextSans;
@@ -357,6 +417,9 @@ code {
       text-align:right;
       text-align: right;
       flex-basis: 100%;
+      @include for-phone-only{
+        font-size: 1.125em;
+      }
     }
     &_upper{
       font-family: Tele2 TextSans;
@@ -364,7 +427,9 @@ code {
       line-height: normal;
       text-transform: uppercase;
       color: #FFFFFF;
-      
+      @include for-phone-only{
+        font-size:1.500em;
+      }
     }
     &-mark{
       font-family: Standard CT Stencil;
@@ -373,6 +438,10 @@ code {
       text-align: center;
       text-transform: uppercase;
       color: #C3E400;
+      @include for-phone-only{
+        font-size: 1.625em;
+        line-height: 2;
+      }
     }
   }
   &__row{
@@ -381,6 +450,9 @@ code {
     flex-flow: row wrap;
     align-items: center;
     margin-top:3rem;
+    @include for-phone-only{
+      flex-flow: column wrap;
+    }
   }
   &__button{
     background: #C3E400;
@@ -395,6 +467,12 @@ code {
     width:18.750em;
     height: 3em;
     cursor: pointer;
+    @include for-phone-only{
+      font-size:1.250em;
+      margin:0 auto;
+      margin-bottom:1.875em;
+      width: 100%;
+    }
     &:focus{
       outline:none;
     }
@@ -411,26 +489,53 @@ code {
   width: 56.063em;
   top: 3em;
   justify-content: start;
+  @include for-phone-only{
+    display:block;
+    width:auto;
+    top: 5em;
+  }
+  & .blackSection__h2 {
+    @include for-phone-only{
+      padding:0;
+    }
+  }
   & .blackSection__block-row {
       display: flex;
       flex-flow: row nowrap;
       justify-content: space-between;   
       margin-top: 2rem; 
+      @include for-phone-only{
+        flex-flow: column nowrap;
+        margin:0;
+      }
     & .blackSection__row {
       margin: 0;
       align-items: flex-end;
       justify-content: flex-end;
       flex: 1;
       flex-wrap: wrap;
+      @include for-phone-only{
+        display:block;
+        
+      }
     }
     &_t {
       display: flex;
       flex-flow: column nowrap;
       justify-content: space-between;
       flex: 2;
+      @include for-phone-only{
+        display:block;
+      }
       & .blackSection__text {
         text-align: left;
         width: 67%;
+        @include for-phone-only{
+          display:block;
+          width:100%;
+          padding: 0;
+          padding: 1em 0;
+        }
       }
     }
   }
@@ -439,6 +544,9 @@ code {
   position: absolute;
   top: -3rem;
   left: 1.5rem;
+    @include for-phone-only{
+      display:none;
+    }
   // transform: translate3d(0,100%,0);
   // animation:playStartAnimText .4s cubic-bezier(0, 0, 0, 1) both;
   // animation-delay: .3s;
@@ -459,26 +567,30 @@ code {
   height: 100vh;
   width: auto;
   @include for-phone-only {
-    height: auto;
-    width: 100%;
+    position: fixed;
     top: auto;
-    bottom:0;
+    height: auto;
+    width: 100vw;
+    bottom: 0;
+    right: auto;
   }
 }
 #svgWave {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0%;
   height: 100%;
   width: auto;
   mix-blend-mode: multiply;
   z-index: 10; 
+  width: 100%;
   @include for-phone-only {
-    height: 62%;
-    width: auto;
+    height: 100vh;
+    width: 100vw;
     top: auto;
-    bottom: 0;
-    right: -33%;
+    bottom:0;
+    touch-action: manipulation;
+    pointer-events: none;  
   }
   & path {
     transition: fill 1.5s .25s;
@@ -539,27 +651,54 @@ code {
 //     transition: all .75s;
 //    }
 // }
+
+#specialID {
+  opacity: 0;
+  transform-origin: 100% 100%; 
+  transform: scale(1.1);
+  transition: opacity .5s 1.25s, transform 1.5s 1.45s;
+  @include for-phone-only{
+
+
+  }
+}
 .svgST__image {
   height: 100%;
   width: auto;
   opacity: 0;
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 0;
   transform-origin: 100% 100%; 
   transform: scale(1.1);
   transition: opacity .5s 1.25s, transform 1.5s 1.45s;
+  @include for-phone-only{
+    height: auto;
+    width: 100%;
+    top: auto;
+    bottom: 0;
+
+  }
+}
+.svgSt {
+  @include for-phone-only{
+    height: 100vh;
+    width: 100vw;
+  }  
 }
 #startSVG{
 
   &.initial-animation #rectangle {
    transform: rotate(-43.7deg) translate3d(-50%, -1430px, 0);
+   @include for-phone-only {
+    transform: rotate(-43.7deg) translate3d(-100%, -483px, 0);
+   }
   }
   &.initial-animation #line {
    transform: translate3d(0, 0, 0);
   }
 }
-.initial-animation.svgST__image {
+.initial-animation#specialID {
   opacity: 1;
   transform: scale(1);
 }
@@ -572,4 +711,7 @@ code {
 }
 .slick-slider {
   //z-index: 10;
+  @include for-phone-only{
+    //z-index: 20;
+  }
 }

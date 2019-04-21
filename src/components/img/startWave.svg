@@ -5,6 +5,7 @@
     height="100%" 
     style="mix-blend-mode: multiply"
     viewBox="0 0 1280 720" 
+	preserveAspectRatio="xMaxYMid meet"
     xmlns="http://www.w3.org/2000/svg">
   <style>
     /* <![CDATA[ */

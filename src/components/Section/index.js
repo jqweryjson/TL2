@@ -12,10 +12,10 @@ export default class Section extends React.Component {
   }
   componentDidMount() {}
   render() {
-    const { image } = this.props;
+    const { image, specialID } = this.props;
     return (
       <section className="section">
-        {image && <img className="subject-image" src={image} alt="subjects" /> }
+        {image && <img className="subject-image" id={specialID} src={image} alt="subjects" /> }
         <InfoBlock {...this.props} />
       </section>
     );

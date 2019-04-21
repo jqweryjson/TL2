@@ -1,27 +1,31 @@
 self.__precacheManifest = [
   {
-    "revision": "b7c9e1e479de3b53f1e4e30ebac2403a",
-    "url": "/1/static/media/slick.b7c9e1e4.woff"
+    "revision": "ced611daf7709cc778da928fec876475",
+    "url": "/1/static/media/slick.ced611da.eot"
   },
   {
-    "revision": "52cbf0d317234a96c2bb",
-    "url": "/1/static/css/main.5ab9d54a.chunk.css"
+    "revision": "68882ca0dcffd6f7e06f",
+    "url": "/1/static/css/main.3247a3cd.chunk.css"
   },
   {
     "revision": "ecf45d1f754fb630230b",
     "url": "/1/static/js/runtime~main.a94833aa.js"
   },
   {
-    "revision": "56e9c9d0fdf787a938bdf6bbf17e5580",
-    "url": "/1/static/media/wave.56e9c9d0.svg"
+    "revision": "184849de8ea52a36cfcc2afb197044f4",
+    "url": "/1/static/media/waveMobile.184849de.svg"
   },
   {
-    "revision": "d2c1c76421125a278d67",
-    "url": "/1/static/js/2.cf7f53ef.chunk.js"
+    "revision": "8b2fd6d941d3b6a11fdc",
+    "url": "/1/static/js/2.4e1a710b.chunk.js"
   },
   {
     "revision": "52d188f122b2c3da01c921c893ddeb2a",
     "url": "/1/static/media/couple.52d188f1.png"
+  },
+  {
+    "revision": "a8c1d1cd2154f0165486919f98ac8b29",
+    "url": "/1/static/media/couple-mobile.a8c1d1cd.png"
   },
   {
     "revision": "a7cd1a91e85bf30c9e41af338cced3b2",
@@ -36,24 +40,36 @@ self.__precacheManifest = [
     "url": "/1/static/media/girls.7a787073.png"
   },
   {
-    "revision": "7fb8d89e3b25c43fdd878d4191702fa3",
-    "url": "/1/static/media/StandardStencil-Bold.7fb8d89e.otf"
+    "revision": "89ec398f66ae816652a5b408306fae31",
+    "url": "/1/static/media/pig-mobile.89ec398f.png"
+  },
+  {
+    "revision": "e3749843ab853c42aa60493a26512e53",
+    "url": "/1/static/media/robot-mobile.e3749843.png"
+  },
+  {
+    "revision": "abc4f994ba9120725a617e3b35a556b1",
+    "url": "/1/static/media/girls-mobile.abc4f994.png"
   },
   {
     "revision": "7c10bf754477d763bb4be788141d912f",
     "url": "/1/static/media/Tele2DisplaySerif-Regular.7c10bf75.otf"
   },
   {
+    "revision": "7fb8d89e3b25c43fdd878d4191702fa3",
+    "url": "/1/static/media/StandardStencil-Bold.7fb8d89e.otf"
+  },
+  {
     "revision": "adbf0ede6d4ca62c83599a296cffbb4d",
     "url": "/1/static/media/Tele2TextSans-Regular.adbf0ede.otf"
   },
   {
-    "revision": "ced611daf7709cc778da928fec876475",
-    "url": "/1/static/media/slick.ced611da.eot"
+    "revision": "68882ca0dcffd6f7e06f",
+    "url": "/1/static/js/main.3567fc57.chunk.js"
   },
   {
-    "revision": "52cbf0d317234a96c2bb",
-    "url": "/1/static/js/main.7be7f183.chunk.js"
+    "revision": "b7c9e1e479de3b53f1e4e30ebac2403a",
+    "url": "/1/static/media/slick.b7c9e1e4.woff"
   },
   {
     "revision": "d41f55a78e6f49a5512878df1737e58a",
@@ -80,8 +96,12 @@ self.__precacheManifest = [
     "url": "/1/static/media/vk.36839e04.svg"
   },
   {
-    "revision": "4bfe52316982a62ab965a1cda0077a0d",
-    "url": "/1/static/media/startWave.4bfe5231.svg"
+    "revision": "5fc76257c35e4fad3de6eb0759f3677d",
+    "url": "/1/static/media/startWave.5fc76257.svg"
+  },
+  {
+    "revision": "f4a1d739e9f39cb0e447738aae882c75",
+    "url": "/1/static/media/startWaveMobile.f4a1d739.svg"
   },
   {
     "revision": "8b804fbfb2d98dc0cd8e44644b70e4eb",
@@ -96,11 +116,15 @@ self.__precacheManifest = [
     "url": "/1/static/media/onhand.fc34b1e7.svg"
   },
   {
-    "revision": "d2c1c76421125a278d67",
+    "revision": "d16a0aad46118dbee5274f7eead02431",
+    "url": "/1/static/media/wave.d16a0aad.svg"
+  },
+  {
+    "revision": "8b2fd6d941d3b6a11fdc",
     "url": "/1/static/css/2.5de87ebe.chunk.css"
   },
   {
-    "revision": "8268acc6125f3ef6a87e075eaa3b599c",
+    "revision": "f82e5cbf80c0ceb366e38e9263f7476c",
     "url": "/1/index.html"
   }
 ];
