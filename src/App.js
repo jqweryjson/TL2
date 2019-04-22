@@ -4,14 +4,13 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { TimelineLite, Power2 } from 'gsap';
 import { isMobile } from 'react-device-detect';
-import Swipe from 'react-easy-swipe';
+
 
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Section from './components/Section/';
 import BlackSection from './components/BlackSection';
 import BlackSection2 from './components/BlackSection2';
-import StartWaveComp from './components/StartWaveComp.js';
 
 import Couple from './components/img/couple.png';
 import Pig from './components/img/pig.png';
@@ -26,9 +25,10 @@ import GirlsMobile from './components/img/girls-mobile.png';
 import { ReactComponent as Ball } from './components/img/ball.svg';
 import { ReactComponent as Connect } from './components/img/connect.svg';
 import { ReactComponent as Onhand } from './components/img/onhand.svg';
-import { ReactComponent as Wave } from './components/img/wave.svg';
 
-import { ReactComponent as WaveMobile } from './components/img/waveMobile.svg';
+
+import { ReactComponent as StartWave } from './components/img/startWave.svg';
+import { ReactComponent as StartWaveMobile } from './components/img/startWaveMobile.svg';
 
 export default class App extends Component {
   constructor() {
@@ -51,25 +51,18 @@ export default class App extends Component {
   ConnectRef = React.createRef();
   OnhandRef = React.createRef();
   currentSlideNumber = 0;
-  inProgress = false;
+  inProgress = true;
   autoplay;
   autoplayDelay = 5000;
   componentDidMount() {
-    document.getElementById('svgWave').style.visibility = 'hidden';
-    // document.getElementsByClassName('subject-image')[0].style.visibility =
-    //   'hidden';
-    document.getElementById('startSVG').classList += ' initial-animation';
-    // document.getElementsByClassName('svgST__image')[0].classList +=
-    //   ' initial-animation';
+      document.getElementById('svgWave').classList += ' initial-animation';
       document.getElementById('specialID').classList +=
       ' initial-animation';
     let self = this;
     setTimeout(() => {
-      document.getElementById('svgWave').style.visibility = 'visible';
-      // document.getElementsByClassName('subject-image')[0].style.visibility =
-      //   'visible';
       self.hideStartScgAnim();
       self.resetAutoPlay();
+      self.inProgress = false;
     }, 8000);
   }
   autoplayStart() {
@@ -81,9 +74,7 @@ export default class App extends Component {
     this.preNext();
   }
   hideStartScgAnim() {
-    document.getElementById('startSVG').style.display = 'none';
-    // document.getElementsByClassName('svgST__image')[0].style.visibility =
-    //   'hidden';
+    document.getElementById('svgWave').getElementsByTagName('line')[0].style.display = 'none'
     if(!this.isMobile){
       window.addEventListener('wheel', event => this.mouseWheelHandler(event), {
         passive: false
@@ -262,16 +253,23 @@ export default class App extends Component {
     // this.autoplay = setInterval(this.autoplayStart.bind(this), this.autoplayDelay);
   }
   onSwipeMove(position, event) {
-    debugger;
+debugger;
     this.resetAutoPlay();
     if (this.inProgress) {
-
+      document.getElementById('svgWave').getElementsByTagName('line')[0].style.display = 'none'
       return true;
     }
-    if (position.x > 200 && this.currentSlideNumber !== 0) {
-      this.prePrev();
-    } else if(position.x < -200 && this.currentSlideNumber !== 5) {
-      this.preNext();
+    if (position === 'left' && this.currentSlideNumber !== 5) {
+      if (this.currentSlideNumber === 4 || this.currentSlideNumber === 5) {
+        document
+          .getElementById('svgWave')
+          .getElementsByTagName('path')[0]
+          .setAttribute('fill', `rgba(0,0,0,0)`);
+        return;
+      }
+      this.animateWave(this.currentSlideNumber + 1);
+    } else if(position === 'right' && this.currentSlideNumber !== 0) {
+      this.animateWave(this.currentSlideNumber - 1);
     }
     //return true;
   }
@@ -289,8 +287,19 @@ export default class App extends Component {
   }
   beforeChange(oldIndex, newIndex) {
     this.currentSlideNumber = newIndex;
+    if(this.isMobile && this.currentSlideNumber === 0) {
+      return;
+    }
+    if(this.isMobile){
+      this.setState({
+        animateTextDirection: 'fromLeft'
+      });
+    }
   }
   afterChange(index) {
+    if(this.isMobile && this.currentSlideNumber === 0) {
+      return;
+    }
     if (this.currentSlideNumber <= 3) {
       setTimeout(() => {
         this.inProgress = false;
@@ -300,10 +309,13 @@ export default class App extends Component {
     }
     if (this.currentSlideNumber >= 4) {
       document.getElementsByClassName('slick-dots')[0].id = 'dotsBlack';
-      document.getElementsByClassName('logoClass')[0].id = 'logoWgite';
+      document.getElementsByTagName('header')[0].id = 'logoWgite';
     } else if (this.currentSlideNumber < 4) {
       document.getElementsByClassName('slick-dots')[0].id = 'null';
-      document.getElementsByClassName('logoClass')[0].id = 'logoBlac';
+      document.getElementsByTagName('header')[0].id = 'logoBlac';
+    }
+    if(this.isMobile){
+      return;
     }
     this.setState({
       animateTextDirection: 'fromLeft'
@@ -329,9 +341,9 @@ export default class App extends Component {
     };
     return (
       <>
-        {!isMobile ? <Header isBlackScreen={this.state.isBlackScreen} /> : null}
-        {isMobile ? <WaveMobile id="svgWave" /> : <Wave id="svgWave" />}
-        <StartWaveComp />
+        <Header isBlackScreen={this.state.isBlackScreen} />
+        {isMobile ? <StartWaveMobile id="svgWave" /> : <StartWave id="svgWave" />}
+        
         <Slider
           className="custom-slick"
           {...settings}

@@ -49,7 +49,7 @@ code {
   display:block;
   overflow:hidden;
   @include for-phone-only {
-    //height: 100vh;
+    //height: 90vh;
   }
 }
 @keyframes playStartAnimText {
@@ -86,6 +86,7 @@ code {
   animation:playStartAnimText 1s cubic-bezier(0, 0, 0, 1) both;
   animation-delay: 2s;
   @include for-phone-only {
+    //position:static;
     background:#fff;
     width:100%;
   }
@@ -109,10 +110,10 @@ code {
   width:31.688em;
   height:21.250em;
   @include for-phone-only{
-    height:90%;
+    height:85%;
     left:5vmin;
-    top:0;
-    width:18.625em;
+    top:10%;
+    width:90%;
   }
   z-index:3;
   //padding-top: 3%;
@@ -212,15 +213,11 @@ code {
     cursor: pointer;
     margin: 1.538rem 1.813rem;
     text-align: center;
-    padding-left: 2.125rem;
-    padding-right: 2.125rem;
     position: relative;
       @include for-phone-only{
         position:absolute;
         bottom:3em;
-        left:0;
-        right:0;
-        margin:0 auto;
+        margin-bottom:0;
       }
     &:focus{
       outline:none;
@@ -241,7 +238,7 @@ code {
     &__header {
       color: #FFFFFF;
       @include for-phone-only{
-        padding: 0rem 1.813rem;
+        padding: 0rem 1rem;
         padding-top: 1.438rem;
       }
     }
@@ -250,7 +247,7 @@ code {
       width:24.188em;
       @include for-phone-only{
         width:auto;
-        padding: 0rem 1.813rem;
+        padding: 0rem 1rem;
         padding-top: .4em;
         margin-bottom: 1.438rem;
       }
@@ -259,6 +256,7 @@ code {
       background: #C3E400;
       color: #000;
       text-align: left;
+      padding-left:1.813rem;
       @include for-phone-only{
         display:none;
       }
@@ -567,7 +565,7 @@ code {
   height: 100vh;
   width: auto;
   @include for-phone-only {
-    position: fixed;
+    //position: fixed;
     top: auto;
     height: auto;
     width: 100vw;
@@ -575,27 +573,7 @@ code {
     right: auto;
   }
 }
-#svgWave {
-  position: fixed;
-  top: 0;
-  right: 0%;
-  height: 100%;
-  width: auto;
-  mix-blend-mode: multiply;
-  z-index: 10; 
-  width: 100%;
-  @include for-phone-only {
-    height: 100vh;
-    width: 100vw;
-    top: auto;
-    bottom:0;
-    touch-action: manipulation;
-    pointer-events: none;  
-  }
-  & path {
-    transition: fill 1.5s .25s;
-  }
-}
+
 #sec0{
  & path {
    fill:'#C3E400'
@@ -686,8 +664,28 @@ code {
     width: 100vw;
   }  
 }
-#startSVG{
 
+
+#svgWave{
+  position: fixed;
+  top: 0;
+  right: 0%;
+  height: 100%;
+  width: auto;
+  mix-blend-mode: multiply;
+  z-index: 10; 
+  width: 100%;
+  @include for-phone-only {
+    height: 100vh;
+    width: 100vw;
+    top: auto;
+    bottom:0;
+    touch-action: manipulation;
+    pointer-events: none;  
+  }
+  & path {
+    transition: fill 1.5s .25s;
+  }
   &.initial-animation #rectangle {
    transform: rotate(-43.7deg) translate3d(-50%, -1430px, 0);
    @include for-phone-only {
@@ -698,15 +696,18 @@ code {
    transform: translate3d(0, 0, 0);
   }
 }
+
+
+
 .initial-animation#specialID {
   opacity: 1;
   transform: scale(1);
 }
 
-.logoClass#logoBlac path{
+header#logoBlac path{
   fill:'#000'
 }
-.logoClass#logoWgite path{
+header#logoWgite path{
   fill:#fff
 }
 .slick-slider {

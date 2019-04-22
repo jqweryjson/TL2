@@ -1,31 +1,27 @@
 self.__precacheManifest = [
   {
-    "revision": "ced611daf7709cc778da928fec876475",
-    "url": "/1/static/media/slick.ced611da.eot"
+    "revision": "adbf0ede6d4ca62c83599a296cffbb4d",
+    "url": "/1/static/media/Tele2TextSans-Regular.adbf0ede.otf"
   },
   {
-    "revision": "68882ca0dcffd6f7e06f",
-    "url": "/1/static/css/main.3247a3cd.chunk.css"
+    "revision": "47d464e1c6f13f49cc4c",
+    "url": "/1/static/css/main.d510152e.chunk.css"
   },
   {
     "revision": "ecf45d1f754fb630230b",
     "url": "/1/static/js/runtime~main.a94833aa.js"
   },
   {
-    "revision": "184849de8ea52a36cfcc2afb197044f4",
-    "url": "/1/static/media/waveMobile.184849de.svg"
+    "revision": "a5ab3746d330af51801ca83f34385e8b",
+    "url": "/1/static/media/startWaveMobile.a5ab3746.svg"
   },
   {
-    "revision": "8b2fd6d941d3b6a11fdc",
-    "url": "/1/static/js/2.4e1a710b.chunk.js"
+    "revision": "d2e99996fb4c14fc13e9",
+    "url": "/1/static/js/2.b803b780.chunk.js"
   },
   {
     "revision": "52d188f122b2c3da01c921c893ddeb2a",
     "url": "/1/static/media/couple.52d188f1.png"
-  },
-  {
-    "revision": "a8c1d1cd2154f0165486919f98ac8b29",
-    "url": "/1/static/media/couple-mobile.a8c1d1cd.png"
   },
   {
     "revision": "a7cd1a91e85bf30c9e41af338cced3b2",
@@ -40,6 +36,10 @@ self.__precacheManifest = [
     "url": "/1/static/media/girls.7a787073.png"
   },
   {
+    "revision": "a8c1d1cd2154f0165486919f98ac8b29",
+    "url": "/1/static/media/couple-mobile.a8c1d1cd.png"
+  },
+  {
     "revision": "89ec398f66ae816652a5b408306fae31",
     "url": "/1/static/media/pig-mobile.89ec398f.png"
   },
@@ -52,32 +52,32 @@ self.__precacheManifest = [
     "url": "/1/static/media/girls-mobile.abc4f994.png"
   },
   {
-    "revision": "7c10bf754477d763bb4be788141d912f",
-    "url": "/1/static/media/Tele2DisplaySerif-Regular.7c10bf75.otf"
-  },
-  {
     "revision": "7fb8d89e3b25c43fdd878d4191702fa3",
     "url": "/1/static/media/StandardStencil-Bold.7fb8d89e.otf"
   },
   {
-    "revision": "adbf0ede6d4ca62c83599a296cffbb4d",
-    "url": "/1/static/media/Tele2TextSans-Regular.adbf0ede.otf"
+    "revision": "7c10bf754477d763bb4be788141d912f",
+    "url": "/1/static/media/Tele2DisplaySerif-Regular.7c10bf75.otf"
   },
   {
-    "revision": "68882ca0dcffd6f7e06f",
-    "url": "/1/static/js/main.3567fc57.chunk.js"
-  },
-  {
-    "revision": "b7c9e1e479de3b53f1e4e30ebac2403a",
-    "url": "/1/static/media/slick.b7c9e1e4.woff"
+    "revision": "47d464e1c6f13f49cc4c",
+    "url": "/1/static/js/main.ea3cd4ff.chunk.js"
   },
   {
     "revision": "d41f55a78e6f49a5512878df1737e58a",
     "url": "/1/static/media/slick.d41f55a7.ttf"
   },
   {
+    "revision": "ced611daf7709cc778da928fec876475",
+    "url": "/1/static/media/slick.ced611da.eot"
+  },
+  {
     "revision": "f97e3bbf73254b0112091d0192f17aec",
     "url": "/1/static/media/slick.f97e3bbf.svg"
+  },
+  {
+    "revision": "b7c9e1e479de3b53f1e4e30ebac2403a",
+    "url": "/1/static/media/slick.b7c9e1e4.woff"
   },
   {
     "revision": "722acd42f05dff1b62a31c0935954ea4",
@@ -96,14 +96,6 @@ self.__precacheManifest = [
     "url": "/1/static/media/vk.36839e04.svg"
   },
   {
-    "revision": "5fc76257c35e4fad3de6eb0759f3677d",
-    "url": "/1/static/media/startWave.5fc76257.svg"
-  },
-  {
-    "revision": "f4a1d739e9f39cb0e447738aae882c75",
-    "url": "/1/static/media/startWaveMobile.f4a1d739.svg"
-  },
-  {
     "revision": "8b804fbfb2d98dc0cd8e44644b70e4eb",
     "url": "/1/static/media/ball.8b804fbf.svg"
   },
@@ -116,15 +108,15 @@ self.__precacheManifest = [
     "url": "/1/static/media/onhand.fc34b1e7.svg"
   },
   {
-    "revision": "d16a0aad46118dbee5274f7eead02431",
-    "url": "/1/static/media/wave.d16a0aad.svg"
+    "revision": "347b5a33382f66c31bfc6f2d6459cbcc",
+    "url": "/1/static/media/startWave.347b5a33.svg"
   },
   {
-    "revision": "8b2fd6d941d3b6a11fdc",
+    "revision": "d2e99996fb4c14fc13e9",
     "url": "/1/static/css/2.5de87ebe.chunk.css"
   },
   {
-    "revision": "f82e5cbf80c0ceb366e38e9263f7476c",
+    "revision": "6459be32323ec656a468d11ad9a7380e",
     "url": "/1/index.html"
   }
 ];

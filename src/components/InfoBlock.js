@@ -1,12 +1,14 @@
 import * as React from 'react';
 import classnames from 'classnames';
 import { TweenLite, TimelineLite, Power4  } from 'gsap';
+import { isMobile } from 'react-device-detect';
 
 export default class InfoBlock extends React.Component {
   constructor() {
     super();
     this.tl = new TimelineLite();
     this.tl.defaultEase = Power4.easeOut;
+    this.isMobile = isMobile;
   }
   shouldComponentUpdate(nextProps, nextState){
 
@@ -35,7 +37,7 @@ export default class InfoBlock extends React.Component {
   whiteSlideT = .6;
 
   textTDEL = '-=.0'
-  btnTDEL = '-=.4';
+  btnTDEL = this.isMobile ? '-=.5' : '-=.4';
   whiteSlide3DEl = '-=.4'
 
   componentDidUpdate(prevProps, prevState) {
@@ -81,11 +83,14 @@ export default class InfoBlock extends React.Component {
         .set(this.props.icon.ref.current,{scale:0,immediateRender:true})
         .set(this.whiteSlide2.current, {left :"-120%",immediateRender:true})
         .set(this.whiteSlide3.current, {left :"-120%",immediateRender:true})
+        .set(this.buttonRef.current,{opacity:0,immediateRender:true})
         .set(this.buttonRef.current,{scale:1,immediateRender:true})
+        .set(this.headerRef.current,{x :'-100%',immediateRender:true})
+        .set(this.titleRef.current,{x :'-100%',immediateRender:true})
         .to(this.props.icon.ref.current,this.iconRefT,{scale:1,immediateRender:true})
         .to(this.headerRef.current, this.headerT, {x :'0%',opacity:1,immediateRender:false})
         .to(this.titleRef.current, this.textT, {x :'0%',opacity:1,immediateRender:false},this.textTDEL)
-        .to(this.buttonRef.current, this.btnT, {opacity :1,immediateRender:true})
+        .to(this.buttonRef.current, this.btnT, {opacity :1,immediateRender:true}, this.btnTDEL)
         .from(this.buttonRef.current, this.btnT, {width :0,immediateRender:true,onComplete:()=>{}},this.btnTDEL)
       }
   }
