@@ -6,7 +6,7 @@ import { ReactComponent as Vk } from '../img/vk.svg';
 const Footer = () => {
     return (
         <footer className="footer">
-            <footer className="footer__soc">
+            <div className="footer__soc">
                 <a className="footer__soc-link" href="javascript:;">
                     <Ok />
                 </a>   
@@ -16,7 +16,7 @@ const Footer = () => {
                 <a className="footer__soc-link" href="javascript:;">
                     <Vk />
                 </a>   
-            </footer>
+            </div>
         </footer>
     );
 }

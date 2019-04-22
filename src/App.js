@@ -4,7 +4,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { TimelineLite, Power2 } from 'gsap';
 import { isMobile } from 'react-device-detect';
-
+import classnames from 'classnames';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -58,6 +58,7 @@ export default class App extends Component {
       document.getElementById('svgWave').classList += ' initial-animation';
       document.getElementById('specialID').classList +=
       ' initial-animation';
+      this.manageActiveClass(0);
     let self = this;
     setTimeout(() => {
       self.hideStartScgAnim();
@@ -111,7 +112,7 @@ export default class App extends Component {
       .getElementById('svgWave')
       .getElementsByClassName('waveAnimation')[0]
       .beginElement();
-    if (nextSlideNumber === 4) {
+    if (nextSlideNumber === 4 || nextSlideNumber === 5) {
       document
         .getElementById('svgWave')
         .getElementsByTagName('path')[0]
@@ -250,7 +251,7 @@ export default class App extends Component {
   }
   resetAutoPlay(){
     clearInterval(this.autoplay);
-    this.autoplay = setInterval(this.autoplayStart.bind(this), this.autoplayDelay);
+    //this.autoplay = setInterval(this.autoplayStart.bind(this), this.autoplayDelay);
   }
   onSwipeMove(position, event) {
 
@@ -285,17 +286,46 @@ export default class App extends Component {
       this.sliderRef.current.slickNext();
     }
   }
+  manageClick(index) {
+    clearInterval(this.autoplay);
+    if (index === 4 || index === 5) {
+      document
+        .getElementById('svgWave')
+        .getElementsByTagName('path')[0]
+        .setAttribute('fill', `rgba(0,0,0,0)`);
+    }
+    debugger;
+    if (index >= 4) {
+      document.getElementsByClassName('slick-dots-custom')[0].id = 'dotsBlack';
+      document.getElementsByTagName('header')[0].id = 'logoWgite';
+    } else if (index < 4) {
+      document.getElementsByClassName('slick-dots-custom')[0].id = 'null';
+      document.getElementsByTagName('header')[0].id = 'logoBlac';
+    }    
+    this.sliderRef.current.slickGoTo(index);
+    this.animateWave(index);
+    
+  }
+  manageActiveClass(index){
+    let arr = Array.from( document.getElementsByClassName('slick-dots-custom')[0].getElementsByTagName('li') );
+
+    arr.forEach(item=>{item.classList = ''});
+
+    document.getElementsByClassName('slick-dots-custom')[0].getElementsByTagName('li')[index].classList = 'custom-slick-active'
+  }
   beforeChange(oldIndex, newIndex) {
     this.currentSlideNumber = newIndex;
+    this.manageActiveClass(this.currentSlideNumber)
+    this.resetAutoPlay();
     if(this.isMobile && this.currentSlideNumber === 0) {
       return;
     }
     if(this.isMobile){
       if (this.currentSlideNumber >= 4) {
-        document.getElementsByClassName('slick-dots')[0].id = 'dotsBlack';
+        document.getElementsByClassName('slick-dots-custom')[0].id = 'dotsBlack';
         document.getElementsByTagName('header')[0].id = 'logoWgite';
       } else if (this.currentSlideNumber < 4) {
-        document.getElementsByClassName('slick-dots')[0].id = 'null';
+        document.getElementsByClassName('slick-dots-custom')[0].id = 'null';
         document.getElementsByTagName('header')[0].id = 'logoBlac';
       }
       this.setState({
@@ -315,10 +345,10 @@ export default class App extends Component {
       this.inProgress = false;
     }
     if (this.currentSlideNumber >= 4) {
-      document.getElementsByClassName('slick-dots')[0].id = 'dotsBlack';
+      document.getElementsByClassName('slick-dots-custom')[0].id = 'dotsBlack';
       document.getElementsByTagName('header')[0].id = 'logoWgite';
     } else if (this.currentSlideNumber < 4) {
-      document.getElementsByClassName('slick-dots')[0].id = 'null';
+      document.getElementsByClassName('slick-dots-custom')[0].id = 'null';
       document.getElementsByTagName('header')[0].id = 'logoBlac';
     }
     if(this.isMobile){
@@ -330,7 +360,7 @@ export default class App extends Component {
   }
   render() {
     let settings = {
-      dots: true,
+      dots: false,
       arrows: false,
       easing: 'ease-in',
       infinite: false,
@@ -346,6 +376,7 @@ export default class App extends Component {
       slidesToShow: 1,
       slidesToScroll: 1
     };
+
     return (
       <>
         <Header isBlackScreen={this.state.isBlackScreen} />
@@ -455,6 +486,15 @@ export default class App extends Component {
             ]}
           />
         </Slider>
+        <div className="slick-dots-custom">
+        <ul>
+          <li onClick={this.manageClick.bind(this,0)}></li>
+          <li onClick={this.manageClick.bind(this,1)}></li>
+          <li onClick={this.manageClick.bind(this,2)}></li>
+          <li onClick={this.manageClick.bind(this,3)}></li>
+          <li onClick={this.manageClick.bind(this,4)}></li>
+          <li onClick={this.manageClick.bind(this,5)}></li>
+        </ul></div>
         <Footer />
       </>
     );
