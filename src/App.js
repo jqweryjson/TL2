@@ -359,13 +359,19 @@ export default class App extends Component {
     }
   }
   afterChange(index) {
-    if(this.currentSlideNumber === 4 || this.currentSlideNumber === 5){
+    if(this.currentSlideNumber === 4){
       var currentNlock = document.getElementsByClassName('blackSection')[0];
       currentNlock.getElementsByClassName('blackSection__slideLeft')[0].classList += ' blackSection__slideLeft-anim';
     }
     if(this.currentSlideNumber === 5){
       var currentNlock = document.getElementsByClassName('blackSection')[1];
       currentNlock.getElementsByClassName('blackSection__slideLeft')[0].classList += ' blackSection__slideLeft-anim';
+    }
+    if(this.currentSlideNumber === 3){
+      var currentNlock = document.getElementsByClassName('blackSection')[0];
+      currentNlock.getElementsByClassName('blackSection__slideLeft')[0].classList = 'blackSection__slideLeft';
+      var currentNlock = document.getElementsByClassName('blackSection')[1];
+      currentNlock.getElementsByClassName('blackSection__slideLeft')[0].classList = 'blackSection__slideLeft';
     }
     if(this.isMobile && this.currentSlideNumber === 0) {
       return;

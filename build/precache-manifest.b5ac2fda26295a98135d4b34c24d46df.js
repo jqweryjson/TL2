@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/1/static/media/Tele2TextSans-Regular.adbf0ede.otf"
   },
   {
-    "revision": "bcceeda9e73d88e03952",
+    "revision": "e027844f39892beb342e",
     "url": "/1/static/css/main.43ce59e9.chunk.css"
   },
   {
@@ -52,32 +52,32 @@ self.__precacheManifest = [
     "url": "/1/static/media/girls-mobile.abc4f994.png"
   },
   {
-    "revision": "7c10bf754477d763bb4be788141d912f",
-    "url": "/1/static/media/Tele2DisplaySerif-Regular.7c10bf75.otf"
-  },
-  {
     "revision": "7fb8d89e3b25c43fdd878d4191702fa3",
     "url": "/1/static/media/StandardStencil-Bold.7fb8d89e.otf"
   },
   {
-    "revision": "bcceeda9e73d88e03952",
-    "url": "/1/static/js/main.db0fe6e4.chunk.js"
+    "revision": "7c10bf754477d763bb4be788141d912f",
+    "url": "/1/static/media/Tele2DisplaySerif-Regular.7c10bf75.otf"
+  },
+  {
+    "revision": "e027844f39892beb342e",
+    "url": "/1/static/js/main.00068839.chunk.js"
   },
   {
     "revision": "ced611daf7709cc778da928fec876475",
     "url": "/1/static/media/slick.ced611da.eot"
   },
   {
-    "revision": "f97e3bbf73254b0112091d0192f17aec",
-    "url": "/1/static/media/slick.f97e3bbf.svg"
+    "revision": "d41f55a78e6f49a5512878df1737e58a",
+    "url": "/1/static/media/slick.d41f55a7.ttf"
   },
   {
     "revision": "b7c9e1e479de3b53f1e4e30ebac2403a",
     "url": "/1/static/media/slick.b7c9e1e4.woff"
   },
   {
-    "revision": "d41f55a78e6f49a5512878df1737e58a",
-    "url": "/1/static/media/slick.d41f55a7.ttf"
+    "revision": "f97e3bbf73254b0112091d0192f17aec",
+    "url": "/1/static/media/slick.f97e3bbf.svg"
   },
   {
     "revision": "722acd42f05dff1b62a31c0935954ea4",
@@ -116,7 +116,7 @@ self.__precacheManifest = [
     "url": "/1/static/css/2.5de87ebe.chunk.css"
   },
   {
-    "revision": "db697a08abef79eab490b0d1db8c5ba9",
+    "revision": "b37b393ff552fe38ad805afb07a28990",
     "url": "/1/index.html"
   }
 ];
