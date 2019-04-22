@@ -413,7 +413,6 @@ code {
 
   @include for-phone-only{
     height:130vh;
-      background:#000;
   }
 
   &__block{
@@ -514,15 +513,28 @@ code {
     }
   }
 }
+@keyframes ckSection {
+  100% {
+    transform: translate3d(0,0,0);
+  }
+}
 .blackSection__slideLeft {
   position: relative;
   width: 100%;
   height: 100%;
   background: #000;
   transform: translate3d(-100%,0,0);
+  & + .blackSection__block{
+    transition:opacity .5s ease;
+      opacity:0;
+  }
 }
 .blackSection__slideLeft-anim{
-  animation:playStartAnimText 1s cubic-bezier(0, 0, 0, 1) both;
+  animation:ckSection .8s cubic-bezier(0, 0, 0, 1) both;
+
+  & + .blackSection__block{
+      opacity:1;
+  }
 }
 .blackSection__block_m {
 
@@ -720,6 +732,7 @@ code {
   mix-blend-mode: multiply;
   z-index: 10; 
   width: 100%;
+  pointer-events: none; 
   @include for-phone-only {
     height: 100vh;
     width: 100vw;

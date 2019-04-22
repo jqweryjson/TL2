@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "7c10bf754477d763bb4be788141d912f",
-    "url": "/1/static/media/Tele2DisplaySerif-Regular.7c10bf75.otf"
+    "revision": "adbf0ede6d4ca62c83599a296cffbb4d",
+    "url": "/1/static/media/Tele2TextSans-Regular.adbf0ede.otf"
   },
   {
-    "revision": "fecec4cdec96496c8dc3",
-    "url": "/1/static/css/main.f0931368.chunk.css"
+    "revision": "a5e97312b3b518e79b01",
+    "url": "/1/static/css/main.b39ff77c.chunk.css"
   },
   {
     "revision": "ecf45d1f754fb630230b",
@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/1/static/media/startWaveMobile.a5ab3746.svg"
   },
   {
-    "revision": "f685e7e9b0f30b14afb4",
+    "revision": "234c229eb77c33f8efc9",
     "url": "/1/static/js/2.ef9e8871.chunk.js"
   },
   {
@@ -52,24 +52,24 @@ self.__precacheManifest = [
     "url": "/1/static/media/girls-mobile.abc4f994.png"
   },
   {
+    "revision": "7c10bf754477d763bb4be788141d912f",
+    "url": "/1/static/media/Tele2DisplaySerif-Regular.7c10bf75.otf"
+  },
+  {
     "revision": "7fb8d89e3b25c43fdd878d4191702fa3",
     "url": "/1/static/media/StandardStencil-Bold.7fb8d89e.otf"
   },
   {
-    "revision": "adbf0ede6d4ca62c83599a296cffbb4d",
-    "url": "/1/static/media/Tele2TextSans-Regular.adbf0ede.otf"
-  },
-  {
-    "revision": "fecec4cdec96496c8dc3",
-    "url": "/1/static/js/main.452aff13.chunk.js"
-  },
-  {
-    "revision": "b7c9e1e479de3b53f1e4e30ebac2403a",
-    "url": "/1/static/media/slick.b7c9e1e4.woff"
+    "revision": "a5e97312b3b518e79b01",
+    "url": "/1/static/js/main.78cb0ba6.chunk.js"
   },
   {
     "revision": "ced611daf7709cc778da928fec876475",
     "url": "/1/static/media/slick.ced611da.eot"
+  },
+  {
+    "revision": "b7c9e1e479de3b53f1e4e30ebac2403a",
+    "url": "/1/static/media/slick.b7c9e1e4.woff"
   },
   {
     "revision": "d41f55a78e6f49a5512878df1737e58a",
@@ -112,11 +112,11 @@ self.__precacheManifest = [
     "url": "/1/static/media/startWave.347b5a33.svg"
   },
   {
-    "revision": "f685e7e9b0f30b14afb4",
-    "url": "/1/static/css/2.89b5a7e1.chunk.css"
+    "revision": "234c229eb77c33f8efc9",
+    "url": "/1/static/css/2.5de87ebe.chunk.css"
   },
   {
-    "revision": "25f033a4af1b9cf8019836d4777a0d95",
+    "revision": "a58605ddc2f52f4a16fd07220acc5bd6",
     "url": "/1/index.html"
   }
 ];
