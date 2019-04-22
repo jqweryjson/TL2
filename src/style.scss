@@ -390,7 +390,8 @@ code {
       left:0;
       top:4em;
       width:auto;
-      padding: 0 1.875em;
+      padding: 0 1.075em;
+     
     }
   }
   &__h2{
@@ -447,7 +448,7 @@ code {
     justify-content: space-between;
     flex-flow: row wrap;
     align-items: center;
-    margin-top:3rem;
+    margin-top:2rem;
     @include for-phone-only{
       flex-flow: column wrap;
     }
@@ -490,7 +491,7 @@ code {
   @include for-phone-only{
     display:block;
     width:auto;
-    top: 5em;
+    top: 0em;
   }
   & .blackSection__h2 {
     @include for-phone-only{
@@ -505,6 +506,7 @@ code {
       @include for-phone-only{
         flex-flow: column nowrap;
         margin:0;
+
       }
     & .blackSection__row {
       margin: 0;
@@ -533,6 +535,7 @@ code {
           width:100%;
           padding: 0;
           padding: 1em 0;
+          padding-bottom:2em;
         }
       }
     }
@@ -703,13 +706,21 @@ code {
   opacity: 1;
   transform: scale(1);
 }
-
-header#logoBlac path{
-  fill:'#000'
+header{
+  transition:all .1s ease;
 }
-header#logoWgite path{
-  fill:#fff
+header#logoBlac{
+  background:#fff;
+  & path{
+    fill:#000
+  }
 }
+header#logoWgite {
+  background:#000;
+  & path{
+    fill:#fff
+  }
+} 
 .slick-slider {
   //z-index: 10;
   @include for-phone-only{

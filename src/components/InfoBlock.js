@@ -55,7 +55,7 @@ export default class InfoBlock extends React.Component {
           .to(this.props.icon.ref.current,this.iconRefT,{scale:0,immediateRender:true})
           .to(this.whiteSlide2.current, this.whiteSlideT, {left :0,immediateRender:false})
           .to(this.whiteSlide3.current, this.whiteSlideT, {left :0,immediateRender:false},this.whiteSlide3DEl)
-          .to(this.buttonRef.current, this.btnT, {scale :0,immediateRender:false,onComplete:()=>{}}, this.btnTDEL)
+          .to(this.buttonRef.current, .2, {scale :0,immediateRender:false,onComplete:()=>{}}, this.btnTDEL)
           .set(this.headerRef.current,{x :'-100%',immediateRender:true})
           .set(this.titleRef.current,{x :'-100%',immediateRender:true})
           .set(this.buttonRef.current,{opacity :0,immediateRender:true})

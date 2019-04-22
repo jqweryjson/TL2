@@ -250,10 +250,10 @@ export default class App extends Component {
   }
   resetAutoPlay(){
     clearInterval(this.autoplay);
-    // this.autoplay = setInterval(this.autoplayStart.bind(this), this.autoplayDelay);
+    this.autoplay = setInterval(this.autoplayStart.bind(this), this.autoplayDelay);
   }
   onSwipeMove(position, event) {
-debugger;
+
     this.resetAutoPlay();
     if (this.inProgress) {
       document.getElementById('svgWave').getElementsByTagName('line')[0].style.display = 'none'
@@ -291,6 +291,13 @@ debugger;
       return;
     }
     if(this.isMobile){
+      if (this.currentSlideNumber >= 4) {
+        document.getElementsByClassName('slick-dots')[0].id = 'dotsBlack';
+        document.getElementsByTagName('header')[0].id = 'logoWgite';
+      } else if (this.currentSlideNumber < 4) {
+        document.getElementsByClassName('slick-dots')[0].id = 'null';
+        document.getElementsByTagName('header')[0].id = 'logoBlac';
+      }
       this.setState({
         animateTextDirection: 'fromLeft'
       });
