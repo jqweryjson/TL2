@@ -1,4 +1,9 @@
 import * as React from 'react';
+import { isMobile } from 'react-device-detect';
+
+import { ReactComponent as Ok } from '../img/ok.svg';
+import { ReactComponent as Fb } from '../img/fb.svg';
+import { ReactComponent as Vk } from '../img/vk.svg';
 
 const Button = ({ text, id }) => {
   return (
@@ -33,6 +38,19 @@ export default class BlackSection2 extends React.PureComponent {
           <div className="blackSection__block blackSection__block_m">
             {<Blockrow  {...this.props} />}
           </div>
+          {isMobile ? (
+              <div className="footer__soc">
+                <a className="footer__soc-link" href="javascript:;">
+                    <Ok />
+                </a>
+                <a className="footer__soc-link" href="javascript:;">
+                    <Fb />
+                </a>
+                <a className="footer__soc-link" href="javascript:;">
+                    <Vk />
+                </a>
+              </div>          
+          ) : null}
         </div>
       </section>
     );

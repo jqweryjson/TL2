@@ -394,7 +394,8 @@ code {
     justify-content: space-around;
     padding: 1rem 2rem;
     @include for-phone-only{
-      display:none;
+      position:static;
+      left:0;
     }
     &-link {
       display: block;
@@ -409,7 +410,9 @@ code {
 }
 .blackSection {
   height: 100vh;
-
+  @include for-phone-only{
+    height:130vh;
+  }
 
   &__block{
     position: absolute;
@@ -514,6 +517,10 @@ code {
   width: 100%;
   height: 100%;
   background: #000;
+  transform: translate3d(-100%,0,0);
+}
+.blackSection__slideLeft-anim{
+  animation:playStartAnimText 1s cubic-bezier(0, 0, 0, 1) both;
 }
 .blackSection__block_m {
 
@@ -524,6 +531,7 @@ code {
     display:block;
     width:auto;
     top: 0em;
+    padding-top:5rem;
   }
   & .blackSection__h2 {
     @include for-phone-only{

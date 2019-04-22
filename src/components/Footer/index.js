@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import { ReactComponent as Ok } from '../img/ok.svg';
 import { ReactComponent as Fb } from '../img/fb.svg';
 import { ReactComponent as Vk } from '../img/vk.svg';
@@ -9,13 +10,13 @@ const Footer = () => {
             <div className="footer__soc">
                 <a className="footer__soc-link" href="javascript:;">
                     <Ok />
-                </a>   
+                </a>
                 <a className="footer__soc-link" href="javascript:;">
                     <Fb />
-                </a>   
+                </a>
                 <a className="footer__soc-link" href="javascript:;">
                     <Vk />
-                </a>   
+                </a>
             </div>
         </footer>
     );

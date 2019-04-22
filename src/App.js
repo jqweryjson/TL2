@@ -4,7 +4,6 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { TimelineLite, Power2 } from 'gsap';
 import { isMobile } from 'react-device-detect';
-import classnames from 'classnames';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -274,7 +273,33 @@ export default class App extends Component {
     }
     //return true;
   }
+  append4Section(){
+    document
+    .getElementById('svgWave')
+    .getElementsByTagName('path')[0]
+    .setAttribute('fill', `rgba(0,0,0,0)`);
+    var currentNlock = document.getElementsByClassName('blackSection')[0];
+    var blackSec = currentNlock.cloneNode(true);
+    var three = document.getElementsByClassName('slick-slide')[3].getElementsByTagName('div')[0];
+    var threeSec = three.getElementsByClassName('section')[0];
+    // Вставляем sp1 перед sp2
+    three.insertBefore(blackSec, threeSec);
+    currentNlock.getElementsByClassName('blackSection__slideLeft')[0].classList += ' blackSection__slideLeft-anim';
+    blackSec.getElementsByClassName('blackSection__slideLeft')[0].classList += ' blackSection__slideLeft-anim';
+    setTimeout(()=>{
+      this.sliderRef.current.slickGoTo(4);
+    },2000)
+    //this.sliderRef.current.slickGoTo(4);
+    // document.getElementsByClassName('slick-dots-custom')[0].id = 'dotsBlack';
+    // document.getElementsByTagName('header')[0].id = 'logoWgite';
+    // this.currentSlideNumber = 4;
+  }
   preNext() {
+    // if(this.currentSlideNumber === 3) {
+
+    //   this.append4Section();
+    //   return;
+    // }
     if (this.currentSlideNumber <= 3) {
       this.animateWave(this.currentSlideNumber + 1);
       this.animateText(this.currentSlideNumber, 'next');
@@ -334,6 +359,14 @@ export default class App extends Component {
     }
   }
   afterChange(index) {
+    if(this.currentSlideNumber === 4 || this.currentSlideNumber === 5){
+      var currentNlock = document.getElementsByClassName('blackSection')[0];
+      currentNlock.getElementsByClassName('blackSection__slideLeft')[0].classList += ' blackSection__slideLeft-anim';
+    }
+    if(this.currentSlideNumber === 5){
+      var currentNlock = document.getElementsByClassName('blackSection')[1];
+      currentNlock.getElementsByClassName('blackSection__slideLeft')[0].classList += ' blackSection__slideLeft-anim';
+    }
     if(this.isMobile && this.currentSlideNumber === 0) {
       return;
     }
@@ -495,7 +528,7 @@ export default class App extends Component {
           <li onClick={this.manageClick.bind(this,4)}></li>
           <li onClick={this.manageClick.bind(this,5)}></li>
         </ul></div>
-        <Footer />
+        {isMobile ? null : <Footer />}
       </>
     );
   }
