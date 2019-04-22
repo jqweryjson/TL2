@@ -127,6 +127,7 @@ export default class App extends Component {
     if(this.currentSlideNumber === 5){
       this.tl.set('.blackSection__block-op-2',{visibility:'hidden',immediateRender:true})
       this.tl.set('.blackSection__block-op',{visibility:'visible',immediateRender:true})
+      this.tl.set('.blackSection',{background:'#000',immediateRender:true})
     }
 
     if (this.currentSlideNumber > 4) {
@@ -304,10 +305,20 @@ debugger;
         .getElementsByTagName('path')[0]
         .setAttribute('fill', `rgba(0,0,0,0)`);
     }
-    debugger;
+    if(index === 4){
+      var currentNlock = document.getElementsByClassName('blackSection')
+      currentNlock[0].getElementsByClassName('blackSection__slideLeft-1')[0].classList += ' blackSection__slideLeft-anim-1';
+      currentNlock[1].getElementsByClassName('blackSection__slideLeft-2')[0].classList = 'blackSection__slideLeft-2';
+    }
+    if(index === 5){
+      var currentNlock = document.getElementsByClassName('blackSection');
+      currentNlock[1].getElementsByClassName('blackSection__slideLeft-2')[0].classList += ' blackSection__slideLeft-anim-2';
+      currentNlock[0].getElementsByClassName('blackSection__slideLeft-1')[0].classList = 'blackSection__slideLeft-1';
+    }
     if (index >= 4) {
       document.getElementsByClassName('slick-dots-custom')[0].id = 'dotsBlack';
       document.getElementsByTagName('header')[0].id = 'logoWgite';
+      this.tl.set('.blackSection',{background:'#000',immediateRender:true})
     } else if (index < 4) {
       document.getElementsByClassName('slick-dots-custom')[0].id = 'null';
       document.getElementsByTagName('header')[0].id = 'logoBlac';
@@ -353,10 +364,10 @@ debugger;
     if(this.currentSlideNumber === 5){
       var currentNlock = document.getElementsByClassName('blackSection');
       currentNlock[1].getElementsByClassName('blackSection__slideLeft-2')[0].classList += ' blackSection__slideLeft-anim-2';
-
       currentNlock[0].getElementsByClassName('blackSection__slideLeft-1')[0].classList = 'blackSection__slideLeft-1';
     }
     if(this.currentSlideNumber < 4){
+      this.tl.set(document.getElementsByClassName('blackSection')[0],{background:'#fff',immediateRender:true})
       this.tl.set('.blackSection__block-op',{visibility:'visible',immediateRender:true})
       this.tl.set('.blackSection__block-op-2',{visibility:'visible',immediateRender:true})
       var currentNlock = document.getElementsByClassName('blackSection');

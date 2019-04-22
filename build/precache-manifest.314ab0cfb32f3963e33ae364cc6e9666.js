@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/1/static/media/Tele2TextSans-Regular.adbf0ede.otf"
   },
   {
-    "revision": "b3567f55cc49f1fdcd31",
+    "revision": "9b3f56f79d76f05b9c2e",
     "url": "/1/static/css/main.172aead6.chunk.css"
   },
   {
@@ -52,16 +52,16 @@ self.__precacheManifest = [
     "url": "/1/static/media/girls-mobile.abc4f994.png"
   },
   {
-    "revision": "7c10bf754477d763bb4be788141d912f",
-    "url": "/1/static/media/Tele2DisplaySerif-Regular.7c10bf75.otf"
-  },
-  {
     "revision": "7fb8d89e3b25c43fdd878d4191702fa3",
     "url": "/1/static/media/StandardStencil-Bold.7fb8d89e.otf"
   },
   {
-    "revision": "b3567f55cc49f1fdcd31",
-    "url": "/1/static/js/main.b8114cdc.chunk.js"
+    "revision": "7c10bf754477d763bb4be788141d912f",
+    "url": "/1/static/media/Tele2DisplaySerif-Regular.7c10bf75.otf"
+  },
+  {
+    "revision": "9b3f56f79d76f05b9c2e",
+    "url": "/1/static/js/main.8c24c5d2.chunk.js"
   },
   {
     "revision": "ced611daf7709cc778da928fec876475",
@@ -116,7 +116,7 @@ self.__precacheManifest = [
     "url": "/1/static/css/2.5de87ebe.chunk.css"
   },
   {
-    "revision": "ece47c7218e20ee1d7ebda4b8408a62b",
+    "revision": "fda4bffa4e91ded98442ad6113874d61",
     "url": "/1/index.html"
   }
 ];
