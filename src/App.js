@@ -250,7 +250,7 @@ export default class App extends Component {
   }
   resetAutoPlay(){
     clearInterval(this.autoplay);
-    //this.autoplay = setInterval(this.autoplayStart.bind(this), this.autoplayDelay);
+    this.autoplay = setInterval(this.autoplayStart.bind(this), this.autoplayDelay);
   }
   onSwipeMove(position, event) {
 

@@ -410,8 +410,10 @@ code {
 }
 .blackSection {
   height: 100vh;
+
   @include for-phone-only{
     height:130vh;
+      background:#000;
   }
 
   &__block{
