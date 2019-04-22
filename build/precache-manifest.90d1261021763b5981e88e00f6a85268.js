@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/1/static/media/Tele2TextSans-Regular.adbf0ede.otf"
   },
   {
-    "revision": "a5e97312b3b518e79b01",
-    "url": "/1/static/css/main.b39ff77c.chunk.css"
+    "revision": "b3567f55cc49f1fdcd31",
+    "url": "/1/static/css/main.172aead6.chunk.css"
   },
   {
     "revision": "ecf45d1f754fb630230b",
@@ -60,8 +60,8 @@ self.__precacheManifest = [
     "url": "/1/static/media/StandardStencil-Bold.7fb8d89e.otf"
   },
   {
-    "revision": "a5e97312b3b518e79b01",
-    "url": "/1/static/js/main.78cb0ba6.chunk.js"
+    "revision": "b3567f55cc49f1fdcd31",
+    "url": "/1/static/js/main.b8114cdc.chunk.js"
   },
   {
     "revision": "ced611daf7709cc778da928fec876475",
@@ -116,7 +116,7 @@ self.__precacheManifest = [
     "url": "/1/static/css/2.5de87ebe.chunk.css"
   },
   {
-    "revision": "a58605ddc2f52f4a16fd07220acc5bd6",
+    "revision": "ece47c7218e20ee1d7ebda4b8408a62b",
     "url": "/1/index.html"
   }
 ];

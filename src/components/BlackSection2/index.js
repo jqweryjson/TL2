@@ -33,9 +33,9 @@ const Blockrow = ({ body }) => {
 export default class BlackSection2 extends React.PureComponent {
   render() {
     return (
-      <section className="section blackSection">
-        <div className="blackSection__slideLeft"> </div>
-          <div className="blackSection__block blackSection__block_m">
+      <section className="section blackSection blackSection-last">
+        <div className="blackSection__slideLeft-2"> </div>
+          <div className="blackSection__block blackSection__block_m blackSection__block-op-2">
             {<Blockrow  {...this.props} />}
           </div>
           {isMobile ? (

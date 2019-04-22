@@ -9,8 +9,8 @@ export default class BlackSection extends React.PureComponent {
         const {header,upperText, textMark, text, btn} = this.props;
         return (
             <section className="section blackSection">
-                <div className="blackSection__slideLeft"></div>
-                    <div className="blackSection__block">
+                <div className="blackSection__slideLeft-1"></div>
+                    <div className="blackSection__block blackSection__block-op">
                         <h2 className="blackSection__h2">{ header }</h2>
                         <div className="blackSection__row">
                             <span className="blackSection__text blackSection__text_upper">{ upperText }</span>

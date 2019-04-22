@@ -124,6 +124,11 @@ export default class App extends Component {
       .setAttribute('fill', `${this.state.fills[nextSlideNumber]}`);
   }
   prePrev() {
+    if(this.currentSlideNumber === 5){
+      this.tl.set('.blackSection__block-op-2',{visibility:'hidden',immediateRender:true})
+      this.tl.set('.blackSection__block-op',{visibility:'visible',immediateRender:true})
+    }
+
     if (this.currentSlideNumber > 4) {
       this.sliderRef.current.slickPrev();
     } else {
@@ -274,11 +279,12 @@ export default class App extends Component {
     //return true;
   }
   preNext() {
-    // if(this.currentSlideNumber === 3) {
+debugger;
+    if(this.currentSlideNumber === 4){
+      this.tl.set('.blackSection__block-op',{visibility:'hidden',immediateRender:true})
+      this.tl.set('.blackSection__block-op-2',{visibility:'visible',immediateRender:true})
+    }
 
-    //   this.append4Section();
-    //   return;
-    // }
     if (this.currentSlideNumber <= 3) {
       this.animateWave(this.currentSlideNumber + 1);
       this.animateText(this.currentSlideNumber, 'next');
@@ -338,19 +344,24 @@ export default class App extends Component {
     }
   }
   afterChange(index) {
+    debugger;
     if(this.currentSlideNumber === 4){
-      var currentNlock = document.getElementsByClassName('blackSection')[0];
-      currentNlock.getElementsByClassName('blackSection__slideLeft')[0].classList += ' blackSection__slideLeft-anim';
+      var currentNlock = document.getElementsByClassName('blackSection')
+      currentNlock[0].getElementsByClassName('blackSection__slideLeft-1')[0].classList += ' blackSection__slideLeft-anim-1';
+      currentNlock[1].getElementsByClassName('blackSection__slideLeft-2')[0].classList = 'blackSection__slideLeft-2';
     }
     if(this.currentSlideNumber === 5){
-      var currentNlock = document.getElementsByClassName('blackSection')[1];
-      currentNlock.getElementsByClassName('blackSection__slideLeft')[0].classList += ' blackSection__slideLeft-anim';
+      var currentNlock = document.getElementsByClassName('blackSection');
+      currentNlock[1].getElementsByClassName('blackSection__slideLeft-2')[0].classList += ' blackSection__slideLeft-anim-2';
+
+      currentNlock[0].getElementsByClassName('blackSection__slideLeft-1')[0].classList = 'blackSection__slideLeft-1';
     }
-    if(this.currentSlideNumber === 3){
-      var currentNlock = document.getElementsByClassName('blackSection')[0];
-      currentNlock.getElementsByClassName('blackSection__slideLeft')[0].classList = 'blackSection__slideLeft';
-      var currentNlock = document.getElementsByClassName('blackSection')[1];
-      currentNlock.getElementsByClassName('blackSection__slideLeft')[0].classList = 'blackSection__slideLeft';
+    if(this.currentSlideNumber < 4){
+      this.tl.set('.blackSection__block-op',{visibility:'visible',immediateRender:true})
+      this.tl.set('.blackSection__block-op-2',{visibility:'visible',immediateRender:true})
+      var currentNlock = document.getElementsByClassName('blackSection');
+      currentNlock[0].getElementsByClassName('blackSection__slideLeft-1')[0].classList = 'blackSection__slideLeft-1';
+      currentNlock[1].getElementsByClassName('blackSection__slideLeft-2')[0].classList = 'blackSection__slideLeft-2';
     }
     if(this.isMobile && this.currentSlideNumber === 0) {
       return;
