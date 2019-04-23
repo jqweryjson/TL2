@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/1/static/media/Tele2TextSans-Regular.adbf0ede.otf"
   },
   {
-    "revision": "da2573b15cdab24d672a",
-    "url": "/1/static/css/main.2c078424.chunk.css"
+    "revision": "cd947371a4d4e007da23",
+    "url": "/1/static/css/main.4e6103ff.chunk.css"
   },
   {
     "revision": "ecf45d1f754fb630230b",
@@ -16,8 +16,8 @@ self.__precacheManifest = [
     "url": "/1/static/media/startWaveMobile.a5ab3746.svg"
   },
   {
-    "revision": "ee70a9910bb68a70054e",
-    "url": "/1/static/js/2.1c787fd5.chunk.js"
+    "revision": "f1a9fa4cf1e6641b5086",
+    "url": "/1/static/js/2.841b0c3f.chunk.js"
   },
   {
     "revision": "7a787073748849c3805dc0602550600c",
@@ -52,32 +52,32 @@ self.__precacheManifest = [
     "url": "/1/static/media/robot-mobile.e3749843.png"
   },
   {
-    "revision": "7fb8d89e3b25c43fdd878d4191702fa3",
-    "url": "/1/static/media/StandardStencil-Bold.7fb8d89e.otf"
-  },
-  {
     "revision": "7c10bf754477d763bb4be788141d912f",
     "url": "/1/static/media/Tele2DisplaySerif-Regular.7c10bf75.otf"
   },
   {
-    "revision": "da2573b15cdab24d672a",
-    "url": "/1/static/js/main.dd7fdefa.chunk.js"
+    "revision": "7fb8d89e3b25c43fdd878d4191702fa3",
+    "url": "/1/static/media/StandardStencil-Bold.7fb8d89e.otf"
   },
   {
-    "revision": "b7c9e1e479de3b53f1e4e30ebac2403a",
-    "url": "/1/static/media/slick.b7c9e1e4.woff"
-  },
-  {
-    "revision": "f97e3bbf73254b0112091d0192f17aec",
-    "url": "/1/static/media/slick.f97e3bbf.svg"
+    "revision": "cd947371a4d4e007da23",
+    "url": "/1/static/js/main.e47b55e8.chunk.js"
   },
   {
     "revision": "ced611daf7709cc778da928fec876475",
     "url": "/1/static/media/slick.ced611da.eot"
   },
   {
+    "revision": "b7c9e1e479de3b53f1e4e30ebac2403a",
+    "url": "/1/static/media/slick.b7c9e1e4.woff"
+  },
+  {
     "revision": "d41f55a78e6f49a5512878df1737e58a",
     "url": "/1/static/media/slick.d41f55a7.ttf"
+  },
+  {
+    "revision": "f97e3bbf73254b0112091d0192f17aec",
+    "url": "/1/static/media/slick.f97e3bbf.svg"
   },
   {
     "revision": "722acd42f05dff1b62a31c0935954ea4",
@@ -112,11 +112,11 @@ self.__precacheManifest = [
     "url": "/1/static/media/startWave.347b5a33.svg"
   },
   {
-    "revision": "ee70a9910bb68a70054e",
+    "revision": "f1a9fa4cf1e6641b5086",
     "url": "/1/static/css/2.b74a8b6c.chunk.css"
   },
   {
-    "revision": "6b094d71427afc9d0844cff4478ca829",
+    "revision": "b576a26354a929270f08e56fd5104d7f",
     "url": "/1/index.html"
   }
 ];

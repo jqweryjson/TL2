@@ -21,6 +21,9 @@ body {
   @include for-big-desktop-up {
     font-size: 23px;
   }
+  @include for-phone-only {
+    max-height:100vh;
+  }
   @include for-smallPhone-only {
     font-size: 14px;
   }
@@ -49,7 +52,8 @@ code {
   display:block;
   overflow:hidden;
   @include for-phone-only {
-    //height: 90vh;
+    height: 90vh;
+    position:relative;
   }
 }
 @keyframes playStartAnimText {
@@ -87,6 +91,7 @@ code {
   animation-delay: 2s;
   @include for-phone-only {
     //position:static;
+    height: 10vh;
     background:#fff;
     width:100%;
   }
@@ -110,9 +115,9 @@ code {
   width:31.688em;
   height:21.250em;
   @include for-phone-only{
-    height:85%;
+    height:80%;
     left:5vmin;
-    top:10%;
+    top:0vh;
     width:90%;
   }
   z-index:3;
@@ -218,6 +223,7 @@ code {
         position:absolute;
         bottom:3em;
         margin-bottom:0;
+        display:none;
       }
     &:focus{
       outline:none;
@@ -369,6 +375,14 @@ code {
 
 
 .custom-slick {
+  @include for-phone-only{
+    position: fixed!important;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top:10vh;
+
+  }
   & .slick-arrow {
     position: absolute;
     top:0;
@@ -818,4 +832,17 @@ header#logoWgite {
   top: 0;
   bottom: 0;
   z-index: 22;
+}
+.infoBlock__button.mBth {
+  @include for-phone-only{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity:1;
+    z-index:12;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 4em;
+  }
 }

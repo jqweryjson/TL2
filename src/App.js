@@ -11,6 +11,7 @@ import Footer from './components/Footer';
 import Section from './components/Section/';
 import BlackSection from './components/BlackSection';
 import BlackSection2 from './components/BlackSection2';
+import MobileBtnBlock from './components/MobileBtnBlock';
 
 import Couple from './components/img/couple.png';
 import Pig from './components/img/pig.png';
@@ -463,6 +464,7 @@ export default class App extends Component {
     return (
       <>
         <Header isBlackScreen={this.state.isBlackScreen} />
+        {isMobile ? <MobileBtnBlock text={'Погнали'} /> : null}
         {isMobile ? <StartWaveMobile id="svgWave" /> : <StartWave id="svgWave" />}
         <BlackSection
           header="воспользуйтесь прямо сейчас"
