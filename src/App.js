@@ -74,6 +74,13 @@ export default class App extends Component {
   }
   autoplayStart() {
     if (this.currentSlideNumber === 5) {
+      this.tl
+      .set('.slick-slide',{backgroundColor:'#fff',immediateRender:true})
+      .set('.isFourInfoBlock',{opacity:1,immediateRender:true})
+      .set('#svgWave',{opacity:1,immediateRender:true})
+      .set('.isFour',{opacity:1,immediateRender:true})
+      .set(ReactDOM.findDOMNode(this.blackSection2Ref.current),{width:'0%',immediateRender:true})
+      .set(ReactDOM.findDOMNode(this.blackSection1Ref.current),{width:'0%',immediateRender:true})
       this.sliderRef.current.slickGoTo(0);
       this.animateWave(0);
       return;
