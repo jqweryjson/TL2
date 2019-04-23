@@ -413,7 +413,9 @@ code {
 }
 .blackSection {
   height: 100vh;
-
+  width:0%;
+  background:#000;
+  z-index:4;
   @include for-phone-only{
     height:130vh;
   }
@@ -532,10 +534,6 @@ code {
   height: 100%;
   background: #000;
   transform: translate3d(-100%,0,0);
-  & + .blackSection__block{
-    transition:opacity .5s ease;
-      opacity:0;
-  }
 }
 .blackSection__slideLeft-2 {
   position: relative;
@@ -551,15 +549,9 @@ code {
 }
 .blackSection__slideLeft-anim-1{
   animation:ckSection .8s cubic-bezier(0, 0, 0, 1) both;
-  & + .blackSection__block{
-      opacity:1;
-  }
 }
 .blackSection__slideLeft-anim-2{
   animation:ckSection2 .8s cubic-bezier(0, 0, 0, 1) both;
-  & + .blackSection__block{
-      opacity:1;
-  }
 }
 
 
@@ -624,7 +616,7 @@ code {
 }
 .iconSec {
   position: absolute;
-  top: -3rem;
+  top: -4rem;
   left: 1.5rem;
     @include for-phone-only{
       display:none;
@@ -812,4 +804,8 @@ header#logoWgite {
   @include for-phone-only{
     //z-index: 20;
   }
+}
+
+.slick-slide{
+
 }

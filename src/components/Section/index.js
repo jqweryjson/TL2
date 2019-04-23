@@ -1,6 +1,6 @@
 import * as React from 'react';
 import InfoBlock from '../InfoBlock';
-
+import classnames from 'classnames';
 
 
 export default class Section extends React.Component {
@@ -12,11 +12,16 @@ export default class Section extends React.Component {
   }
   componentDidMount() {}
   render() {
-    const { image, specialID } = this.props;
+    const { image, specialID, number } = this.props;
+    const ImgClas = classnames({
+      "subject-image":true,
+      isFour: number === 4,
+    })
     return (
       <section className="section">
-        {image && <img className="subject-image" id={specialID} src={image} alt="subjects" /> }
+        {image && <img className={ImgClas} id={specialID} src={image} alt="subjects" /> }
         <InfoBlock {...this.props} />
+        {this.props.children}
       </section>
     );
   }

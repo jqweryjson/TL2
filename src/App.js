@@ -1,4 +1,5 @@
 import React, { Component, PureComponent } from 'react';
+import ReactDOM from 'react-dom';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -24,6 +25,7 @@ import GirlsMobile from './components/img/girls-mobile.png';
 import { ReactComponent as Ball } from './components/img/ball.svg';
 import { ReactComponent as Connect } from './components/img/connect.svg';
 import { ReactComponent as Onhand } from './components/img/onhand.svg';
+import { ReactComponent as Onhand2 } from './components/img/onhand.svg';
 
 
 import { ReactComponent as StartWave } from './components/img/startWave.svg';
@@ -49,8 +51,12 @@ export default class App extends Component {
   BallRef = React.createRef();
   ConnectRef = React.createRef();
   OnhandRef = React.createRef();
+  OnhandRef2 = React.createRef();
+  blackSection1Ref = React.createRef();
+  blackSection2Ref = React.createRef();
   currentSlideNumber = 0;
   inProgress = true;
+  fromFourSlide = false;
   autoplay;
   autoplayDelay = 5000;
   componentDidMount() {
@@ -123,48 +129,41 @@ export default class App extends Component {
       .getElementsByTagName('path')[0]
       .setAttribute('fill', `${this.state.fills[nextSlideNumber]}`);
   }
+  goToFour(){
+    
+    this.sliderRef.current.slickGoTo(4,true);
+  }
+  goToThree(){
+    this.animateWave(this.currentSlideNumber - 1);
+    this.fromFourSlide = true;
+    this.sliderRef.current.slickGoTo(3,true);
+    this.inProgress = false;
+    return;
+  }
   prePrev() {
-    if(this.currentSlideNumber === 5){
-      this.tl.set('.blackSection__block-op-2',{visibility:'hidden',immediateRender:true})
-      this.tl.set('.blackSection__block-op',{visibility:'visible',immediateRender:true})
-      this.tl.set('.blackSection',{background:'#000',immediateRender:true})
+    
+    if(this.currentSlideNumber === 5) {
+      let self = this;
+      this.tl
+      .to(ReactDOM.findDOMNode(this.blackSection2Ref.current),.8,{width:'0%',immediateRender:true, onComplete: self.goToFour.bind(self)})
+      return;
     }
-
-    if (this.currentSlideNumber > 4) {
+    if(this.currentSlideNumber === 4) {
+      let self = this;
+      this.tl
+      .set('.slick-slide',{backgroundColor:'#fff',immediateRender:true})
+      .set('.isFour',{opacity:1,immediateRender:true})
+      .set('.isFourInfoBlock',{opacity:1,immediateRender:true})
+      .to(ReactDOM.findDOMNode(this.blackSection1Ref.current),.8,{width:'0%',immediateRender:true, onComplete: self.goToThree.bind(self)});
+      return;
+    }
+    this.animateWave(this.currentSlideNumber - 1);
+    this.animateText(this.currentSlideNumber, 'next');
+    this.animateImage('prev');
+    setTimeout(() => {
       this.sliderRef.current.slickPrev();
-    } else {
-      if (this.currentSlideNumber === 4) {
-        document
-          .getElementById('svgWave')
-          .getElementsByTagName('path')[0]
-          .setAttribute(
-            'fill',
-            `${this.state.fills[this.currentSlideNumber - 1]}`
-          );
-        this.tl
-          .set(
-            document.getElementsByClassName('subject-image')[
-              this.currentSlideNumber - 1
-            ],
-            { right: '200%' }
-          )
-          .to(
-            document.getElementsByClassName('subject-image')[
-              this.currentSlideNumber - 1
-            ],
-            0.8,
-            { right: '0%' }
-          );
-        this.sliderRef.current.slickPrev();
-        return;
-      }
-      this.animateWave(this.currentSlideNumber - 1);
-      this.animateText(this.currentSlideNumber, 'next');
-      this.animateImage('prev');
-      setTimeout(() => {
-        this.sliderRef.current.slickPrev();
-      }, 800);
-    }
+    }, 800);
+
   }
   animateImage(direction) {
     if (this.currentSlideNumber === 0) {
@@ -256,7 +255,7 @@ export default class App extends Component {
   }
   resetAutoPlay(){
     clearInterval(this.autoplay);
-    this.autoplay = setInterval(this.autoplayStart.bind(this), this.autoplayDelay);
+    //this.autoplay = setInterval(this.autoplayStart.bind(this), this.autoplayDelay);
   }
   onSwipeMove(position, event) {
 
@@ -280,12 +279,19 @@ export default class App extends Component {
     //return true;
   }
   preNext() {
-debugger;
-    if(this.currentSlideNumber === 4){
-      this.tl.set('.blackSection__block-op',{visibility:'hidden',immediateRender:true})
-      this.tl.set('.blackSection__block-op-2',{visibility:'visible',immediateRender:true})
-    }
+   
+    if(this.currentSlideNumber === 4) {
+      //this.tl.to('.subject-image',{scale:1});
 
+      this.sliderRef.current.slickGoTo(5,true);
+      this.tl
+      .set(ReactDOM.findDOMNode(this.blackSection1Ref.current),{width:'0%',immediateRender:true})
+      return;
+    }
+    if(this.currentSlideNumber === 3){
+      this.sliderRef.current.slickGoTo(4,true);
+      return;
+    }
     if (this.currentSlideNumber <= 3) {
       this.animateWave(this.currentSlideNumber + 1);
       this.animateText(this.currentSlideNumber, 'next');
@@ -297,42 +303,58 @@ debugger;
       this.sliderRef.current.slickNext();
     }
   }
+  fadeOutWave(){
+    document
+    .getElementById('svgWave')
+    .getElementsByTagName('path')[0]
+    .setAttribute('fill', `rgba(0,0,0,0)`);
+  }
   manageClick(index) {
     clearInterval(this.autoplay);
-    if (index === 4 || index === 5) {
-      document
-        .getElementById('svgWave')
-        .getElementsByTagName('path')[0]
-        .setAttribute('fill', `rgba(0,0,0,0)`);
+
+    this.manageDots();   
+    if(index === 4 ) {
+      this.sliderRef.current.slickGoTo(4,true);
+      this.tl
+      .set('.slick-slide',{backgroundColor:'#000',immediateRender:true})
+      .set('.isFourInfoBlock',{opacity:0,immediateRender:true})
+      .set('.isFour',{opacity:0,immediateRender:true})
+      .set(ReactDOM.findDOMNode(this.blackSection2Ref.current),{width:'0%',immediateRender:true})
+      .to(ReactDOM.findDOMNode(this.blackSection1Ref.current),.8,{width:'100%',immediateRender:true})
+      this.fadeOutWave();
+      return;
+    } else if (index === 5) {
+      this.sliderRef.current.slickGoTo(5,true);
+      this.tl
+        .set('.slick-slide',{backgroundColor:'#000',immediateRender:true})
+        .set(ReactDOM.findDOMNode(this.blackSection1Ref.current),{width:'0%',immediateRender:true})
+        .to(ReactDOM.findDOMNode(this.blackSection2Ref.current),.8,{width:'100%',immediateRender:true})
+      this.fadeOutWave();
+      return;
+    } else {
+      this.tl
+      .set('.slick-slide',{backgroundColor:'#fff',immediateRender:true})
+      .set('.isFourInfoBlock',{opacity:1,immediateRender:true})
+      .set('.isFour',{opacity:1,immediateRender:true})
+      .set(ReactDOM.findDOMNode(this.blackSection2Ref.current),{width:'0%',immediateRender:true})
+      .set(ReactDOM.findDOMNode(this.blackSection1Ref.current),{width:'0%',immediateRender:true})
+      this.sliderRef.current.slickGoTo(index);
+      this.animateWave(index);
     }
-    if(index === 4){
-      var currentNlock = document.getElementsByClassName('blackSection')
-      currentNlock[0].getElementsByClassName('blackSection__slideLeft-1')[0].classList += ' blackSection__slideLeft-anim-1';
-      currentNlock[1].getElementsByClassName('blackSection__slideLeft-2')[0].classList = 'blackSection__slideLeft-2';
-    }
-    if(index === 5){
-      var currentNlock = document.getElementsByClassName('blackSection');
-      currentNlock[1].getElementsByClassName('blackSection__slideLeft-2')[0].classList += ' blackSection__slideLeft-anim-2';
-      currentNlock[0].getElementsByClassName('blackSection__slideLeft-1')[0].classList = 'blackSection__slideLeft-1';
-    }
-    if (index >= 4) {
-      document.getElementsByClassName('slick-dots-custom')[0].id = 'dotsBlack';
-      document.getElementsByTagName('header')[0].id = 'logoWgite';
-      this.tl.set('.blackSection',{background:'#000',immediateRender:true})
-    } else if (index < 4) {
-      document.getElementsByClassName('slick-dots-custom')[0].id = 'null';
-      document.getElementsByTagName('header')[0].id = 'logoBlac';
-    }    
-    this.sliderRef.current.slickGoTo(index);
-    this.animateWave(index);
-    
   }
   manageActiveClass(index){
     let arr = Array.from( document.getElementsByClassName('slick-dots-custom')[0].getElementsByTagName('li') );
-
     arr.forEach(item=>{item.classList = ''});
-
     document.getElementsByClassName('slick-dots-custom')[0].getElementsByTagName('li')[index].classList = 'custom-slick-active'
+  }
+  manageDots(){
+    if (this.currentSlideNumber >= 4) {
+      document.getElementsByClassName('slick-dots-custom')[0].id = 'dotsBlack';
+      document.getElementsByTagName('header')[0].id = 'logoWgite';
+    } else if (this.currentSlideNumber < 4) {
+      document.getElementsByClassName('slick-dots-custom')[0].id = 'null';
+      document.getElementsByTagName('header')[0].id = 'logoBlac';
+    }
   }
   beforeChange(oldIndex, newIndex) {
     this.currentSlideNumber = newIndex;
@@ -342,38 +364,31 @@ debugger;
       return;
     }
     if(this.isMobile){
-      if (this.currentSlideNumber >= 4) {
-        document.getElementsByClassName('slick-dots-custom')[0].id = 'dotsBlack';
-        document.getElementsByTagName('header')[0].id = 'logoWgite';
-      } else if (this.currentSlideNumber < 4) {
-        document.getElementsByClassName('slick-dots-custom')[0].id = 'null';
-        document.getElementsByTagName('header')[0].id = 'logoBlac';
-      }
+      this.manageDots();
       this.setState({
         animateTextDirection: 'fromLeft'
       });
     }
   }
   afterChange(index) {
-    debugger;
+    if(this.fromFourSlide){
+      this.fromFourSlide = false;
+      this.manageDots();
+      this.resetAutoPlay();
+      return;
+    }
     if(this.currentSlideNumber === 4){
-      var currentNlock = document.getElementsByClassName('blackSection')
-      currentNlock[0].getElementsByClassName('blackSection__slideLeft-1')[0].classList += ' blackSection__slideLeft-anim-1';
-      currentNlock[1].getElementsByClassName('blackSection__slideLeft-2')[0].classList = 'blackSection__slideLeft-2';
+      this.tl
+      .to(ReactDOM.findDOMNode(this.blackSection1Ref.current),.8,{width:'100%',immediateRender:true})
+      .set('.slick-slide',{backgroundColor:'#000'})
+      .set('.isFourInfoBlock',{opacity:0})
+      .set('.isFour',{opacity:0});
+      this.fadeOutWave();
     }
     if(this.currentSlideNumber === 5){
-      var currentNlock = document.getElementsByClassName('blackSection');
-      currentNlock[1].getElementsByClassName('blackSection__slideLeft-2')[0].classList += ' blackSection__slideLeft-anim-2';
-      currentNlock[0].getElementsByClassName('blackSection__slideLeft-1')[0].classList = 'blackSection__slideLeft-1';
+      this.tl.to(ReactDOM.findDOMNode(this.blackSection2Ref.current),.8,{width:'100%',immediateRender:true});
     }
-    if(this.currentSlideNumber < 4){
-      this.tl.set(document.getElementsByClassName('blackSection')[0],{background:'#fff',immediateRender:true})
-      this.tl.set('.blackSection__block-op',{visibility:'visible',immediateRender:true})
-      this.tl.set('.blackSection__block-op-2',{visibility:'visible',immediateRender:true})
-      var currentNlock = document.getElementsByClassName('blackSection');
-      currentNlock[0].getElementsByClassName('blackSection__slideLeft-1')[0].classList = 'blackSection__slideLeft-1';
-      currentNlock[1].getElementsByClassName('blackSection__slideLeft-2')[0].classList = 'blackSection__slideLeft-2';
-    }
+
     if(this.isMobile && this.currentSlideNumber === 0) {
       return;
     }
@@ -478,23 +493,37 @@ debugger;
             currentSlideNumber={this.currentSlideNumber}
             icon={<Onhand ref={this.OnhandRef} className="iconSec" />}
           />
-          <BlackSection
-            header="воспользуйтесь прямо сейчас"
-            upperText="быстрая команда:"
-            textMark="*155*номер абонента#"
-            text="Например: *155*9264799231#"
-            btn={[
-              {
-                text: 'В приложении Мой Tele2',
-                id: '1'
-              },
-              {
-                text: 'В личном кабинете',
-                id: '2'
-              }
-            ]}
-          />
+          <Section
+            title="Передавайте пакет интернета от 1 ГБ до 30 ГБ. Переданный пакет гигабайт действует 7 дней, но можно продлить и до 30 дней."
+            header="делись со всеми tele2 друзьями"
+            btnText="Погнали!"
+            hasBg={false}
+            image={isMobile ? GirlsMobile : Girls}
+            number={4}
+            slickSliderRef={this.sliderRef}
+            animateTextDirection={this.state.animateTextDirection}
+            currentSlideNumber={this.currentSlideNumber}
+            icon={<Onhand2 ref={this.OnhandRef2} className="iconSec" />}>
+              <BlackSection
+                header="воспользуйтесь прямо сейчас"
+                ref={this.blackSection1Ref}
+                upperText="быстрая команда:"
+                textMark="*155*номер абонента#"
+                text="Например: *155*9264799231#"
+                btn={[
+                  {
+                    text: 'В приложении Мой Tele2',
+                    id: '1'
+                  },
+                  {
+                    text: 'В личном кабинете',
+                    id: '2'
+                  }
+                ]}
+              />
+          </Section>
           <BlackSection2
+            ref={this.blackSection2Ref}
             body={[
               {
                 id: '1',

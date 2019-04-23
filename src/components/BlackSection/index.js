@@ -6,10 +6,9 @@ const Button = ({ text }) => {
 
 export default class BlackSection extends React.PureComponent {
     render(){
-        const {header,upperText, textMark, text, btn} = this.props;
+        const {header,upperText, textMark, text, btn } = this.props;
         return (
             <section className="section blackSection">
-                <div className="blackSection__slideLeft-1"></div>
                     <div className="blackSection__block blackSection__block-op">
                         <h2 className="blackSection__h2">{ header }</h2>
                         <div className="blackSection__row">
@@ -23,7 +22,6 @@ export default class BlackSection extends React.PureComponent {
                             }
                         </div>
                     </div>
-                
             </section>
         )
     }

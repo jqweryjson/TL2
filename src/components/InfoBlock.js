@@ -118,11 +118,12 @@ export default class InfoBlock extends React.Component {
 
   render() {
     console.log('WASRENDER')
+    const { title, header, btnText, onClick, icon, number } = this.props;
     const blockClass = classnames({
       hasBg: this.props.hasBg,
+      isFourInfoBlock: number === 4,
       wrapInfoBlock: true
     });
-    const { title, header, btnText, onClick, icon } = this.props;
     return (
         <div className={blockClass} ref={this.blockWrapRef}>
           {icon && icon}
