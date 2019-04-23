@@ -41,7 +41,20 @@ export default class InfoBlock extends React.Component {
   whiteSlide3DEl = '-=.4'
 
   componentDidUpdate(prevProps, prevState) {
- 
+      if(this.props.animateTextDirection === 'initial'){
+        this.tl
+        .set(this.headerRef.current,{opacity :1,x :'0%',immediateRender:true})
+        .set(this.titleRef.current,{opacity :1,x :'0%',immediateRender:true})
+        .set(this.buttonRef.current,{opacity :1,x :'0%',immediateRender:true})
+          return;
+      }
+      if(this.props.animateTextDirection === 'sttart'){
+        this.tl
+        .set(this.headerRef.current,{x :'-100%',immediateRender:true})
+        .set(this.titleRef.current,{x :'-100%',immediateRender:true})
+        .set(this.buttonRef.current,{opacity :0,scale :0,immediateRender:true})
+          return;
+      }
       if(this.props.animateTextDirection === 'next') {
         if(this.props.currentSlideNumber === 0){
           this.tl
@@ -95,7 +108,13 @@ export default class InfoBlock extends React.Component {
       }
   }
   componentDidMount() {
-
+    if( this.props.animateTextDirection === 'nothing') {
+      this.tl
+      .set(this.headerRef.current,{opacity :1,immediateRender:true})
+      .set(this.titleRef.current,{opacity :1,immediateRender:true})
+      .set(this.buttonRef.current,{opacity :1,immediateRender:true})
+      return;
+    }
     if(this.props.number === 0) {
       this.tl.delay(2)
       .from(this.blockWrapRef.current, 1, { width: 0 ,immediateRender:true})

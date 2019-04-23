@@ -134,7 +134,6 @@ export default class App extends Component {
     this.sliderRef.current.slickGoTo(4,true);
   }
   goToThree(){
-    this.animateWave(this.currentSlideNumber - 1);
     this.fromFourSlide = true;
     this.sliderRef.current.slickGoTo(3,true);
     this.inProgress = false;
@@ -144,17 +143,20 @@ export default class App extends Component {
     
     if(this.currentSlideNumber === 5) {
       let self = this;
+      this.manageDots();
       this.tl
-      .to(ReactDOM.findDOMNode(this.blackSection2Ref.current),.8,{width:'0%',immediateRender:true, onComplete: self.goToFour.bind(self)})
+      .to(ReactDOM.findDOMNode(this.blackSection2Ref.current),.6,{width:'0%',immediateRender:true, onComplete: self.goToFour.bind(self)})
       return;
     }
     if(this.currentSlideNumber === 4) {
       let self = this;
+      this.manageDots();
       this.tl
       .set('.slick-slide',{backgroundColor:'#fff',immediateRender:true})
       .set('.isFour',{opacity:1,immediateRender:true})
+      .set('#svgWave',{opacity:1,immediateRender:true})
       .set('.isFourInfoBlock',{opacity:1,immediateRender:true})
-      .to(ReactDOM.findDOMNode(this.blackSection1Ref.current),.8,{width:'0%',immediateRender:true, onComplete: self.goToThree.bind(self)});
+      .to(ReactDOM.findDOMNode(this.blackSection1Ref.current),.6,{width:'0%',immediateRender:true, onComplete: self.goToThree.bind(self)});
       return;
     }
     this.animateWave(this.currentSlideNumber - 1);
@@ -255,7 +257,7 @@ export default class App extends Component {
   }
   resetAutoPlay(){
     clearInterval(this.autoplay);
-    //this.autoplay = setInterval(this.autoplayStart.bind(this), this.autoplayDelay);
+    this.autoplay = setInterval(this.autoplayStart.bind(this), this.autoplayDelay);
   }
   onSwipeMove(position, event) {
 
@@ -310,36 +312,58 @@ export default class App extends Component {
     .setAttribute('fill', `rgba(0,0,0,0)`);
   }
   manageClick(index) {
+    if(index === this.currentSlideNumber){
+      return;
+    }
+    if(this.inProgress) {
+      return;
+    }
     clearInterval(this.autoplay);
 
-    this.manageDots();   
+   
     if(index === 4 ) {
       this.sliderRef.current.slickGoTo(4,true);
       this.tl
       .set('.slick-slide',{backgroundColor:'#000',immediateRender:true})
+      .set('#svgWave',{opacity:0,immediateRender:true})
       .set('.isFourInfoBlock',{opacity:0,immediateRender:true})
       .set('.isFour',{opacity:0,immediateRender:true})
       .set(ReactDOM.findDOMNode(this.blackSection2Ref.current),{width:'0%',immediateRender:true})
       .to(ReactDOM.findDOMNode(this.blackSection1Ref.current),.8,{width:'100%',immediateRender:true})
-      this.fadeOutWave();
+      this.setState({
+        animateTextDirection: 'initial'
+      });
+      this.manageDots();
       return;
     } else if (index === 5) {
       this.sliderRef.current.slickGoTo(5,true);
       this.tl
         .set('.slick-slide',{backgroundColor:'#000',immediateRender:true})
+        .set('.isFourInfoBlock',{opacity:0,immediateRender:true})
+        .set('#svgWave',{opacity:0,immediateRender:true})
+        .set('.isFour',{opacity:0,immediateRender:true})
         .set(ReactDOM.findDOMNode(this.blackSection1Ref.current),{width:'0%',immediateRender:true})
         .to(ReactDOM.findDOMNode(this.blackSection2Ref.current),.8,{width:'100%',immediateRender:true})
-      this.fadeOutWave();
+        this.setState({
+          animateTextDirection: 'initial'
+        });
+        this.manageDots();
       return;
     } else {
       this.tl
       .set('.slick-slide',{backgroundColor:'#fff',immediateRender:true})
       .set('.isFourInfoBlock',{opacity:1,immediateRender:true})
+      .set('#svgWave',{opacity:1,immediateRender:true})
       .set('.isFour',{opacity:1,immediateRender:true})
       .set(ReactDOM.findDOMNode(this.blackSection2Ref.current),{width:'0%',immediateRender:true})
       .set(ReactDOM.findDOMNode(this.blackSection1Ref.current),{width:'0%',immediateRender:true})
+      this.setState({
+        animateTextDirection: 'sttart'
+      });
+      
       this.sliderRef.current.slickGoTo(index);
       this.animateWave(index);
+      this.manageDots();
     }
   }
   manageActiveClass(index){
@@ -363,12 +387,18 @@ export default class App extends Component {
     if(this.isMobile && this.currentSlideNumber === 0) {
       return;
     }
-    if(this.isMobile){
-      this.manageDots();
+    if(isMobile){
       this.setState({
         animateTextDirection: 'fromLeft'
       });
     }
+    this.manageDots();
+  }
+  lock(){
+    this.inProgress = true;
+    setTimeout(() => {
+      this.inProgress = false;
+    }, 1000);
   }
   afterChange(index) {
     if(this.fromFourSlide){
@@ -380,32 +410,30 @@ export default class App extends Component {
     if(this.currentSlideNumber === 4){
       this.tl
       .to(ReactDOM.findDOMNode(this.blackSection1Ref.current),.8,{width:'100%',immediateRender:true})
-      .set('.slick-slide',{backgroundColor:'#000'})
       .set('.isFourInfoBlock',{opacity:0})
-      .set('.isFour',{opacity:0});
-      this.fadeOutWave();
+      .set('.isFour',{opacity:0})
+      .set('.slick-slide',{backgroundColor:'#000'});
+      this.lock();
+      this.manageDots();
+      return;
     }
     if(this.currentSlideNumber === 5){
-      this.tl.to(ReactDOM.findDOMNode(this.blackSection2Ref.current),.8,{width:'100%',immediateRender:true});
+      this.tl
+        .set('#svgWave',{opacity:0,immediateRender:true})
+        .to(ReactDOM.findDOMNode(this.blackSection2Ref.current),.8,{width:'100%',immediateRender:true});
+      this.lock();
+      return;
     }
 
     if(this.isMobile && this.currentSlideNumber === 0) {
       return;
     }
     if (this.currentSlideNumber <= 3) {
-      setTimeout(() => {
-        this.inProgress = false;
-      }, 1000);
+      this.lock();
     } else {
       this.inProgress = false;
     }
-    if (this.currentSlideNumber >= 4) {
-      document.getElementsByClassName('slick-dots-custom')[0].id = 'dotsBlack';
-      document.getElementsByTagName('header')[0].id = 'logoWgite';
-    } else if (this.currentSlideNumber < 4) {
-      document.getElementsByClassName('slick-dots-custom')[0].id = 'null';
-      document.getElementsByTagName('header')[0].id = 'logoBlac';
-    }
+    this.manageDots();
     if(this.isMobile){
       return;
     }
@@ -436,7 +464,23 @@ export default class App extends Component {
       <>
         <Header isBlackScreen={this.state.isBlackScreen} />
         {isMobile ? <StartWaveMobile id="svgWave" /> : <StartWave id="svgWave" />}
-        
+        <BlackSection
+          header="воспользуйтесь прямо сейчас"
+          ref={this.blackSection1Ref}
+          upperText="быстрая команда:"
+          textMark="*155*номер абонента#"
+          text="Например: *155*9264799231#"
+          btn={[
+            {
+              text: 'В приложении Мой Tele2',
+              id: '1'
+            },
+            {
+              text: 'В личном кабинете',
+              id: '2'
+            }
+          ]}
+        />
         <Slider
           className="custom-slick"
           {...settings}
@@ -493,17 +537,7 @@ export default class App extends Component {
             currentSlideNumber={this.currentSlideNumber}
             icon={<Onhand ref={this.OnhandRef} className="iconSec" />}
           />
-          <Section
-            title="Передавайте пакет интернета от 1 ГБ до 30 ГБ. Переданный пакет гигабайт действует 7 дней, но можно продлить и до 30 дней."
-            header="делись со всеми tele2 друзьями"
-            btnText="Погнали!"
-            hasBg={false}
-            image={isMobile ? GirlsMobile : Girls}
-            number={4}
-            slickSliderRef={this.sliderRef}
-            animateTextDirection={this.state.animateTextDirection}
-            currentSlideNumber={this.currentSlideNumber}
-            icon={<Onhand2 ref={this.OnhandRef2} className="iconSec" />}>
+          {isMobile ? (
               <BlackSection
                 header="воспользуйтесь прямо сейчас"
                 ref={this.blackSection1Ref}
@@ -520,8 +554,21 @@ export default class App extends Component {
                     id: '2'
                   }
                 ]}
-              />
-          </Section>
+              />            
+          ) : (
+            <Section
+              title="Передавайте пакет интернета от 1 ГБ до 30 ГБ. Переданный пакет гигабайт действует 7 дней, но можно продлить и до 30 дней."
+              header="делись со всеми tele2 друзьями"
+              btnText="Погнали!"
+              hasBg={false}
+              image={isMobile ? GirlsMobile : Girls}
+              number={4}
+              slickSliderRef={this.sliderRef}
+              animateTextDirection={'nothing'}
+              currentSlideNumber={this.currentSlideNumber}
+              icon={<Onhand2 ref={this.OnhandRef2} className="iconSec" />}>
+            </Section>
+          ) }
           <BlackSection2
             ref={this.blackSection2Ref}
             body={[
