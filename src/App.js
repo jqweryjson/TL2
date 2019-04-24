@@ -5,7 +5,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { TimelineLite, Power2 } from 'gsap';
 import { isMobile } from 'react-device-detect';
-
+import * as Visibility from 'visibilityjs';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -37,6 +37,7 @@ export default class App extends Component {
   constructor() {
     super();
     this.tl = new TimelineLite();
+    this.tlSubject = new TimelineLite();
     this.tl.defaultEase = Power2.easeIn;
     this.isMobile = isMobile;
     this.isSwipe = isMobile ? true : false;
@@ -66,16 +67,32 @@ export default class App extends Component {
       this.tl
       .set('.mBth',{opacity:0,immediateRender:true})      
     }
+      var body = document.body,
+      timer;
 
+      window.addEventListener('scroll', function() {
+      clearTimeout(timer);
+      if(!body.classList.contains('disable-hover')) {
+      body.classList.add('disable-hover')
+      }
+
+      timer = setTimeout(function(){
+      body.classList.remove('disable-hover')
+      },500);
+      }, false);
       document.getElementById('svgWave').classList += ' initial-animation';
       document.getElementById('specialID').classList +=
       ' initial-animation';
       this.manageActiveClass(0);
     let self = this;
     setTimeout(() => {
+      document.getElementsByTagName('body')[0].classList.add('startesSub');
+    }, 6000);
+    setTimeout(() => {
       self.hideStartScgAnim();
       self.resetAutoPlay();
       self.inProgress = false;
+      //document.getElementsByTagName('body')[0].classList.remove('startesSub');
     }, 8000);
   }
   autoplayStart() {
@@ -100,6 +117,10 @@ export default class App extends Component {
         passive: false
       });
     }
+  }
+  infiniteSubjectImage(){
+    this.tlSubject.to('.subject-image', 12, {scale:1.1, repeatDelay:0, repeat:-1, yoyo:true})
+    this.tlSubject.play();
   }
   mouseWheelHandler(event) {
     this.resetAutoPlay();
@@ -244,7 +265,7 @@ export default class App extends Component {
     if(!isMobile && nextIndex){
 
     this.tl
-      .to(document.getElementsByClassName('subject-image')[this.currentSlideNumber],0.8,{ right: '-100%' })
+      .to(document.getElementsByClassName('subject-image')[this.currentSlideNumber],0.8,{ right: '200%' })
       // .set(document.getElementsByClassName('subject-image')[nextIndex],{ right: '200%',immediateRender:true })
       .to(document.getElementsByClassName('subject-image')[nextIndex],0.8,{ right: '0%' });     
       return;
@@ -262,8 +283,10 @@ export default class App extends Component {
     }
   }
   resetAutoPlay(){
-    clearInterval(this.autoplay);
-    this.autoplay = setInterval(this.autoplayStart.bind(this), this.autoplayDelay);
+    //clearInterval(this.autoplay);
+    Visibility.stop(this.autoplay);
+    this.autoplay = Visibility.every(this.autoplayDelay, this.autoplayStart.bind(this) );
+     //setInterval
   }
   onSwipeMove(position, event) {
 

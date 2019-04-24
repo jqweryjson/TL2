@@ -16,7 +16,8 @@
     "react-page-scroller": "^1.4.3",
     "react-scripts": "2.1.8",
     "react-slick": "^0.23.2",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "visibilityjs": "^2.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
