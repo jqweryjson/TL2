@@ -36,20 +36,20 @@ export default class BlackSection2 extends React.PureComponent {
       <section className="section blackSection blackSection-last">
           <div className="blackSection__block blackSection__block_m blackSection__block-op-2">
             {<Blockrow  {...this.props} />}
+            {isMobile ? (
+                <div className="footer__soc">
+                  <a className="footer__soc-link" href="javascript:;">
+                      <Ok />
+                  </a>
+                  <a className="footer__soc-link" href="javascript:;">
+                      <Fb />
+                  </a>
+                  <a className="footer__soc-link" href="javascript:;">
+                      <Vk />
+                  </a>
+                </div>          
+            ) : null}
           </div>
-          {isMobile ? (
-              <div className="footer__soc">
-                <a className="footer__soc-link" href="javascript:;">
-                    <Ok />
-                </a>
-                <a className="footer__soc-link" href="javascript:;">
-                    <Fb />
-                </a>
-                <a className="footer__soc-link" href="javascript:;">
-                    <Vk />
-                </a>
-              </div>          
-          ) : null}
        
       </section>
     );

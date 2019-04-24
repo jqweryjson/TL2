@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/1/static/media/Tele2TextSans-Regular.adbf0ede.otf"
   },
   {
-    "revision": "8686245c58a2b60c6be6",
-    "url": "/1/static/css/main.83a6d754.chunk.css"
+    "revision": "09aa82b99a4fe00be22a",
+    "url": "/1/static/css/main.dfa5532c.chunk.css"
   },
   {
     "revision": "ecf45d1f754fb630230b",
@@ -16,8 +16,8 @@ self.__precacheManifest = [
     "url": "/1/static/media/startWaveMobile.a5ab3746.svg"
   },
   {
-    "revision": "ee70a9910bb68a70054e",
-    "url": "/1/static/js/2.1c787fd5.chunk.js"
+    "revision": "f1a9fa4cf1e6641b5086",
+    "url": "/1/static/js/2.841b0c3f.chunk.js"
   },
   {
     "revision": "7a787073748849c3805dc0602550600c",
@@ -52,16 +52,16 @@ self.__precacheManifest = [
     "url": "/1/static/media/robot-mobile.e3749843.png"
   },
   {
-    "revision": "7fb8d89e3b25c43fdd878d4191702fa3",
-    "url": "/1/static/media/StandardStencil-Bold.7fb8d89e.otf"
-  },
-  {
     "revision": "7c10bf754477d763bb4be788141d912f",
     "url": "/1/static/media/Tele2DisplaySerif-Regular.7c10bf75.otf"
   },
   {
-    "revision": "8686245c58a2b60c6be6",
-    "url": "/1/static/js/main.58c6f1f5.chunk.js"
+    "revision": "7fb8d89e3b25c43fdd878d4191702fa3",
+    "url": "/1/static/media/StandardStencil-Bold.7fb8d89e.otf"
+  },
+  {
+    "revision": "09aa82b99a4fe00be22a",
+    "url": "/1/static/js/main.bb57171c.chunk.js"
   },
   {
     "revision": "b7c9e1e479de3b53f1e4e30ebac2403a",
@@ -112,11 +112,11 @@ self.__precacheManifest = [
     "url": "/1/static/media/startWave.347b5a33.svg"
   },
   {
-    "revision": "ee70a9910bb68a70054e",
+    "revision": "f1a9fa4cf1e6641b5086",
     "url": "/1/static/css/2.b74a8b6c.chunk.css"
   },
   {
-    "revision": "4ada97e252d7c7e4094cc054142ec585",
+    "revision": "64be30a220d8e2c9b598c4af7ec2aa17",
     "url": "/1/index.html"
   }
 ];

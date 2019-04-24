@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { isMobile } from 'react-device-detect';
 
 const Button = ({ text }) => {
     return <button className="blackSection__button">{text}</button>
@@ -8,7 +9,7 @@ export default class BlackSection extends React.PureComponent {
     render(){
         const {header,upperText, textMark, text, btn } = this.props;
         return (
-            <section className="section blackSection blackSection-fix">
+            <section className={`section blackSection ${isMobile ? '' : 'blackSection-fix'}`}>
                     <div className="blackSection__block blackSection__block-op">
                         <h2 className="blackSection__h2">{ header }</h2>
                         <div className="blackSection__row">

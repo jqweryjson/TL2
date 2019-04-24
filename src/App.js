@@ -6,6 +6,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import { TimelineLite, Power2 } from 'gsap';
 import { isMobile } from 'react-device-detect';
 
+
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Section from './components/Section/';
@@ -61,6 +62,11 @@ export default class App extends Component {
   autoplay;
   autoplayDelay = 5000;
   componentDidMount() {
+    if(isMobile) {
+      this.tl
+      .set('.mBth',{opacity:0,immediateRender:true})      
+    }
+
       document.getElementById('svgWave').classList += ' initial-animation';
       document.getElementById('specialID').classList +=
       ' initial-animation';
@@ -175,7 +181,11 @@ export default class App extends Component {
     }, 800);
 
   }
-  animateImage(direction) {
+  animateImage(direction, nextIndex) {
+
+
+
+
     if (this.currentSlideNumber === 0) {
       this.tl
         .to(
@@ -232,35 +242,14 @@ export default class App extends Component {
     }
     if (this.currentSlideNumber < 3) {
       this.tl
-        .to(
-          document.getElementsByClassName('subject-image')[
-            this.currentSlideNumber
-          ],
-          0.8,
-          { right: '-100%' }
-        )
-        .set(
-          document.getElementsByClassName('subject-image')[
-            this.currentSlideNumber + 1
-          ],
-          { right: '200%' }
-        )
-        .to(
-          document.getElementsByClassName('subject-image')[
-            this.currentSlideNumber + 1
-          ],
-          0.8,
-          { right: '0%' }
-        );
+        .to(document.getElementsByClassName('subject-image')[this.currentSlideNumber],0.8,{ right: '-100%' })
+        // .set(document.getElementsByClassName('subject-image')[nextIndex],{ right: '200%',immediateRender:true })
+        .to(document.getElementsByClassName('subject-image')[nextIndex],0.8,{ right: '0%' });
     }
     if (this.currentSlideNumber === 3) {
-      this.tl.to(
-        document.getElementsByClassName('subject-image')[
-          this.currentSlideNumber
-        ],
-        0.8,
-        { right: '-100%' }
-      );
+      this.tl
+        .to(document.getElementsByClassName('subject-image')[this.currentSlideNumber],0.8,{ right: '-100%' })
+        .to(document.getElementsByClassName('subject-image')[nextIndex],0.8,{ right: '0%' });
     }
   }
   resetAutoPlay(){
@@ -326,9 +315,27 @@ export default class App extends Component {
     if(this.inProgress) {
       return;
     }
-    clearInterval(this.autoplay);
+    this.resetAutoPlay();
 
-   
+      if(isMobile && index === 4 ){
+        this.sliderRef.current.slickGoTo(4);
+        return;
+      }
+      if(isMobile && index === 5 ){
+        this.fromFourSlide = true;
+        this.sliderRef.current.slickGoTo(5);
+        return;
+      }
+      if(isMobile) {
+        this.tl
+        .set('#svgWave',{opacity:1,immediateRender:true})
+        this.sliderRef.current.slickGoTo(index);
+        this.animateWave(index);
+        this.manageDots();
+        return;       
+      }
+
+
     if(index === 4 ) {
       this.sliderRef.current.slickGoTo(4,true);
       this.tl
@@ -371,6 +378,7 @@ export default class App extends Component {
       
       this.sliderRef.current.slickGoTo(index);
       this.animateWave(index);
+      this.animateImage(null, index);
       this.manageDots();
     }
   }
@@ -392,10 +400,32 @@ export default class App extends Component {
     this.currentSlideNumber = newIndex;
     this.manageActiveClass(this.currentSlideNumber)
     this.resetAutoPlay();
-    if(this.isMobile && this.currentSlideNumber === 0) {
-      return;
-    }
+    // if(this.isMobile && this.currentSlideNumber === 0) {
+    //   return;
+    // }
     if(isMobile){
+      if(this.currentSlideNumber === 4 || this.currentSlideNumber === 5){
+        this.tl
+        .set('#svgWave',{opacity:0,immediateRender:true})        
+      } else {
+        this.tl
+        .set('#svgWave',{opacity:1,immediateRender:true})  
+      }
+      if(this.currentSlideNumber === 1 || this.currentSlideNumber === 2 || this.currentSlideNumber === 3 ){
+        const $body = document.getElementsByTagName("body")[0];
+        // const $appElem = document.getElementById("app");
+        // enablePageScroll($appElem);
+        //$body.classList.remove("iosFixModal");
+        this.tl
+        .to('.mBth',.4,{opacity:1,immediateRender:true})    
+      } else {
+        const $body = document.getElementsByTagName("body")[0];
+        //$body.classList.add("iosFixModal");
+        this.tl
+        .set('.mBth',{opacity:0,immediateRender:true}); 
+        this.manageDots();
+        return;
+      }
       this.setState({
         animateTextDirection: 'fromLeft'
       });
@@ -415,7 +445,7 @@ export default class App extends Component {
       this.resetAutoPlay();
       return;
     }
-    if(this.currentSlideNumber === 4){
+    if(!isMobile && this.currentSlideNumber === 4){
       this.tl
       .to(ReactDOM.findDOMNode(this.blackSection1Ref.current),.8,{width:'100%',immediateRender:true})
       .set('.isFourInfoBlock',{opacity:0})
@@ -425,7 +455,7 @@ export default class App extends Component {
       this.manageDots();
       return;
     }
-    if(this.currentSlideNumber === 5){
+    if(!isMobile && this.currentSlideNumber === 5){
       this.tl
         .set('#svgWave',{opacity:0,immediateRender:true})
         .to(ReactDOM.findDOMNode(this.blackSection2Ref.current),.8,{width:'100%',immediateRender:true});
@@ -473,7 +503,7 @@ export default class App extends Component {
         <Header isBlackScreen={this.state.isBlackScreen} />
         {isMobile ? <MobileBtnBlock text={'Погнали'} /> : null}
         {isMobile ? <StartWaveMobile id="svgWave" /> : <StartWave id="svgWave" />}
-        <BlackSection
+        {isMobile ? null : <BlackSection
           header="воспользуйтесь прямо сейчас"
           ref={this.blackSection1Ref}
           upperText="быстрая команда:"
@@ -489,7 +519,7 @@ export default class App extends Component {
               id: '2'
             }
           ]}
-        />
+        />}
         <Slider
           className="custom-slick"
           {...settings}
