@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/1/static/media/Tele2TextSans-Regular.adbf0ede.otf"
   },
   {
-    "revision": "09aa82b99a4fe00be22a",
+    "revision": "a5d746cf99d5adbeb120",
     "url": "/1/static/css/main.dfa5532c.chunk.css"
   },
   {
@@ -60,8 +60,8 @@ self.__precacheManifest = [
     "url": "/1/static/media/StandardStencil-Bold.7fb8d89e.otf"
   },
   {
-    "revision": "09aa82b99a4fe00be22a",
-    "url": "/1/static/js/main.bb57171c.chunk.js"
+    "revision": "a5d746cf99d5adbeb120",
+    "url": "/1/static/js/main.c2803df7.chunk.js"
   },
   {
     "revision": "b7c9e1e479de3b53f1e4e30ebac2403a",
@@ -72,12 +72,12 @@ self.__precacheManifest = [
     "url": "/1/static/media/slick.ced611da.eot"
   },
   {
-    "revision": "d41f55a78e6f49a5512878df1737e58a",
-    "url": "/1/static/media/slick.d41f55a7.ttf"
-  },
-  {
     "revision": "f97e3bbf73254b0112091d0192f17aec",
     "url": "/1/static/media/slick.f97e3bbf.svg"
+  },
+  {
+    "revision": "d41f55a78e6f49a5512878df1737e58a",
+    "url": "/1/static/media/slick.d41f55a7.ttf"
   },
   {
     "revision": "722acd42f05dff1b62a31c0935954ea4",
@@ -116,7 +116,7 @@ self.__precacheManifest = [
     "url": "/1/static/css/2.b74a8b6c.chunk.css"
   },
   {
-    "revision": "64be30a220d8e2c9b598c4af7ec2aa17",
+    "revision": "298ac7e34acb9f91e2aa0bf3e9037657",
     "url": "/1/index.html"
   }
 ];

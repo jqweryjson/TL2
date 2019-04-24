@@ -240,16 +240,31 @@ export default class App extends Component {
         );
       return;
     }
+  
+    if(!isMobile && nextIndex){
+      if (this.currentSlideNumber < 3) {
+        this.tl
+          .to(document.getElementsByClassName('subject-image')[this.currentSlideNumber],0.8,{ right: '-100%' })
+          // .set(document.getElementsByClassName('subject-image')[nextIndex],{ right: '200%',immediateRender:true })
+          .to(document.getElementsByClassName('subject-image')[nextIndex],0.8,{ right: '0%' });
+      }
+      if (this.currentSlideNumber === 3) {
+        this.tl
+          .to(document.getElementsByClassName('subject-image')[this.currentSlideNumber],0.8,{ right: '-100%' })
+          .to(document.getElementsByClassName('subject-image')[nextIndex],0.8,{ right: '0%' });
+      }      
+      return;
+    }
+
     if (this.currentSlideNumber < 3) {
       this.tl
         .to(document.getElementsByClassName('subject-image')[this.currentSlideNumber],0.8,{ right: '-100%' })
-        // .set(document.getElementsByClassName('subject-image')[nextIndex],{ right: '200%',immediateRender:true })
-        .to(document.getElementsByClassName('subject-image')[nextIndex],0.8,{ right: '0%' });
+        .set(document.getElementsByClassName('subject-image')[this.currentSlideNumber + 1],{ right: '200%' })
+        .to(document.getElementsByClassName('subject-image')[this.currentSlideNumber + 1],0.8,{ right: '0%' });
     }
     if (this.currentSlideNumber === 3) {
       this.tl
-        .to(document.getElementsByClassName('subject-image')[this.currentSlideNumber],0.8,{ right: '-100%' })
-        .to(document.getElementsByClassName('subject-image')[nextIndex],0.8,{ right: '0%' });
+        .to(document.getElementsByClassName('subject-image')[this.currentSlideNumber],0.8,{ right: '-100%' });
     }
   }
   resetAutoPlay(){
