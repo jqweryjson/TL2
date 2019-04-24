@@ -242,17 +242,11 @@ export default class App extends Component {
     }
   
     if(!isMobile && nextIndex){
-      if (this.currentSlideNumber < 3) {
-        this.tl
-          .to(document.getElementsByClassName('subject-image')[this.currentSlideNumber],0.8,{ right: '-100%' })
-          // .set(document.getElementsByClassName('subject-image')[nextIndex],{ right: '200%',immediateRender:true })
-          .to(document.getElementsByClassName('subject-image')[nextIndex],0.8,{ right: '0%' });
-      }
-      if (this.currentSlideNumber === 3) {
-        this.tl
-          .to(document.getElementsByClassName('subject-image')[this.currentSlideNumber],0.8,{ right: '-100%' })
-          .to(document.getElementsByClassName('subject-image')[nextIndex],0.8,{ right: '0%' });
-      }      
+
+    this.tl
+      .to(document.getElementsByClassName('subject-image')[this.currentSlideNumber],0.8,{ right: '-100%' })
+      // .set(document.getElementsByClassName('subject-image')[nextIndex],{ right: '200%',immediateRender:true })
+      .to(document.getElementsByClassName('subject-image')[nextIndex],0.8,{ right: '0%' });     
       return;
     }
 
