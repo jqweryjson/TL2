@@ -69,20 +69,17 @@ code {
   100%{
     transform:matrix(1.1, 0, 0, 1.1, 0, 0); 
   }
-
 }
+
 .subject-image {
   will-change: transform;
-  animation-play-state: paused;
 }
-.startesSub .slick-active .subject-image {
+.startesSub .slick-active .subject-image:not(.isFour){
   will-change: transform;
-  transform:matrix(1, 0, 0, 1, 0, 0); 
-  transition:transform 8s ease;
   animation:sss 16s linear alternate both;
-  animation-play-state: running;
-  animation-delay:.5s; 
+  animation-delay: .5s;
 }
+
 .disable-hover {
   pointer-events: none;
 }
@@ -601,7 +598,7 @@ code {
   @include for-phone-only{
     display:block;
     width:auto;
-    height:80vh;
+    height:75vh;
     min-height:auto;
         overflow: hidden;
         overflow-y: scroll;

@@ -295,7 +295,7 @@ export default class App extends Component {
   resetAutoPlay(){
 
     Visibility.stop(this.autoplay);
-    this.autoplay = Visibility.every(this.autoplayDelay, this.autoplayStart.bind(this) );
+    //this.autoplay = Visibility.every(this.autoplayDelay, this.autoplayStart.bind(this) );
 
   }
   onSwipeMove(position, event) {
@@ -456,6 +456,9 @@ export default class App extends Component {
     //   return;
     // }
     if(isMobile){
+      if(this.currentSlideNumber === 0){
+        return  ;
+      }
       if(this.currentSlideNumber === 4 || this.currentSlideNumber === 5){
         this.tl
         .set('#svgWave',{opacity:0,immediateRender:true})        
