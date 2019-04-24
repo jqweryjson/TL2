@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/1/static/media/Tele2TextSans-Regular.adbf0ede.otf"
   },
   {
-    "revision": "c86094b0d3780622509d",
-    "url": "/1/static/css/main.85f80645.chunk.css"
+    "revision": "6c665f871036215b477d",
+    "url": "/1/static/css/main.f0959992.chunk.css"
   },
   {
     "revision": "ecf45d1f754fb630230b",
@@ -60,8 +60,8 @@ self.__precacheManifest = [
     "url": "/1/static/media/Tele2DisplaySerif-Regular.7c10bf75.otf"
   },
   {
-    "revision": "c86094b0d3780622509d",
-    "url": "/1/static/js/main.43cc6e9e.chunk.js"
+    "revision": "6c665f871036215b477d",
+    "url": "/1/static/js/main.b8a7b7fa.chunk.js"
   },
   {
     "revision": "ced611daf7709cc778da928fec876475",
@@ -72,12 +72,12 @@ self.__precacheManifest = [
     "url": "/1/static/media/slick.b7c9e1e4.woff"
   },
   {
-    "revision": "d41f55a78e6f49a5512878df1737e58a",
-    "url": "/1/static/media/slick.d41f55a7.ttf"
-  },
-  {
     "revision": "f97e3bbf73254b0112091d0192f17aec",
     "url": "/1/static/media/slick.f97e3bbf.svg"
+  },
+  {
+    "revision": "d41f55a78e6f49a5512878df1737e58a",
+    "url": "/1/static/media/slick.d41f55a7.ttf"
   },
   {
     "revision": "722acd42f05dff1b62a31c0935954ea4",
@@ -116,7 +116,7 @@ self.__precacheManifest = [
     "url": "/1/static/css/2.acf12ce9.chunk.css"
   },
   {
-    "revision": "88c9c7552c7804123271f408132e51da",
+    "revision": "70f0cef78e28681a2f3dc705b75594f5",
     "url": "/1/index.html"
   }
 ];

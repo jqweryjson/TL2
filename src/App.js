@@ -96,7 +96,7 @@ export default class App extends Component {
     }, 8000);
   }
   autoplayStart() {
-    if (this.currentSlideNumber === 5) {
+    if (!isMobile && this.currentSlideNumber === 5) {
       this.tl
       .set('.slick-slide',{backgroundColor:'#fff',immediateRender:true})
       .set('.isFourInfoBlock',{opacity:1,immediateRender:true})
@@ -104,6 +104,16 @@ export default class App extends Component {
       .set('.isFour',{opacity:1,immediateRender:true})
       .set(ReactDOM.findDOMNode(this.blackSection2Ref.current),{width:'0%',immediateRender:true})
       .set(ReactDOM.findDOMNode(this.blackSection1Ref.current),{width:'0%',immediateRender:true})
+      this.sliderRef.current.slickGoTo(0);
+      this.animateWave(0);
+      return;
+    }
+    if(isMobile && this.currentSlideNumber === 5){
+      this.tl
+      .set('.slick-slide',{backgroundColor:'#fff',immediateRender:true})
+      .set('.isFourInfoBlock',{opacity:1,immediateRender:true})
+      .set('#svgWave',{opacity:1,immediateRender:true})
+      .set('.isFour',{opacity:1,immediateRender:true})
       this.sliderRef.current.slickGoTo(0);
       this.animateWave(0);
       return;
@@ -262,7 +272,7 @@ export default class App extends Component {
       return;
     }
   
-    if(!isMobile && nextIndex){
+    if(nextIndex){
 
     this.tl
       .to(document.getElementsByClassName('subject-image')[this.currentSlideNumber],0.8,{ right: '200%' })
@@ -283,10 +293,10 @@ export default class App extends Component {
     }
   }
   resetAutoPlay(){
-    //clearInterval(this.autoplay);
+
     Visibility.stop(this.autoplay);
     this.autoplay = Visibility.every(this.autoplayDelay, this.autoplayStart.bind(this) );
-     //setInterval
+
   }
   onSwipeMove(position, event) {
 
@@ -314,13 +324,22 @@ export default class App extends Component {
     if(this.currentSlideNumber === 4) {
       //this.tl.to('.subject-image',{scale:1});
 
-      this.sliderRef.current.slickGoTo(5,true);
+      if(isMobile){
+        this.sliderRef.current.slickGoTo(5);
+        return;
+      } else {
+        this.sliderRef.current.slickGoTo(5, true);
+      }
       this.tl
       .set(ReactDOM.findDOMNode(this.blackSection1Ref.current),{width:'0%',immediateRender:true})
       return;
     }
     if(this.currentSlideNumber === 3){
-      this.sliderRef.current.slickGoTo(4,true);
+      if(isMobile){
+        this.sliderRef.current.slickGoTo(4);
+      } else {
+        this.sliderRef.current.slickGoTo(4, true);
+      }
       return;
     }
     if (this.currentSlideNumber <= 3) {
@@ -363,6 +382,7 @@ export default class App extends Component {
         .set('#svgWave',{opacity:1,immediateRender:true})
         this.sliderRef.current.slickGoTo(index);
         this.animateWave(index);
+        this.animateImage(null, index);
         this.manageDots();
         return;       
       }
@@ -456,6 +476,11 @@ export default class App extends Component {
         this.tl
         .set('.mBth',{opacity:0,immediateRender:true}); 
         this.manageDots();
+        if(this.currentSlideNumber === 0){
+          this.setState({
+            animateTextDirection: 'fromLeft'
+          });
+        }
         return;
       }
       this.setState({

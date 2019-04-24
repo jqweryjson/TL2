@@ -317,9 +317,13 @@ code {
 }
 #dotsBlack.slick-dots-custom {
   transition:all .2s ease;
+  @include for-phone-only {
+    background:#000;
+        padding: 0;
+  }
   & li.custom-slick-active{
     color:#000;
-    background:#000;
+    
     border:0.125rem solid #fff;
   }
   & li:before{
@@ -421,8 +425,8 @@ code {
     justify-content: space-around;
     padding: 1rem 2rem;
     @include for-phone-only{
-      position:static;
-      left:0;
+      position:relative;
+      transform: scale(1.4);
     }
     &-link {
       display: block;
@@ -462,7 +466,7 @@ code {
       top:0em;
       width:auto;
 //height: 100vh;
-      height: calc(100vh + 1px);
+      min-height: 120vmax;
       padding: 0 1.075em;
      //margin-bottom:10vh;
     }
@@ -591,15 +595,25 @@ code {
   width: 56.063em;
   top: 3em;
   justify-content: start;
+  @include for-smallPhone-only {
+     height:65vh;
+  }
   @include for-phone-only{
     display:block;
     width:auto;
-    min-height: calc(100vmin);
-    overflow-y:scroll;
+    height:80vh;
+    min-height:auto;
+        overflow: hidden;
+        overflow-y: scroll;
+    //max-height: 40vmin;
+    //overflow-y:scroll;
     top: 0em;
+    bottom:0;
+    z-index:20;
     padding-top:0rem;
 
   }
+
   & .blackSection__h2 {
     @include for-phone-only{
       padding:0;
@@ -867,9 +881,9 @@ header#logoWgite {
   @include for-phone-only{
         display:flex;
         flex-flow: column-reverse nowrap;
-        overflow: scroll;
+
+
         -webkit-overflow-scrolling: touch;
-        touch-action:none;
   }
 }
 .iosFixModal {
@@ -880,4 +894,7 @@ header#logoWgite {
   bottom: 0;
   overflow: hidden;
   height: 100vh;
+}
+.slick-slide > div {
+
 }
