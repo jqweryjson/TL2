@@ -61,7 +61,7 @@ export default class App extends Component {
   inProgress = true;
   fromFourSlide = false;
   autoplay;
-  autoplayDelay = 5000;
+  autoplayDelay = 10000;
   componentDidMount() {
     if(isMobile) {
       // this.tl
@@ -69,7 +69,7 @@ export default class App extends Component {
     }
       var body = document.body,
       timer;
-
+      window.addEventListener("mousemove", this.resetAutoPlay.bind(this));
       window.addEventListener('scroll', function() {
       clearTimeout(timer);
       if(!body.classList.contains('disable-hover')) {
