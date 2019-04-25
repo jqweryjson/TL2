@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "adbf0ede6d4ca62c83599a296cffbb4d",
-    "url": "/1/static/media/Tele2TextSans-Regular.adbf0ede.otf"
+    "revision": "7fb8d89e3b25c43fdd878d4191702fa3",
+    "url": "/1/static/media/StandardStencil-Bold.7fb8d89e.otf"
   },
   {
-    "revision": "cdaef476ef6b1f131c34",
-    "url": "/1/static/css/main.60eb7121.chunk.css"
+    "revision": "7840205fac53e5b0a9dc",
+    "url": "/1/static/css/main.7dcebb5c.chunk.css"
   },
   {
     "revision": "ecf45d1f754fb630230b",
@@ -56,20 +56,20 @@ self.__precacheManifest = [
     "url": "/1/static/media/Tele2DisplaySerif-Regular.7c10bf75.otf"
   },
   {
-    "revision": "7fb8d89e3b25c43fdd878d4191702fa3",
-    "url": "/1/static/media/StandardStencil-Bold.7fb8d89e.otf"
+    "revision": "adbf0ede6d4ca62c83599a296cffbb4d",
+    "url": "/1/static/media/Tele2TextSans-Regular.adbf0ede.otf"
   },
   {
-    "revision": "cdaef476ef6b1f131c34",
+    "revision": "7840205fac53e5b0a9dc",
     "url": "/1/static/js/main.c78d3702.chunk.js"
-  },
-  {
-    "revision": "b7c9e1e479de3b53f1e4e30ebac2403a",
-    "url": "/1/static/media/slick.b7c9e1e4.woff"
   },
   {
     "revision": "ced611daf7709cc778da928fec876475",
     "url": "/1/static/media/slick.ced611da.eot"
+  },
+  {
+    "revision": "b7c9e1e479de3b53f1e4e30ebac2403a",
+    "url": "/1/static/media/slick.b7c9e1e4.woff"
   },
   {
     "revision": "d41f55a78e6f49a5512878df1737e58a",
@@ -116,7 +116,7 @@ self.__precacheManifest = [
     "url": "/1/static/css/2.acf12ce9.chunk.css"
   },
   {
-    "revision": "325136ebdc2f960a1a2a38cd6ce89a66",
+    "revision": "e9df94afc8addd0568ef9626fd564d81",
     "url": "/1/index.html"
   }
 ];
