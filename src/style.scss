@@ -234,13 +234,10 @@ code {
       z-index:1;
       position:relative;
     }
-    &:hover{
-      color:#000;
-    }
     &:before {
       content: '';
       display: block;
-      background-color: rgba(20, 180, 87,0.8);
+      background-color: #363636;
       position: absolute;
       width: 200%;
       height: 500%;
@@ -304,6 +301,9 @@ code {
       padding-left:1.813rem;
       @include for-phone-only{
         display:none;
+      }
+      &:before {
+        background: #D0F300;
       }
       &:after{
         content:'';
@@ -590,7 +590,7 @@ overflow: hidden;
     &:before {
       content: '';
       display: block;
-      background-color: rgba(20, 180, 87,0.8);
+      background-color: #D0F300;
       position: absolute;
       width: 200%;
       height: 500%;
