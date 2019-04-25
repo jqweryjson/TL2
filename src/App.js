@@ -602,7 +602,7 @@ export default class App extends Component {
           />
           <Section
             title="Не требует дополнительной платы для использования."
-            header="Бесплатно и ЛЕГКО"
+            header={['Бесплатно',<br key="br" />,'и ЛЕГКО']}
             btnText="Погнали!"
             hasBg={false}
             image={isMobile ? PigMobile : Pig}
