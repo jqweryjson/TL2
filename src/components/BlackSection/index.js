@@ -2,7 +2,7 @@ import * as React from 'react';
 import { isMobile } from 'react-device-detect';
 
 const Button = ({ text }) => {
-    return <button className="blackSection__button">{text}</button>
+    return <button className="blackSection__button"><span>{text}</span></button>
 }
 
 export default class BlackSection extends React.PureComponent {

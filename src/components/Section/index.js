@@ -16,6 +16,7 @@ export default class Section extends React.Component {
     const ImgClas = classnames({
       "subject-image":true,
       isFour: number === 4,
+      isThree: number === 3,
     })
     return (
       <section className="section">

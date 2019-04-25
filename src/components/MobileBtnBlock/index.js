@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-const MobileBtnBlock = ({text}) => {
+const MobileBtnBlock = ({ currentSlideNumber, text }) => {
     return (
         <div className="infoBlock__button mBth">
-            {text}
+            { currentSlideNumber === 0 ? 'Подробнее' : 'Погнали' }
         </div>
     )
 }

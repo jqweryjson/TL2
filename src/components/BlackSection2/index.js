@@ -8,7 +8,7 @@ import { ReactComponent as Vk } from '../img/vk.svg';
 const Button = ({ text, id }) => {
   return (
     <button key={id} className="blackSection__button">
-      {text}
+      <span>{text}</span>
     </button>
   );
 };

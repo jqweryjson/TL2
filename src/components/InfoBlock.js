@@ -161,7 +161,7 @@ export default class InfoBlock extends React.Component {
               ref={this.buttonRef}
               className="infoBlock__button"
             >
-              {btnText}
+              <span>{btnText}</span>
             </button>
           </div>
         </div>

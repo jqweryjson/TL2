@@ -1,4 +1,4 @@
-import React, { Component, PureComponent } from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -64,8 +64,8 @@ export default class App extends Component {
   autoplayDelay = 5000;
   componentDidMount() {
     if(isMobile) {
-      this.tl
-      .set('.mBth',{opacity:0,immediateRender:true})      
+      // this.tl
+      // .set('.mBth',{opacity:0,immediateRender:true})      
     }
       var body = document.body,
       timer;
@@ -128,10 +128,10 @@ export default class App extends Component {
       });
     }
   }
-  infiniteSubjectImage(){
-    this.tlSubject.to('.subject-image', 12, {scale:1.1, repeatDelay:0, repeat:-1, yoyo:true})
-    this.tlSubject.play();
-  }
+  // infiniteSubjectImage(){
+  //   this.tlSubject.to('.subject-image', 12, {scale:1.1, repeatDelay:0, repeat:-1, yoyo:true})
+  //   this.tlSubject.play();
+  // }
   mouseWheelHandler(event) {
     this.resetAutoPlay();
 
@@ -295,7 +295,7 @@ export default class App extends Component {
   resetAutoPlay(){
 
     Visibility.stop(this.autoplay);
-    //this.autoplay = Visibility.every(this.autoplayDelay, this.autoplayStart.bind(this) );
+    this.autoplay = Visibility.every(this.autoplayDelay, this.autoplayStart.bind(this) );
 
   }
   onSwipeMove(position, event) {
@@ -466,7 +466,7 @@ export default class App extends Component {
         this.tl
         .set('#svgWave',{opacity:1,immediateRender:true})  
       }
-      if(this.currentSlideNumber === 1 || this.currentSlideNumber === 2 || this.currentSlideNumber === 3 ){
+      if(this.currentSlideNumber === 0 || this.currentSlideNumber === 1 || this.currentSlideNumber === 2 || this.currentSlideNumber === 3 ){
         const $body = document.getElementsByTagName("body")[0];
         // const $appElem = document.getElementById("app");
         // enablePageScroll($appElem);
@@ -561,7 +561,7 @@ export default class App extends Component {
     return (
       <>
         <Header isBlackScreen={this.state.isBlackScreen} />
-        {isMobile ? <MobileBtnBlock text={'Погнали'} /> : null}
+        {isMobile ? <MobileBtnBlock currentSlideNumber={this.currentSlideNumber} /> : null}
         {isMobile ? <StartWaveMobile id="svgWave" /> : <StartWave id="svgWave" />}
         {isMobile ? null : <BlackSection
           header="воспользуйтесь прямо сейчас"

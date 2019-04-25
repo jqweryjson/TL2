@@ -26,7 +26,7 @@ body {
     overflow:hidden;
   }
   @include for-smallPhone-only {
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 
@@ -74,12 +74,15 @@ code {
 .subject-image {
   will-change: transform;
 }
-.startesSub .slick-active .subject-image:not(.isFour){
+.startesSub .slick-active .subject-image:not(.isFour):not(.isThree){
   will-change: transform;
   animation:sss 16s linear alternate both;
   animation-delay: .5s;
 }
-
+.startesSub .isThree,.startesSub .isFour{
+  will-change: transform;
+  animation:sss 16s linear alternate infinite; 
+}
 .disable-hover {
   pointer-events: none;
 }
@@ -226,6 +229,32 @@ code {
     margin: 1.538rem 1.813rem;
     text-align: center;
     position: relative;
+    overflow: hidden;
+    & span {
+      z-index:1;
+      position:relative;
+    }
+    &:hover{
+      color:#000;
+    }
+    &:before {
+      content: '';
+      display: block;
+      background: #00b4ee;
+      position: absolute;
+      width: 200%;
+      height: 500%;
+      border-radius: 100%;
+      -webkit-transition: .3s linear;
+      transition: .3s linear;
+      -webkit-transform: translate(30%,10%) translateZ(0);
+      transform: translate(30%,10%) translateZ(0);
+      top: 50%;
+      left: 50%;
+    }
+    &:hover:before{
+      transform: translate(-45%,-34%) translateZ(0);
+    }
       @include for-phone-only{
         position:absolute;
         bottom:3em;
@@ -316,18 +345,15 @@ code {
   transition:all .2s ease;
   @include for-phone-only {
     background:#000;
-        padding: 0;
   }
   & li.custom-slick-active{
-    color:#000;
-    
+
     border:0.125rem solid #fff;
   }
-  & li:before{
-    color:#fff;
+  & li{
+    background:#fff;
    }
-  & li.custom-slick-active:before{
-    color:#000;
+  & li.custom-slick-active{
     background:#000;
   }
 }
@@ -336,7 +362,7 @@ code {
   left: 0;
   bottom: 0;
   width: 15%;
-  padding: .5rem 1rem;
+  padding: 1rem 1rem;
   transform:translate3d(0,100px,0);
   animation:playStartAnimText 1s cubic-bezier(0, 0, 0, 1) both;
   animation-delay: 2s;
@@ -345,8 +371,7 @@ code {
   @include for-phone-only{
     display: flex!important;
     width:100%;
-    padding: 1.5rem 0;
-    padding-bottom:0;
+    padding: 1rem 0;
     justify-content: space-around;
     position:fixed;
     bottom:0;
@@ -360,26 +385,35 @@ code {
     width:100%;
     justify-content:space-around;
     align-items:center;
+    margin:0;
   }
   & li {
     cursor:pointer;
+    background:#000;
+    font-size: 1rem;
+    line-height: 1rem;
+    width:.5rem;
+    height:.5rem;
+    display:block;
+    @include for-phone-only{
+      color:#fff;
+      font-size: 1em;
+      line-height: 1;
+      width:0.250em;
+      height:0.250em;
+    }
   }
   & li.custom-slick-active{
     color:#fff;
     background:#fff;
     border:0.125rem solid #000;
     animation:render .5s ease both;
-  }
-  & li:before{
-    content:'■';
-    opacity:1;
-    font-size: 1rem;
-    line-height: 1rem;
-    width:1rem;
+      width:1rem;
     height:1rem;
-    display:block;
     @include for-phone-only{
-      color:#fff;
+      border:none;
+      width:0.5em;
+      height:0.5em;
     }
   }
 }
@@ -462,8 +496,10 @@ code {
       left:0;
       top:0em;
       width:auto;
+overflow: hidden;
+    overflow-y: scroll;
 //height: 100vh;
-      min-height: 120vmax;
+      height: 130vmax;
       padding: 0 1.075em;
      //margin-bottom:10vh;
     }
@@ -540,6 +576,33 @@ code {
     width:18.750em;
     height: 3em;
     cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    & span {
+      z-index:1;
+      position:relative;
+    }
+    &:hover{
+      color:#000;
+    }
+    &:before {
+      content: '';
+      display: block;
+      background: #00b4ee;
+      position: absolute;
+      width: 200%;
+      height: 500%;
+      border-radius: 100%;
+      -webkit-transition: .3s linear;
+      transition: .3s linear;
+      -webkit-transform: translate(30%,10%) translateZ(0);
+      transform: translate(30%,10%) translateZ(0);
+      top: 50%;
+      left: 50%;
+    }
+    &:hover:before{
+      transform: translate(-45%,-34%) translateZ(0);
+    }
     @include for-phone-only{
       font-size:1.250em;
       margin:0 auto;
@@ -598,7 +661,7 @@ code {
   @include for-phone-only{
     display:block;
     width:auto;
-    height:75vh;
+    height:110vmin;
     min-height:auto;
         overflow: hidden;
         overflow-y: scroll;
@@ -871,7 +934,7 @@ header#logoWgite {
     left: 0;
     right: 0;
     margin: auto;
-    bottom: 4em;
+    bottom: 3em;
   }
 }
 .blackSection-last {
@@ -892,6 +955,89 @@ header#logoWgite {
   overflow: hidden;
   height: 100vh;
 }
-.slick-slide > div {
 
+
+.button_su{
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  border-radius: 3px;
+  margin-bottom: 30px;
+}
+
+.su_button_circle{
+  background-color: red;
+  border-radius: 1000px;
+  position: absolute;
+  left:0;
+  top:0;
+  width: 0px;
+  height: 0px;
+  margin-left: 0px;
+  margin-top: 0px;
+  pointer-events: none;
+  /*animation-timing-function: ease-in-out; */
+}
+
+.button_su_inner{
+    display: inline-block;
+    background: #F8B627;
+    color: #F4F4F4;
+    font-size: 16px;
+    font-weight: normal;
+    width: 132px;
+    text-align: center;
+    border-radius: 3px;
+    transition: 400ms;
+    text-decoration: none;
+    padding: 22px;
+    z-index: 100000;
+}
+
+.button_text_container{
+   position:relative;
+   z-index: 10000;
+}
+
+.explode-circle {
+   animation: explode 0.5s forwards;
+
+}
+
+.desplode-circle{
+   animation: desplode 0.5s forwards;
+}
+
+@keyframes explode {
+  0% {
+    width: 0px;
+    height: 0px;
+    margin-left: 0px;
+    margin-top: 0px;
+    background-color: rgba(42, 53, 80,0.2);
+  }
+  100% {
+    width: 400px;
+    height: 400px;
+    margin-left: -200px;
+    margin-top: -200px;
+    background-color: rgba(20, 180, 87,0.8);
+  }
+}
+
+@keyframes desplode {
+  0% {
+    width: 400px;
+    height: 400px;
+    margin-left: -200px;
+    margin-top: -200px;
+    background-color: rgba(20, 180, 87,0.8);
+  }
+  100% {
+    width: 0px;
+    height: 0px;
+    margin-left: 0px;
+    margin-top: 0px;
+    background-color: rgba(129, 80, 108,0.6);
+  }
 }
