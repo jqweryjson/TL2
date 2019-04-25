@@ -52,32 +52,32 @@ self.__precacheManifest = [
     "url": "/1/static/media/robot-mobile.e3749843.png"
   },
   {
-    "revision": "7c10bf754477d763bb4be788141d912f",
-    "url": "/1/static/media/Tele2DisplaySerif-Regular.7c10bf75.otf"
-  },
-  {
     "revision": "7fb8d89e3b25c43fdd878d4191702fa3",
     "url": "/1/static/media/StandardStencil-Bold.7fb8d89e.otf"
+  },
+  {
+    "revision": "7c10bf754477d763bb4be788141d912f",
+    "url": "/1/static/media/Tele2DisplaySerif-Regular.7c10bf75.otf"
   },
   {
     "revision": "b705b5a0ba3ec2bc5024",
     "url": "/1/static/js/main.d0c39735.chunk.js"
   },
   {
-    "revision": "ced611daf7709cc778da928fec876475",
-    "url": "/1/static/media/slick.ced611da.eot"
-  },
-  {
     "revision": "b7c9e1e479de3b53f1e4e30ebac2403a",
     "url": "/1/static/media/slick.b7c9e1e4.woff"
   },
   {
-    "revision": "d41f55a78e6f49a5512878df1737e58a",
-    "url": "/1/static/media/slick.d41f55a7.ttf"
-  },
-  {
     "revision": "f97e3bbf73254b0112091d0192f17aec",
     "url": "/1/static/media/slick.f97e3bbf.svg"
+  },
+  {
+    "revision": "ced611daf7709cc778da928fec876475",
+    "url": "/1/static/media/slick.ced611da.eot"
+  },
+  {
+    "revision": "d41f55a78e6f49a5512878df1737e58a",
+    "url": "/1/static/media/slick.d41f55a7.ttf"
   },
   {
     "revision": "722acd42f05dff1b62a31c0935954ea4",
@@ -116,7 +116,7 @@ self.__precacheManifest = [
     "url": "/1/static/css/2.047801c6.chunk.css"
   },
   {
-    "revision": "356f2f9e520c94de96fc62ce1ed1fe34",
+    "revision": "2001cc6d54dfd9ee6687076d04dbc5b4",
     "url": "/1/index.html"
   }
 ];
