@@ -240,7 +240,7 @@ code {
     &:before {
       content: '';
       display: block;
-      background: #00b4ee;
+      background-color: rgba(20, 180, 87,0.8);
       position: absolute;
       width: 200%;
       height: 500%;
@@ -347,7 +347,6 @@ code {
     background:#000;
   }
   & li.custom-slick-active{
-
     border:0.125rem solid #fff;
   }
   & li{
@@ -355,6 +354,9 @@ code {
    }
   & li.custom-slick-active{
     background:#000;
+    @include for-phone-only {
+      background:#fff;
+    }
   }
 }
 .slick-dots-custom{
@@ -396,7 +398,7 @@ code {
     height:.5rem;
     display:block;
     @include for-phone-only{
-      color:#fff;
+      background:#fff;
       font-size: 1em;
       line-height: 1;
       width:0.250em;
@@ -588,7 +590,7 @@ overflow: hidden;
     &:before {
       content: '';
       display: block;
-      background: #00b4ee;
+      background-color: rgba(20, 180, 87,0.8);
       position: absolute;
       width: 200%;
       height: 500%;

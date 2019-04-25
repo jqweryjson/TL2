@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/1/static/media/Tele2TextSans-Regular.adbf0ede.otf"
   },
   {
-    "revision": "675e245e218f5c2f1f54",
-    "url": "/1/static/css/main.1b24a65b.chunk.css"
+    "revision": "b72d51435d1653bcfa8b",
+    "url": "/1/static/css/main.f3b6b561.chunk.css"
   },
   {
     "revision": "ecf45d1f754fb630230b",
@@ -60,8 +60,8 @@ self.__precacheManifest = [
     "url": "/1/static/media/Tele2DisplaySerif-Regular.7c10bf75.otf"
   },
   {
-    "revision": "675e245e218f5c2f1f54",
-    "url": "/1/static/js/main.123ffa9a.chunk.js"
+    "revision": "b72d51435d1653bcfa8b",
+    "url": "/1/static/js/main.8b29ce31.chunk.js"
   },
   {
     "revision": "ced611daf7709cc778da928fec876475",
@@ -116,7 +116,7 @@ self.__precacheManifest = [
     "url": "/1/static/css/2.acf12ce9.chunk.css"
   },
   {
-    "revision": "e11929c327b4ec1e440fc2a4ca9a4135",
+    "revision": "4f70a0dc0013a4f60821a9b91c404421",
     "url": "/1/index.html"
   }
 ];

@@ -456,7 +456,7 @@ export default class App extends Component {
     //   return;
     // }
     if(isMobile){
-      if(this.currentSlideNumber === 0){
+      if(newIndex === oldIndex){
         return  ;
       }
       if(this.currentSlideNumber === 4 || this.currentSlideNumber === 5){
