@@ -52,12 +52,12 @@ self.__precacheManifest = [
     "url": "/1/static/media/robot-mobile.e3749843.png"
   },
   {
-    "revision": "7fb8d89e3b25c43fdd878d4191702fa3",
-    "url": "/1/static/media/StandardStencil-Bold.7fb8d89e.otf"
-  },
-  {
     "revision": "7c10bf754477d763bb4be788141d912f",
     "url": "/1/static/media/Tele2DisplaySerif-Regular.7c10bf75.otf"
+  },
+  {
+    "revision": "7fb8d89e3b25c43fdd878d4191702fa3",
+    "url": "/1/static/media/StandardStencil-Bold.7fb8d89e.otf"
   },
   {
     "revision": "b705b5a0ba3ec2bc5024",
@@ -68,16 +68,16 @@ self.__precacheManifest = [
     "url": "/1/static/media/slick.ced611da.eot"
   },
   {
-    "revision": "f97e3bbf73254b0112091d0192f17aec",
-    "url": "/1/static/media/slick.f97e3bbf.svg"
+    "revision": "b7c9e1e479de3b53f1e4e30ebac2403a",
+    "url": "/1/static/media/slick.b7c9e1e4.woff"
   },
   {
     "revision": "d41f55a78e6f49a5512878df1737e58a",
     "url": "/1/static/media/slick.d41f55a7.ttf"
   },
   {
-    "revision": "b7c9e1e479de3b53f1e4e30ebac2403a",
-    "url": "/1/static/media/slick.b7c9e1e4.woff"
+    "revision": "f97e3bbf73254b0112091d0192f17aec",
+    "url": "/1/static/media/slick.f97e3bbf.svg"
   },
   {
     "revision": "722acd42f05dff1b62a31c0935954ea4",
