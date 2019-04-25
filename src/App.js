@@ -360,6 +360,9 @@ export default class App extends Component {
     .setAttribute('fill', `rgba(0,0,0,0)`);
   }
   manageClick(index) {
+
+    return false;
+
     if(index === this.currentSlideNumber){
       return;
     }
