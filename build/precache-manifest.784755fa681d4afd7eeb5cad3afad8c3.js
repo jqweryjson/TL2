@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "dafb99e4a1ffd8ccb9e68efcf47aa50a",
-    "url": "/1/static/media/Tele2DisplaySerif-Bold.dafb99e4.woff"
+    "revision": "609bfeae8829cf4ff9333ae71046a477",
+    "url": "/1/static/media/Tele2TextSans-Regular.609bfeae.svg"
   },
   {
-    "revision": "207bcf22b382d49acc4f",
-    "url": "/1/static/css/main.e5c50b24.chunk.css"
+    "revision": "00f667f6b946c8d3c088",
+    "url": "/1/static/css/main.c6275000.chunk.css"
   },
   {
     "revision": "ecf45d1f754fb630230b",
@@ -56,16 +56,16 @@ self.__precacheManifest = [
     "url": "/1/static/media/StandardCTStencil-Bold.ff706bee.eot"
   },
   {
-    "revision": "3efb65e957adaa2c16b01eb97f7570c8",
-    "url": "/1/static/media/StandardCTStencil-Bold.3efb65e9.woff"
-  },
-  {
     "revision": "2ec7fa340437e201a9bc1ac3b5d2f86b",
     "url": "/1/static/media/StandardCTStencil-Bold.2ec7fa34.ttf"
   },
   {
     "revision": "cdf9c9ab32ee134b5d3055b7182d1aff",
     "url": "/1/static/media/StandardCTStencil-Bold.cdf9c9ab.svg"
+  },
+  {
+    "revision": "3efb65e957adaa2c16b01eb97f7570c8",
+    "url": "/1/static/media/StandardCTStencil-Bold.3efb65e9.woff"
   },
   {
     "revision": "680e114a9176e4788df4b0698f58e32a",
@@ -84,15 +84,15 @@ self.__precacheManifest = [
     "url": "/1/static/media/Tele2TextSans-Regular.d47d5682.woff"
   },
   {
-    "revision": "609bfeae8829cf4ff9333ae71046a477",
-    "url": "/1/static/media/Tele2TextSans-Regular.609bfeae.svg"
-  },
-  {
     "revision": "77057f290e6370f1238ea17daf5e12b3",
     "url": "/1/static/media/Tele2TextSans-Regular.77057f29.woff2"
   },
   {
-    "revision": "207bcf22b382d49acc4f",
+    "revision": "ae123fac525e390137c3c9ee1ce844fe",
+    "url": "/1/static/media/Tele2DisplaySerif-Bold.ae123fac.eot"
+  },
+  {
+    "revision": "00f667f6b946c8d3c088",
     "url": "/1/static/js/main.ed509ccf.chunk.js"
   },
   {
@@ -100,28 +100,24 @@ self.__precacheManifest = [
     "url": "/1/static/media/Tele2DisplaySerif-Bold.0c5af8be.ttf"
   },
   {
-    "revision": "ae123fac525e390137c3c9ee1ce844fe",
-    "url": "/1/static/media/Tele2DisplaySerif-Bold.ae123fac.eot"
-  },
-  {
-    "revision": "24c395ed2533537d10de8e87352afc03",
-    "url": "/1/static/media/Tele2DisplaySerif-Regular.24c395ed.eot"
-  },
-  {
     "revision": "a7104be2cdc34117745c625702764707",
     "url": "/1/static/media/Tele2DisplaySerif-Bold.a7104be2.svg"
+  },
+  {
+    "revision": "dafb99e4a1ffd8ccb9e68efcf47aa50a",
+    "url": "/1/static/media/Tele2DisplaySerif-Bold.dafb99e4.woff"
   },
   {
     "revision": "b52eec0fe3f000164215e8c05d6e921b",
     "url": "/1/static/media/Tele2DisplaySerif-Bold.b52eec0f.woff2"
   },
   {
-    "revision": "fe2e280d5ca8a06f654c0daa324bec28",
-    "url": "/1/static/media/Tele2DisplaySerif-Regular.fe2e280d.woff"
+    "revision": "24c395ed2533537d10de8e87352afc03",
+    "url": "/1/static/media/Tele2DisplaySerif-Regular.24c395ed.eot"
   },
   {
-    "revision": "610cf130e71abdcaa793ffa1dd267b98",
-    "url": "/1/static/media/Tele2DisplaySerif-Regular.610cf130.svg"
+    "revision": "fe2e280d5ca8a06f654c0daa324bec28",
+    "url": "/1/static/media/Tele2DisplaySerif-Regular.fe2e280d.woff"
   },
   {
     "revision": "5b456832b510700f74ea25f4f8c637be",
@@ -132,20 +128,24 @@ self.__precacheManifest = [
     "url": "/1/static/media/Tele2DisplaySerif-Regular.0daeb7af.woff2"
   },
   {
+    "revision": "610cf130e71abdcaa793ffa1dd267b98",
+    "url": "/1/static/media/Tele2DisplaySerif-Regular.610cf130.svg"
+  },
+  {
     "revision": "ced611daf7709cc778da928fec876475",
     "url": "/1/static/media/slick.ced611da.eot"
   },
   {
-    "revision": "f97e3bbf73254b0112091d0192f17aec",
-    "url": "/1/static/media/slick.f97e3bbf.svg"
+    "revision": "b7c9e1e479de3b53f1e4e30ebac2403a",
+    "url": "/1/static/media/slick.b7c9e1e4.woff"
   },
   {
     "revision": "d41f55a78e6f49a5512878df1737e58a",
     "url": "/1/static/media/slick.d41f55a7.ttf"
   },
   {
-    "revision": "b7c9e1e479de3b53f1e4e30ebac2403a",
-    "url": "/1/static/media/slick.b7c9e1e4.woff"
+    "revision": "f97e3bbf73254b0112091d0192f17aec",
+    "url": "/1/static/media/slick.f97e3bbf.svg"
   },
   {
     "revision": "722acd42f05dff1b62a31c0935954ea4",
@@ -184,7 +184,7 @@ self.__precacheManifest = [
     "url": "/1/static/css/2.047801c6.chunk.css"
   },
   {
-    "revision": "2db84e9085d71bb87725a76c0ea638bf",
+    "revision": "dde46c7f8e1d678cfb8e9e7b34ceaaad",
     "url": "/1/index.html"
   }
 ];

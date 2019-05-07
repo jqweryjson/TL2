@@ -8,8 +8,7 @@
   @media (max-width: 480px) { @content; }
 }
 @mixin for-5S-only {
-  @media (min-width : 320px), (max-width: 568px),
-          (-webkit-min-device-pixel-ratio: 2) { @content; }
+  @media (min-width : 320px) and (max-width: 568px) and (-webkit-min-device-pixel-ratio: 2) { @content; }
 }
 
 body {
