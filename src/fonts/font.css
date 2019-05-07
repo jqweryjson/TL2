@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Tele2DisplaySerif-Regular';
+  src: url('Tele2DisplaySerif-Regular.eot');
+  src: url('Tele2DisplaySerif-Regular.eot?#iefix') format('embedded-opentype'),
+       url('Tele2DisplaySerif-Regular.svg#Tele2DisplaySerif-Regular') format('svg'),
+       url('Tele2DisplaySerif-Regular.ttf') format('truetype'),
+       url('Tele2DisplaySerif-Regular.woff') format('woff'),
+       url('Tele2DisplaySerif-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+

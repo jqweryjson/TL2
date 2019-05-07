@@ -7,6 +7,16 @@
 @mixin for-smallPhone-only {
   @media (max-width: 480px) { @content; }
 }
+@mixin for-5S-only {
+  @media (min-width : 320px), (max-width: 568px),
+          (-webkit-min-device-pixel-ratio: 1.25),
+          ( min--moz-device-pixel-ratio: 1.25),
+          ( -o-min-device-pixel-ratio: 1.25/1),
+          ( min-device-pixel-ratio: 1.25),
+          ( min-resolution: 200dpi),
+          ( min-resolution: 1.25dppx) { @content; }
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -24,9 +34,13 @@ body {
   @include for-phone-only {
     //max-height:100vh;
     overflow:hidden;
+    overflow-y: scroll;
   }
   @include for-smallPhone-only {
     font-size: 16px;
+  }
+  @include for-5S-only {
+    font-size: 14px;
   }
 }
 
@@ -36,16 +50,48 @@ code {
 }
 @font-face {
   font-family: Standard CT Stencil;
-  src: url("./fonts/StandardStencil-Bold.otf") format("opentype");
+  src: url('./fonts/StandardCTStencil-Bold.eot');
+  src: url('./fonts/StandardCTStencil-Bold.eot?#iefix') format('embedded-opentype'),
+       url('./fonts/StandardCTStencil-Bold.svg#StandardCTStencil-Bold') format('svg'),
+       url('./fonts/StandardCTStencil-Bold.ttf') format('truetype'),
+       url('./fonts/StandardCTStencil-Bold.woff') format('woff'),
+       url('./fonts/StandardCTStencil-Bold.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }
 @font-face {
   font-family: Tele2 DisplaySerif;
+  src: url('./fonts/Tele2TextSans-Regular.eot');
+  src: url('./fonts/Tele2TextSans-Regular.eot?#iefix') format('embedded-opentype'),
+       url('./fonts/Tele2TextSans-Regular.svg#Tele2TextSans-Regular') format('svg'),
+       url('./fonts/Tele2TextSans-Regular.ttf') format('truetype'),
+       url('./fonts/Tele2TextSans-Regular.woff') format('woff'),
+       url('./fonts/Tele2TextSans-Regular.woff2') format('woff2');
   font-weight: 100;
-  src: url("./fonts/Tele2DisplaySerif-Regular.otf") format("opentype");
+  font-style: normal;
 }
 @font-face {
+  font-family: 'Tele2DisplaySerif-Bold';
+  src: url('./fonts/Tele2DisplaySerif-Bold.eot');
+  src: url('./fonts/Tele2DisplaySerif-Bold.eot?#iefix') format('embedded-opentype'),
+       url('./fonts/Tele2DisplaySerif-Bold.svg#Tele2DisplaySerif-Bold') format('svg'),
+       url('./fonts/Tele2DisplaySerif-Bold.ttf') format('truetype'),
+       url('./fonts/Tele2DisplaySerif-Bold.woff') format('woff'),
+       url('./fonts/Tele2DisplaySerif-Bold.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: Tele2 TextSans;
-  src: url("./fonts/Tele2TextSans-Regular.otf") format("opentype");
+  src: url('./fonts/Tele2DisplaySerif-Regular.eot');
+  src: url('./fonts/Tele2DisplaySerif-Regular.eot?#iefix') format('embedded-opentype'),
+       url('./fonts/Tele2DisplaySerif-Regular.svg#Tele2DisplaySerif-Regular') format('svg'),
+       url('./fonts/Tele2DisplaySerif-Regular.ttf') format('truetype'),
+       url('./fonts/Tele2DisplaySerif-Regular.woff') format('woff'),
+       url('./fonts/Tele2DisplaySerif-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }
 .section {
   position: relative;
@@ -179,6 +225,7 @@ code {
     font-size: 2.813em;
     @include for-phone-only{
       font-size: 1.875em;
+      font-weight: 100;
       padding:0;
       padding-top: 1.438rem;
     }
@@ -206,6 +253,7 @@ code {
     @include for-phone-only{
       width:auto;
       padding:0;
+      font-weight: 300;
     }
     //margin: 2em 0;
     //transform:translate3d(-120%,0,0);
@@ -273,6 +321,10 @@ code {
     height:16.0em;
     max-height:16.0em;
   }
+  @include for-5S-only {
+    height:auto;
+    //max-height:13.0em;
+  }
   background-color: #000;
   width:28.125em;
 }
@@ -292,6 +344,7 @@ code {
         width:auto;
         padding: 0rem 1rem;
         padding-top: .4em;
+        padding-right: 2.5rem;
         margin-bottom: 1.438rem;
       }
     }
@@ -428,7 +481,7 @@ code {
     left: 0;
     right: 0;
     top:10vh;
-
+    -webkit-overflow-scrolling: touch;
   }
   & .slick-arrow {
     position: absolute;
@@ -460,6 +513,7 @@ code {
     @include for-phone-only{
       position:relative;
       transform: scale(1.4);
+      max-width: 100vw;
     }
     &-link {
       display: block;
@@ -482,7 +536,8 @@ code {
   z-index:4;
   @include for-phone-only{
     width:100%;
-    overflow: scroll;
+    overflow: hidden;
+    overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
     height: 100vh;
     //height: 90vh;
@@ -664,17 +719,21 @@ overflow: hidden;
   @include for-phone-only{
     display:block;
     width:auto;
-    height:110vmin;
-    min-height:auto;
+    height:auto;
+    position: relative;
+    pointer-events: none;
+    //min-height:800px;
         overflow: hidden;
+
         overflow-y: scroll;
     //max-height: 40vmin;
-    //overflow-y:scroll;
+    overflow-y:scroll;
     top: 0em;
     bottom:0;
     z-index:20;
     padding-top:0rem;
-
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 60px;
   }
 
   & .blackSection__h2 {
@@ -744,7 +803,13 @@ overflow: hidden;
     transform: scale(1)
   }
 }
-
+.isMobileSafari .subject-image{
+  @include for-5S-only {
+    width: 75vw;
+    bottom: 80px;
+    right: 0;
+  }
+}
 .subject-image {
   position: absolute;
   top: 0;
@@ -756,8 +821,12 @@ overflow: hidden;
     top: auto;
     height: auto;
     width: 100vw;
-    bottom: 0;
+    bottom: 0px;
     right: auto;
+  }
+  @include for-5S-only {
+    width: 75vw;
+    right: 0;
   }
 }
 
@@ -871,6 +940,10 @@ overflow: hidden;
     touch-action: manipulation;
     pointer-events: none;  
   }
+  @include for-5S-only {
+    height: 90vh;
+    width: 100vw;
+  }
   & path {
     transition: fill 1.5s .25s;
   }
@@ -939,13 +1012,17 @@ header#logoWgite {
     margin: auto;
     bottom: 3em;
   }
+  @include for-5S-only {
+    bottom: 2em;
+  }
 }
 .blackSection-last {
   @include for-phone-only{
-        display:flex;
-        flex-flow: column-reverse nowrap;
+        height: auto;
 
-
+overflow: hidden;
+overflow-y: scroll;
+pointer-events: none;
         -webkit-overflow-scrolling: touch;
   }
 }

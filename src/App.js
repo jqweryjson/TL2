@@ -4,7 +4,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { TimelineLite, Power2 } from 'gsap';
-import { isMobile } from 'react-device-detect';
+import { isMobile, isMobileSafari } from 'react-device-detect';
 import * as Visibility from 'visibilityjs';
 
 import Header from './components/Header';
@@ -63,9 +63,8 @@ export default class App extends Component {
   autoplay;
   autoplayDelay = 10000;
   componentDidMount() {
-    if(isMobile) {
-      // this.tl
-      // .set('.mBth',{opacity:0,immediateRender:true})      
+    if(isMobileSafari) {
+      document.getElementsByTagName('body')[0].classList.add('isMobileSafari');
     }
       var body = document.body,
       timer;
@@ -128,10 +127,7 @@ export default class App extends Component {
       });
     }
   }
-  // infiniteSubjectImage(){
-  //   this.tlSubject.to('.subject-image', 12, {scale:1.1, repeatDelay:0, repeat:-1, yoyo:true})
-  //   this.tlSubject.play();
-  // }
+
   mouseWheelHandler(event) {
     this.resetAutoPlay();
 
@@ -175,7 +171,6 @@ export default class App extends Component {
       .setAttribute('fill', `${this.state.fills[nextSlideNumber]}`);
   }
   goToFour(){
-    
     this.sliderRef.current.slickGoTo(4,true);
   }
   goToThree(){
@@ -184,8 +179,54 @@ export default class App extends Component {
     this.inProgress = false;
     return;
   }
-  prePrev() {
-    
+  prePrev(index) {
+
+
+    if(index != undefined && this.currentSlideNumber === 5) {
+      
+      let self = this;
+      this.tl.clear();
+      this.tl
+      .to(ReactDOM.findDOMNode(this.blackSection2Ref.current),.6,{width:'0%',immediateRender:true, onComplete: self.sliderRef.current.slickGoTo.bind(self,index,true)})
+      .set('.slick-slide',{backgroundColor:'#fff',immediateRender:true})
+      .set('.isFour',{opacity:1,immediateRender:true})
+      .set('#svgWave',{opacity:1,immediateRender:true})
+      .set('.isFourInfoBlock',{opacity:1,immediateRender:true})
+      .set(document.getElementsByClassName('subject-image')[index],{ right: '200%',immediateRender:true })
+      .to(document.getElementsByClassName('subject-image')[index],0.8,{ right: '0%' })
+      this.animateWave(index);
+      return;
+    }
+    if(index != undefined && this.currentSlideNumber === 4) {
+      let self = this;
+
+      this.sliderRef.current.slickGoTo(index,true);
+      this.animateWave(index);
+      this.tl.clear();
+      this.tl
+      .set('.slick-slide',{backgroundColor:'#fff',immediateRender:true})
+      .set(document.getElementsByClassName('subject-image')[index],{ right: '0%' })
+      .to(ReactDOM.findDOMNode(this.blackSection1Ref.current),.6,{width:'0%',immediateRender:true})
+      .set('.isFour',{opacity:1,immediateRender:true})
+      .set('#svgWave',{opacity:1,immediateRender:true})
+      .set('.isFourInfoBlock',{opacity:1,immediateRender:true})
+      return;
+    }
+    if(index != undefined ) {
+      this.animateImage('prev');
+      this.animateText(null, 'next');
+      this.animateWave(index);
+      setTimeout(() => {
+        this.tl.clear();
+        this.tl
+          .set(document.getElementsByClassName('subject-image')[index],{ right: '200%',immediateRender:true })
+          .to(document.getElementsByClassName('subject-image')[index],0.8,{ right: '0%' })
+          this.sliderRef.current.slickGoTo(index,true);
+      }, 800);
+      return;
+    }
+
+
     if(this.currentSlideNumber === 5) {
       let self = this;
       this.manageDots();
@@ -214,89 +255,39 @@ export default class App extends Component {
   }
   animateImage(direction, nextIndex) {
 
-
-
-
     if (this.currentSlideNumber === 0) {
       this.tl
-        .to(
-          document.getElementsByClassName('subject-image')[
-            this.currentSlideNumber
-          ],
-          0.8,
-          { right: '-100%' }
-        )
-        .set(
-          document.getElementsByClassName('subject-image')[
-            this.currentSlideNumber + 1
-          ],
-          { right: '200%' }
-        )
-        .to(
-          document.getElementsByClassName('subject-image')[
-            this.currentSlideNumber + 1
-          ],
-          0.8,
-          { right: '0%' }
-        )
-        .set(
-          document.getElementsByClassName('subject-image')[
-            this.currentSlideNumber
-          ],
-          { right: '0%' }
-        );
+        .to(document.getElementsByClassName('subject-image')[this.currentSlideNumber],0.8,{ right: '-100%' })
+        .set(document.getElementsByClassName('subject-image')[this.currentSlideNumber + 1],{ right: '200%' })
+        .to(document.getElementsByClassName('subject-image')[this.currentSlideNumber + 1],0.8,{ right: '0%' })
+        .set(document.getElementsByClassName('subject-image')[this.currentSlideNumber],{ right: '0%' });
       return;
     }
     if (direction === 'prev') {
       this.tl
-        .to(
-          document.getElementsByClassName('subject-image')[
-            this.currentSlideNumber
-          ],
-          0.8,
-          { right: '200%' }
-        )
-        .set(
-          document.getElementsByClassName('subject-image')[
-            this.currentSlideNumber - 1
-          ],
-          { right: '200%' }
-        )
-        .to(
-          document.getElementsByClassName('subject-image')[
-            this.currentSlideNumber - 1
-          ],
-          0.8,
-          { right: '0%' }
-        );
+        .to(document.getElementsByClassName('subject-image')[this.currentSlideNumber],0.8,{ right: '200%' })
+        .set(document.getElementsByClassName('subject-image')[this.currentSlideNumber - 1],{ right: '200%' })
+        .to(document.getElementsByClassName('subject-image')[this.currentSlideNumber - 1],0.8,{ right: '0%' });
       return;
     }
-  
     if(nextIndex){
-
-    this.tl
-      .to(document.getElementsByClassName('subject-image')[this.currentSlideNumber],0.8,{ right: '200%' })
-      // .set(document.getElementsByClassName('subject-image')[nextIndex],{ right: '200%',immediateRender:true })
-      .to(document.getElementsByClassName('subject-image')[nextIndex],0.8,{ right: '0%' });     
+      this.tl
+        .to(document.getElementsByClassName('subject-image')[this.currentSlideNumber],0.8,{ right: '200%' })
+        // .set(document.getElementsByClassName('subject-image')[nextIndex],{ right: '200%',immediateRender:true })
+        .to(document.getElementsByClassName('subject-image')[nextIndex],0.8,{ right: '0%' });     
       return;
     }
-
     if (this.currentSlideNumber < 3) {
       this.tl
         .to(document.getElementsByClassName('subject-image')[this.currentSlideNumber],0.8,{ right: '-100%' })
-        .set(document.getElementsByClassName('subject-image')[this.currentSlideNumber + 1],{ right: '200%' })
+        .set(document.getElementsByClassName('subject-image')[this.currentSlideNumber + 1],{ right: '150%',immediateRender:true })
         .to(document.getElementsByClassName('subject-image')[this.currentSlideNumber + 1],0.8,{ right: '0%' });
     }
-    if (this.currentSlideNumber === 3) {
-      this.tl
-        .to(document.getElementsByClassName('subject-image')[this.currentSlideNumber],0.8,{ right: '-100%' });
-    }
   }
-  resetAutoPlay(){
 
+  resetAutoPlay(){
     Visibility.stop(this.autoplay);
     this.autoplay = Visibility.every(this.autoplayDelay, this.autoplayStart.bind(this) );
-
   }
   onSwipeMove(position, event) {
 
@@ -319,8 +310,49 @@ export default class App extends Component {
     }
     //return true;
   }
-  preNext() {
-   
+  preNext(index) {
+
+
+    if(index && this.currentSlideNumber !== 3 && this.currentSlideNumber !== 4) {
+      this.animateImage();
+      this.animateText(null, 'next');
+      if(index === 4) {
+        this.fromFourSlide = true;
+        let self = this;
+        this.tl.clear();
+        setTimeout(() => {
+          this.tl
+          .set('.slick-slide',{backgroundColor:'#000',immediateRender:true})
+          .set('.isFourInfoBlock',{opacity:0,immediateRender:true})
+          .set('.isFour',{opacity:0,immediateRender:true,onComplete: self.goToFour.bind(self)})
+          .to(ReactDOM.findDOMNode(this.blackSection1Ref.current),.8,{width:'100%',immediateRender:true})
+        }, 600);
+        return;
+      }
+      if(index === 5){
+        this.fromFourSlide = true;
+        this.tl.clear();
+        setTimeout(() => {
+          this.sliderRef.current.slickGoTo(index,true);
+          this.tl
+          .set('.slick-slide',{backgroundColor:'#000',immediateRender:true})
+          .set('.isFourInfoBlock',{opacity:0,immediateRender:true})
+          .set('#svgWave',{opacity:0,immediateRender:true})
+          .set('.isFour',{opacity:0,immediateRender:true})
+          .to(ReactDOM.findDOMNode(this.blackSection2Ref.current),.8,{width:'100%'})
+        }, 600);
+        return;
+      }
+      this.animateWave(index);
+      setTimeout(() => {
+          this.tl.clear();
+          this.tl
+            .set(document.getElementsByClassName('subject-image')[index],{ right: '200%',immediateRender:true })
+            .to(document.getElementsByClassName('subject-image')[index],0.8,{ right: '0%' })
+          this.sliderRef.current.slickGoTo(index,true);
+      }, 800);
+      return;
+    }
     if(this.currentSlideNumber === 4) {
       //this.tl.to('.subject-image',{scale:1});
 
@@ -353,23 +385,32 @@ export default class App extends Component {
       this.sliderRef.current.slickNext();
     }
   }
+
   fadeOutWave(){
     document
     .getElementById('svgWave')
     .getElementsByTagName('path')[0]
     .setAttribute('fill', `rgba(0,0,0,0)`);
   }
+
   manageClick(index) {
+
+    if(index === this.currentSlideNumber || this.inProgress){
+      return;
+    }
+
+    this.resetAutoPlay();
+    this.lock()
+
+    if(index > this.currentSlideNumber){
+      this.preNext(index)
+    } else {
+      this.prePrev(index)
+    }
+
 
     return false;
 
-    if(index === this.currentSlideNumber){
-      return;
-    }
-    if(this.inProgress) {
-      return;
-    }
-    this.resetAutoPlay();
 
       if(isMobile && index === 4 ){
         this.sliderRef.current.slickGoTo(4);
@@ -462,6 +503,13 @@ export default class App extends Component {
       if(newIndex === oldIndex){
         return  ;
       }
+      if(newIndex === 5){
+        document.getElementsByClassName('custom-slick')[0].style.overflowY = 'scroll';
+        document.getElementsByClassName('custom-slick')[0].style.backgroundColor = '#000'
+      } else {
+        document.getElementsByClassName('custom-slick')[0].style.overflowY = '';
+        document.getElementsByClassName('custom-slick')[0].style.backgroundColor = '#fff'
+      }
       if(this.currentSlideNumber === 4 || this.currentSlideNumber === 5){
         this.tl
         .set('#svgWave',{opacity:0,immediateRender:true})        
@@ -529,11 +577,8 @@ export default class App extends Component {
     if(this.isMobile && this.currentSlideNumber === 0) {
       return;
     }
-    if (this.currentSlideNumber <= 3) {
-      this.lock();
-    } else {
-      this.inProgress = false;
-    }
+
+    this.lock();
     this.manageDots();
     if(this.isMobile){
       return;
@@ -663,6 +708,7 @@ export default class App extends Component {
               header="делись со всеми tele2 друзьями"
               btnText="Погнали!"
               hasBg={false}
+              className='last-mobile'
               image={isMobile ? GirlsMobile : Girls}
               number={4}
               slickSliderRef={this.sliderRef}
