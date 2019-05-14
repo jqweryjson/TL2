@@ -1,10 +1,10 @@
 self.__precacheManifest = [
   {
-    "revision": "609bfeae8829cf4ff9333ae71046a477",
-    "url": "/jqweryjson/TL2/static/media/Tele2TextSans-Regular.609bfeae.svg"
+    "revision": "ae123fac525e390137c3c9ee1ce844fe",
+    "url": "/jqweryjson/TL2/static/media/Tele2DisplaySerif-Bold.ae123fac.eot"
   },
   {
-    "revision": "25b16d33bbb7351e3d3b",
+    "revision": "bea7af7870a7c2cd9bc7",
     "url": "/jqweryjson/TL2/static/css/main.e6017728.chunk.css"
   },
   {
@@ -60,16 +60,16 @@ self.__precacheManifest = [
     "url": "/jqweryjson/TL2/static/media/StandardCTStencil-Bold.2ec7fa34.ttf"
   },
   {
-    "revision": "3efb65e957adaa2c16b01eb97f7570c8",
-    "url": "/jqweryjson/TL2/static/media/StandardCTStencil-Bold.3efb65e9.woff"
-  },
-  {
     "revision": "680e114a9176e4788df4b0698f58e32a",
     "url": "/jqweryjson/TL2/static/media/StandardCTStencil-Bold.680e114a.woff2"
   },
   {
     "revision": "cdf9c9ab32ee134b5d3055b7182d1aff",
     "url": "/jqweryjson/TL2/static/media/StandardCTStencil-Bold.cdf9c9ab.svg"
+  },
+  {
+    "revision": "3efb65e957adaa2c16b01eb97f7570c8",
+    "url": "/jqweryjson/TL2/static/media/StandardCTStencil-Bold.3efb65e9.woff"
   },
   {
     "revision": "c8d5810783ec15ebc58743d3f67db826",
@@ -84,20 +84,16 @@ self.__precacheManifest = [
     "url": "/jqweryjson/TL2/static/media/Tele2TextSans-Regular.d47d5682.woff"
   },
   {
-    "revision": "ae123fac525e390137c3c9ee1ce844fe",
-    "url": "/jqweryjson/TL2/static/media/Tele2DisplaySerif-Bold.ae123fac.eot"
-  },
-  {
     "revision": "77057f290e6370f1238ea17daf5e12b3",
     "url": "/jqweryjson/TL2/static/media/Tele2TextSans-Regular.77057f29.woff2"
   },
   {
-    "revision": "25b16d33bbb7351e3d3b",
-    "url": "/jqweryjson/TL2/static/js/main.88f78d48.chunk.js"
+    "revision": "609bfeae8829cf4ff9333ae71046a477",
+    "url": "/jqweryjson/TL2/static/media/Tele2TextSans-Regular.609bfeae.svg"
   },
   {
-    "revision": "a7104be2cdc34117745c625702764707",
-    "url": "/jqweryjson/TL2/static/media/Tele2DisplaySerif-Bold.a7104be2.svg"
+    "revision": "bea7af7870a7c2cd9bc7",
+    "url": "/jqweryjson/TL2/static/js/main.fea37423.chunk.js"
   },
   {
     "revision": "0c5af8bef2ad369da07d0c2562f9b4d6",
@@ -112,24 +108,32 @@ self.__precacheManifest = [
     "url": "/jqweryjson/TL2/static/media/Tele2DisplaySerif-Bold.b52eec0f.woff2"
   },
   {
+    "revision": "a7104be2cdc34117745c625702764707",
+    "url": "/jqweryjson/TL2/static/media/Tele2DisplaySerif-Bold.a7104be2.svg"
+  },
+  {
     "revision": "24c395ed2533537d10de8e87352afc03",
     "url": "/jqweryjson/TL2/static/media/Tele2DisplaySerif-Regular.24c395ed.eot"
   },
   {
-    "revision": "5b456832b510700f74ea25f4f8c637be",
-    "url": "/jqweryjson/TL2/static/media/Tele2DisplaySerif-Regular.5b456832.ttf"
+    "revision": "610cf130e71abdcaa793ffa1dd267b98",
+    "url": "/jqweryjson/TL2/static/media/Tele2DisplaySerif-Regular.610cf130.svg"
   },
   {
     "revision": "fe2e280d5ca8a06f654c0daa324bec28",
     "url": "/jqweryjson/TL2/static/media/Tele2DisplaySerif-Regular.fe2e280d.woff"
   },
   {
+    "revision": "5b456832b510700f74ea25f4f8c637be",
+    "url": "/jqweryjson/TL2/static/media/Tele2DisplaySerif-Regular.5b456832.ttf"
+  },
+  {
     "revision": "0daeb7af1ece49f75d46973f40a82ab8",
     "url": "/jqweryjson/TL2/static/media/Tele2DisplaySerif-Regular.0daeb7af.woff2"
   },
   {
-    "revision": "610cf130e71abdcaa793ffa1dd267b98",
-    "url": "/jqweryjson/TL2/static/media/Tele2DisplaySerif-Regular.610cf130.svg"
+    "revision": "d41f55a78e6f49a5512878df1737e58a",
+    "url": "/jqweryjson/TL2/static/media/slick.d41f55a7.ttf"
   },
   {
     "revision": "ced611daf7709cc778da928fec876475",
@@ -142,10 +146,6 @@ self.__precacheManifest = [
   {
     "revision": "f97e3bbf73254b0112091d0192f17aec",
     "url": "/jqweryjson/TL2/static/media/slick.f97e3bbf.svg"
-  },
-  {
-    "revision": "d41f55a78e6f49a5512878df1737e58a",
-    "url": "/jqweryjson/TL2/static/media/slick.d41f55a7.ttf"
   },
   {
     "revision": "722acd42f05dff1b62a31c0935954ea4",
@@ -184,7 +184,7 @@ self.__precacheManifest = [
     "url": "/jqweryjson/TL2/static/css/2.86b5578c.chunk.css"
   },
   {
-    "revision": "346c5a8e0cf04ea1937eb08fe9260c0d",
+    "revision": "a1e9b37bb7667b1f3f34889621e6d6fa",
     "url": "/jqweryjson/TL2/index.html"
   }
 ];
