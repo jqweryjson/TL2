@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "609bfeae8829cf4ff9333ae71046a477",
-    "url": "/jqweryjson/TL2/static/media/Tele2TextSans-Regular.609bfeae.svg"
+    "revision": "ae123fac525e390137c3c9ee1ce844fe",
+    "url": "/jqweryjson/TL2/static/media/Tele2DisplaySerif-Bold.ae123fac.eot"
   },
   {
     "revision": "bea7af7870a7c2cd9bc7",
@@ -56,20 +56,20 @@ self.__precacheManifest = [
     "url": "/jqweryjson/TL2/static/media/StandardCTStencil-Bold.ff706bee.eot"
   },
   {
-    "revision": "cdf9c9ab32ee134b5d3055b7182d1aff",
-    "url": "/jqweryjson/TL2/static/media/StandardCTStencil-Bold.cdf9c9ab.svg"
-  },
-  {
     "revision": "2ec7fa340437e201a9bc1ac3b5d2f86b",
     "url": "/jqweryjson/TL2/static/media/StandardCTStencil-Bold.2ec7fa34.ttf"
   },
   {
-    "revision": "3efb65e957adaa2c16b01eb97f7570c8",
-    "url": "/jqweryjson/TL2/static/media/StandardCTStencil-Bold.3efb65e9.woff"
-  },
-  {
     "revision": "680e114a9176e4788df4b0698f58e32a",
     "url": "/jqweryjson/TL2/static/media/StandardCTStencil-Bold.680e114a.woff2"
+  },
+  {
+    "revision": "cdf9c9ab32ee134b5d3055b7182d1aff",
+    "url": "/jqweryjson/TL2/static/media/StandardCTStencil-Bold.cdf9c9ab.svg"
+  },
+  {
+    "revision": "3efb65e957adaa2c16b01eb97f7570c8",
+    "url": "/jqweryjson/TL2/static/media/StandardCTStencil-Bold.3efb65e9.woff"
   },
   {
     "revision": "c8d5810783ec15ebc58743d3f67db826",
@@ -80,16 +80,16 @@ self.__precacheManifest = [
     "url": "/jqweryjson/TL2/static/media/Tele2TextSans-Regular.2d06bdb9.ttf"
   },
   {
-    "revision": "77057f290e6370f1238ea17daf5e12b3",
-    "url": "/jqweryjson/TL2/static/media/Tele2TextSans-Regular.77057f29.woff2"
-  },
-  {
     "revision": "d47d56824df0fd7abb50b1bdd0e13f7e",
     "url": "/jqweryjson/TL2/static/media/Tele2TextSans-Regular.d47d5682.woff"
   },
   {
-    "revision": "ae123fac525e390137c3c9ee1ce844fe",
-    "url": "/jqweryjson/TL2/static/media/Tele2DisplaySerif-Bold.ae123fac.eot"
+    "revision": "77057f290e6370f1238ea17daf5e12b3",
+    "url": "/jqweryjson/TL2/static/media/Tele2TextSans-Regular.77057f29.woff2"
+  },
+  {
+    "revision": "609bfeae8829cf4ff9333ae71046a477",
+    "url": "/jqweryjson/TL2/static/media/Tele2TextSans-Regular.609bfeae.svg"
   },
   {
     "revision": "bea7af7870a7c2cd9bc7",
@@ -100,10 +100,6 @@ self.__precacheManifest = [
     "url": "/jqweryjson/TL2/static/media/Tele2DisplaySerif-Bold.0c5af8be.ttf"
   },
   {
-    "revision": "a7104be2cdc34117745c625702764707",
-    "url": "/jqweryjson/TL2/static/media/Tele2DisplaySerif-Bold.a7104be2.svg"
-  },
-  {
     "revision": "dafb99e4a1ffd8ccb9e68efcf47aa50a",
     "url": "/jqweryjson/TL2/static/media/Tele2DisplaySerif-Bold.dafb99e4.woff"
   },
@@ -112,32 +108,36 @@ self.__precacheManifest = [
     "url": "/jqweryjson/TL2/static/media/Tele2DisplaySerif-Bold.b52eec0f.woff2"
   },
   {
+    "revision": "a7104be2cdc34117745c625702764707",
+    "url": "/jqweryjson/TL2/static/media/Tele2DisplaySerif-Bold.a7104be2.svg"
+  },
+  {
     "revision": "24c395ed2533537d10de8e87352afc03",
     "url": "/jqweryjson/TL2/static/media/Tele2DisplaySerif-Regular.24c395ed.eot"
-  },
-  {
-    "revision": "5b456832b510700f74ea25f4f8c637be",
-    "url": "/jqweryjson/TL2/static/media/Tele2DisplaySerif-Regular.5b456832.ttf"
-  },
-  {
-    "revision": "fe2e280d5ca8a06f654c0daa324bec28",
-    "url": "/jqweryjson/TL2/static/media/Tele2DisplaySerif-Regular.fe2e280d.woff"
-  },
-  {
-    "revision": "0daeb7af1ece49f75d46973f40a82ab8",
-    "url": "/jqweryjson/TL2/static/media/Tele2DisplaySerif-Regular.0daeb7af.woff2"
   },
   {
     "revision": "610cf130e71abdcaa793ffa1dd267b98",
     "url": "/jqweryjson/TL2/static/media/Tele2DisplaySerif-Regular.610cf130.svg"
   },
   {
-    "revision": "ced611daf7709cc778da928fec876475",
-    "url": "/jqweryjson/TL2/static/media/slick.ced611da.eot"
+    "revision": "fe2e280d5ca8a06f654c0daa324bec28",
+    "url": "/jqweryjson/TL2/static/media/Tele2DisplaySerif-Regular.fe2e280d.woff"
+  },
+  {
+    "revision": "5b456832b510700f74ea25f4f8c637be",
+    "url": "/jqweryjson/TL2/static/media/Tele2DisplaySerif-Regular.5b456832.ttf"
+  },
+  {
+    "revision": "0daeb7af1ece49f75d46973f40a82ab8",
+    "url": "/jqweryjson/TL2/static/media/Tele2DisplaySerif-Regular.0daeb7af.woff2"
   },
   {
     "revision": "d41f55a78e6f49a5512878df1737e58a",
     "url": "/jqweryjson/TL2/static/media/slick.d41f55a7.ttf"
+  },
+  {
+    "revision": "ced611daf7709cc778da928fec876475",
+    "url": "/jqweryjson/TL2/static/media/slick.ced611da.eot"
   },
   {
     "revision": "b7c9e1e479de3b53f1e4e30ebac2403a",
