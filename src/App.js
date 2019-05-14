@@ -4,7 +4,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { TimelineLite, Power2 } from 'gsap';
-import { isMobile, isMobileSafari } from 'react-device-detect';
+import { isMobile, isMobileSafari, isTablet } from 'react-device-detect';
 import * as Visibility from 'visibilityjs';
 
 import Header from './components/Header';
@@ -640,7 +640,7 @@ export default class App extends Component {
       <>
         <Header isBlackScreen={this.state.isBlackScreen} />
         {isMobile ? <MobileBtnBlock currentSlideNumber={this.currentSlideNumber} /> : null}
-        {isMobile ? <StartWaveMobile id="svgWave" /> : <StartWave id="svgWave" />}
+        {isMobile && !isTablet ? <StartWaveMobile id="svgWave" /> : <StartWave id="svgWave" />}
         {isMobile ? null : <BlackSection
           header="воспользуйтесь прямо сейчас"
           ref={this.blackSection1Ref}

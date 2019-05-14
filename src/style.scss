@@ -21,7 +21,16 @@
   and (max-device-width : 824px) 
   and (orientation : landscape) { @content; }
 }
-
+@mixin ipad{
+  @media (min-width : 768px) and (max-height:1024px){ @content; }
+}
+@mixin ipadLandscape {
+  @media only screen 
+  and (min-device-width : 768px) 
+  and (max-device-width : 1024px) 
+  and (orientation : landscape)
+  and (-webkit-min-device-pixel-ratio: 1)  { @content; }
+}
 
 body {
   margin: 0;
@@ -47,6 +56,12 @@ body {
   }
   @include for-5S-only {
     font-size: 14px;
+  }
+  @include ipad {
+    font-size: 23px;
+  }
+  @include ipadLandscape {
+    font-size: 19px;
   }
 }
 
@@ -186,6 +201,10 @@ code {
   //padding-top: 3%;
   @include landscape-mobile {
     width: 60%;
+  }
+  @include ipadLandscape {
+    left: 3%;
+    top: 10%;
   }
 }
 .mainImgWrap {
@@ -582,7 +601,8 @@ code {
     }
     @include landscape-mobile {
       width: 60vw;
-      height: 78vmax;
+      height: 83vmax;
+      max-height: 540px;
     }
   }
   &__h2{
@@ -836,7 +856,7 @@ code {
     right: 0;
   }
   @include landscape-mobile {
-    width: 35vw;
+    width: 45vw;
     bottom:0;
     right:0;
   }
@@ -853,16 +873,25 @@ code {
     height: auto;
     width: 100vw;
     bottom: 0px;
-    right: auto;
+    right: 0;
   }
   @include for-5S-only {
     width: 75vw;
     right: 0;
   }
   @include landscape-mobile {
-    width: 35vw;
+    width: 45vw;
     bottom:0;
     right:0;
+  }
+  @include ipad {
+    width: 80vw;
+  }
+  @include ipadLandscape {
+    width: 50vw;
+    height: auto;
+    bottom: 0;
+    top: auto;
   }
 }
 
@@ -1159,5 +1188,18 @@ header#logoWgite {
     margin-left: 0px;
     margin-top: 0px;
     background-color: rgba(129, 80, 108,0.6);
+  }
+}
+.iconSec {
+  @include ipadLandscape {
+    display: none;
+  }
+}
+.mBth {
+  @include ipad {
+    display: none;
+  }
+  @include ipadLandscape {
+    display: none;
   }
 }
