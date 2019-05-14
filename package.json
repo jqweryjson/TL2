@@ -30,7 +30,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "homepage": "https://github.com/jqweryjson/TL2",
+  "homepage": "https://github.com/TL2",
   "browserslist": [
     ">0.2%",
     "not dead",
