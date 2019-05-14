@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/jqweryjson/TL2/precache-manifest.b1a4c2fb0d39477a441c5f24873c9353.js"
+  "/TL2/precache-manifest.478485afa65b8ecf96ce49456816bb71.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/jqweryjson/TL2/index.html", {
+workbox.routing.registerNavigationRoute("/TL2/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
