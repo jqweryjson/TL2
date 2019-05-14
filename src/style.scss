@@ -4,7 +4,7 @@
 @mixin for-phone-only {
   @media only screen 
   and (min-device-width : 320px) 
-  and (max-device-width : 812px) { @content; }
+  and (max-device-width : 824px) { @content; }
 }
 // @mixin for-phone-only {
 //   @media (max-width: 599px) { @content; }
@@ -13,12 +13,12 @@
   @media (max-width: 480px) { @content; }
 }
 @mixin for-5S-only {
-  @media (min-width : 320px) and (max-width: 568px) and (-webkit-min-device-pixel-ratio: 2) { @content; }
+  @media (min-width : 320px) and (max-width: 568px) and (max-height:568px) and(-webkit-min-device-pixel-ratio: 2) { @content; }
 }
 @mixin landscape-mobile {
   @media only screen 
   and (min-device-width : 320px) 
-  and (max-device-width : 812px) 
+  and (max-device-width : 824px) 
   and (orientation : landscape) { @content; }
 }
 
@@ -184,6 +184,9 @@ code {
   }
   z-index:3;
   //padding-top: 3%;
+  @include landscape-mobile {
+    width: 60%;
+  }
 }
 .mainImgWrap {
   position: absolute;
@@ -336,7 +339,7 @@ code {
   @include landscape-mobile {
     width: 63vmax;
     top: 4vh;
-    height: 30vmax;
+    height: 20vmax;
     min-height: 185px;
   }
   background-color: #000;
@@ -579,7 +582,7 @@ code {
     }
     @include landscape-mobile {
       width: 60vw;
-      height: 100vmax;
+      height: 78vmax;
     }
   }
   &__h2{
@@ -756,7 +759,9 @@ code {
     -webkit-overflow-scrolling: touch;
     margin-bottom: 60px;
   }
-
+  @include landscape-mobile {
+    width: 60vw;
+  }
   & .blackSection__h2 {
     @include for-phone-only{
       padding:0;
@@ -1049,7 +1054,6 @@ header#logoWgite {
   @include landscape-mobile {
     position: absolute;
     opacity: 1;
-
   }
 }
 .blackSection-last {
@@ -1060,9 +1064,6 @@ header#logoWgite {
         overflow-y: scroll;
         pointer-events: none;
         -webkit-overflow-scrolling: touch;
-  }
-  @include landscape-mobile {
-    width: 60vw;
   }
 }
 .iosFixModal {
