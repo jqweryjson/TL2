@@ -34,6 +34,7 @@ import { ReactComponent as StartWave } from './components/img/startWave.svg';
 import { ReactComponent as StartWaveMobile } from './components/img/startWaveMobile.svg';
 
 export default class App extends Component {
+
   constructor() {
     super();
     this.tl = new TimelineLite();
@@ -41,9 +42,11 @@ export default class App extends Component {
     this.tl.defaultEase = Power2.easeIn;
     this.isMobile = isMobile;
     this.isSwipe = isMobile ? true : false;
+   
   }
   state = {
     isBlackScreen: false,
+    isTouchMove:isMobile ? true : false,
     currentSlideNumber: 0,
     animateTextDirection: null,
     afterChange: null,
@@ -63,8 +66,16 @@ export default class App extends Component {
   autoplay;
   autoplayDelay = 10000;
   componentDidMount() {
+    let self = this;
     if(isMobileSafari) {
       document.getElementsByTagName('body')[0].classList.add('isMobileSafari');
+    }
+    if(isMobile) {
+      window.addEventListener("orientationchange",()=> {
+        window.location.reload()
+        //debugger;
+        //Array.from(document.getElementsByClassName('wrapInfoBlock')).forEach(item=> item.style.width = '');
+      });
     }
       var body = document.body,
       timer;
@@ -83,7 +94,7 @@ export default class App extends Component {
       document.getElementById('specialID').classList +=
       ' initial-animation';
       this.manageActiveClass(0);
-    let self = this;
+    
     setTimeout(() => {
       document.getElementsByTagName('body')[0].classList.add('startesSub');
     }, 6000);
@@ -287,15 +298,24 @@ export default class App extends Component {
 
   resetAutoPlay(){
     Visibility.stop(this.autoplay);
-    this.autoplay = Visibility.every(this.autoplayDelay, this.autoplayStart.bind(this) );
+    //this.autoplay = Visibility.every(this.autoplayDelay, this.autoplayStart.bind(this) );
   }
   onSwipeMove(position, event) {
-
+    document.getElementById('svgWave').getElementsByTagName('line')[0].style.display = 'none';
+    let ee = function(e){
+      e.stopPropagation()
+    }
+    document.body.addEventListener('touchmove', ee, true);
+    setTimeout(()=>{
+      document.body.removeEventListener('touchmove', ee, true);
+    },1000)
     this.resetAutoPlay();
+    return;
     if (this.inProgress) {
       document.getElementById('svgWave').getElementsByTagName('line')[0].style.display = 'none'
       return true;
     }
+    debugger;
     if (position === 'left' && this.currentSlideNumber !== 5) {
       if (this.currentSlideNumber === 4 || this.currentSlideNumber === 5) {
         document
@@ -310,6 +330,7 @@ export default class App extends Component {
     }
     //return true;
   }
+
   preNext(index) {
 
 
@@ -500,6 +521,7 @@ export default class App extends Component {
     //   return;
     // }
     if(isMobile){
+      
       if(newIndex === oldIndex){
         return  ;
       }
@@ -518,6 +540,9 @@ export default class App extends Component {
         .set('#svgWave',{opacity:1,immediateRender:true})  
       }
       if(this.currentSlideNumber === 0 || this.currentSlideNumber === 1 || this.currentSlideNumber === 2 || this.currentSlideNumber === 3 ){
+        if(isMobile){
+          this.animateWave(newIndex)
+        }
         const $body = document.getElementsByTagName("body")[0];
         // const $appElem = document.getElementById("app");
         // enablePageScroll($appElem);
@@ -538,18 +563,23 @@ export default class App extends Component {
         return;
       }
       this.setState({
-        animateTextDirection: 'fromLeft'
+        animateTextDirection: 'fromLeft',
+
       });
     }
     this.manageDots();
   }
   lock(){
+    console.log(this.inProgress)
     this.inProgress = true;
+
+
     setTimeout(() => {
       this.inProgress = false;
     }, 1000);
   }
   afterChange(index) {
+
     if(this.fromFourSlide){
       this.fromFourSlide = false;
       this.manageDots();
@@ -595,9 +625,9 @@ export default class App extends Component {
       infinite: false,
       draggable: false,
       swipe: this.isSwipe,
-      swipeToSlide: false,
+      swipeToSlide: this.isSwipe,
+      touchMove:this.state.isTouchMove,
       adaptiveHeight: true,
-      touchMove:this.isSwipe,
       //autoplay:true,
       //autoplaySpeed:6000,
       //initialSlide:5,

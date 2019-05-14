@@ -2,14 +2,26 @@
   @media (min-width: 1600px) { @content; }
 }
 @mixin for-phone-only {
-  @media (max-width: 599px) { @content; }
+  @media only screen 
+  and (min-device-width : 320px) 
+  and (max-device-width : 812px) { @content; }
 }
+// @mixin for-phone-only {
+//   @media (max-width: 599px) { @content; }
+// }
 @mixin for-smallPhone-only {
   @media (max-width: 480px) { @content; }
 }
 @mixin for-5S-only {
   @media (min-width : 320px) and (max-width: 568px) and (-webkit-min-device-pixel-ratio: 2) { @content; }
 }
+@mixin landscape-mobile {
+  @media only screen 
+  and (min-device-width : 320px) 
+  and (max-device-width : 812px) 
+  and (orientation : landscape) { @content; }
+}
+
 
 body {
   margin: 0;
@@ -223,6 +235,7 @@ code {
       padding:0;
       padding-top: 1.438rem;
     }
+
     line-height: normal;
     opacity:0;
     color: #000;
@@ -249,6 +262,7 @@ code {
       padding:0;
       font-weight: 300;
     }
+    @include landscape-mobile {}
     //margin: 2em 0;
     //transform:translate3d(-120%,0,0);
     //transform: matrix(0, 0, 0, 0, -1000, 0);
@@ -319,6 +333,12 @@ code {
     height:auto;
     //max-height:13.0em;
   }
+  @include landscape-mobile {
+    width: 63vmax;
+    top: 4vh;
+    height: 30vmax;
+    min-height: 185px;
+  }
   background-color: #000;
   width:28.125em;
 }
@@ -341,6 +361,7 @@ code {
         padding-right: 2.5rem;
         margin-bottom: 1.438rem;
       }
+
     }
     &__button {
       background: #C3E400;
@@ -543,16 +564,22 @@ code {
     width: 46.063em;
     display: flex;
     flex-flow: column nowrap;
-    @include for-phone-only{
+    @include for-phone-only {
       left:0;
+      right:0;
       top:0em;
       width:auto;
-overflow: hidden;
-    overflow-y: scroll;
+      margin: auto;
+      overflow: hidden;
+     overflow-y: scroll;
 //height: 100vh;
       height: 130vmax;
       padding: 0 1.075em;
      //margin-bottom:10vh;
+    }
+    @include landscape-mobile {
+      width: 60vw;
+      height: 100vmax;
     }
   }
   &__h2{
@@ -800,8 +827,13 @@ overflow: hidden;
 .isMobileSafari .subject-image{
   @include for-5S-only {
     width: 75vw;
-    bottom: 80px;
+    bottom: 75px;
     right: 0;
+  }
+  @include landscape-mobile {
+    width: 35vw;
+    bottom:0;
+    right:0;
   }
 }
 .subject-image {
@@ -821,6 +853,11 @@ overflow: hidden;
   @include for-5S-only {
     width: 75vw;
     right: 0;
+  }
+  @include landscape-mobile {
+    width: 35vw;
+    bottom:0;
+    right:0;
   }
 }
 
@@ -1009,15 +1046,23 @@ header#logoWgite {
   @include for-5S-only {
     bottom: 2em;
   }
+  @include landscape-mobile {
+    position: absolute;
+    opacity: 1;
+
+  }
 }
 .blackSection-last {
   @include for-phone-only{
         height: auto;
-
-overflow: hidden;
-overflow-y: scroll;
-pointer-events: none;
+        overflow: hidden;
+        margin:auto;
+        overflow-y: scroll;
+        pointer-events: none;
         -webkit-overflow-scrolling: touch;
+  }
+  @include landscape-mobile {
+    width: 60vw;
   }
 }
 .iosFixModal {
