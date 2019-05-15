@@ -1,11 +1,11 @@
 {
-  "main.css": "/TL2/static/css/main.99dc9b18.chunk.css",
-  "main.js": "/TL2/static/js/main.45fb0964.chunk.js",
+  "main.css": "/TL2/static/css/main.833970af.chunk.css",
+  "main.js": "/TL2/static/js/main.d601671e.chunk.js",
   "runtime~main.js": "/TL2/static/js/runtime~main.a5071174.js",
   "static/css/2.6d5a55fc.chunk.css": "/TL2/static/css/2.6d5a55fc.chunk.css",
   "static/js/2.258d009c.chunk.js": "/TL2/static/js/2.258d009c.chunk.js",
   "index.html": "/TL2/index.html",
-  "precache-manifest.8f0e2705fab0841abd3b4a5d263d27c4.js": "/TL2/precache-manifest.8f0e2705fab0841abd3b4a5d263d27c4.js",
+  "precache-manifest.6fb4d860837c8e0bb57ea9afa4eed1d9.js": "/TL2/precache-manifest.6fb4d860837c8e0bb57ea9afa4eed1d9.js",
   "service-worker.js": "/TL2/service-worker.js",
   "static/media/style.scss": "/TL2/static/media/Tele2TextSans-Regular.d47d5682.woff",
   "static/media/ball.8b804fbf.svg": "/TL2/static/media/ball.8b804fbf.svg",
@@ -24,6 +24,6 @@
   "static/media/robot.png": "/TL2/static/media/robot.21bb07fe.png",
   "static/media/slick-theme.css": "/TL2/static/media/slick.f97e3bbf.svg",
   "static/media/startWave.6a7f1539.svg": "/TL2/static/media/startWave.6a7f1539.svg",
-  "static/media/startWaveMobile.636b70d6.svg": "/TL2/static/media/startWaveMobile.636b70d6.svg",
+  "static/media/startWaveMobile.bc8cbf15.svg": "/TL2/static/media/startWaveMobile.bc8cbf15.svg",
   "static/media/vk.36839e04.svg": "/TL2/static/media/vk.36839e04.svg"
 }
