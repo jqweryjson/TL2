@@ -1262,7 +1262,5 @@ header#logoWgite {
 }
 .no-mix-blend-mode #svgWave {
   mix-blend-mode: normal;
-}
-.no-mix-blend-mode .slick-slider {
-  z-index: 11;
+  filter:opacity(.5);
 }
