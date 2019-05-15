@@ -1260,3 +1260,10 @@ header#logoWgite {
     margin-right: 5%;
   }
 }
+.no-mix-blend-mode #svgWave {
+  mix-blend-mode: normal;
+}
+.no-mix-blend-mode .slick-slider {
+  z-index: 11;
+
+}

@@ -69,7 +69,7 @@ export default class App extends Component {
     let self = this;
     if('CSS' in window && 'supports' in window.CSS) {
       var support = window.CSS.supports('mix-blend-mode','multiply');
-      if(support) {
+      if(support === false) {
         document.getElementsByTagName('body')[0].classList.add('no-mix-blend-mode');
       }
     }
