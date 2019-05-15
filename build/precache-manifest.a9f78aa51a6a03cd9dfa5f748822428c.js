@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/TL2/static/media/Tele2DisplaySerif-Bold.ae123fac.eot"
   },
   {
-    "revision": "ac7cd9a4a20221104f3f",
+    "revision": "3e8bf8667bd1348bed66",
     "url": "/TL2/static/css/main.e69cd100.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = [
     "url": "/TL2/static/media/startWaveMobile.a5ab3746.svg"
   },
   {
-    "revision": "c4396b3c0a403d370c73",
-    "url": "/TL2/static/js/2.d4acc7bd.chunk.js"
+    "revision": "e6bc6868dbb9a0356a70",
+    "url": "/TL2/static/js/2.258d009c.chunk.js"
   },
   {
     "revision": "7a787073748849c3805dc0602550600c",
@@ -52,8 +52,8 @@ self.__precacheManifest = [
     "url": "/TL2/static/media/robot-mobile.e3749843.png"
   },
   {
-    "revision": "ff706bee93be2020a42df162f8c29531",
-    "url": "/TL2/static/media/StandardCTStencil-Bold.ff706bee.eot"
+    "revision": "3efb65e957adaa2c16b01eb97f7570c8",
+    "url": "/TL2/static/media/StandardCTStencil-Bold.3efb65e9.woff"
   },
   {
     "revision": "2ec7fa340437e201a9bc1ac3b5d2f86b",
@@ -64,8 +64,8 @@ self.__precacheManifest = [
     "url": "/TL2/static/media/StandardCTStencil-Bold.cdf9c9ab.svg"
   },
   {
-    "revision": "3efb65e957adaa2c16b01eb97f7570c8",
-    "url": "/TL2/static/media/StandardCTStencil-Bold.3efb65e9.woff"
+    "revision": "ff706bee93be2020a42df162f8c29531",
+    "url": "/TL2/static/media/StandardCTStencil-Bold.ff706bee.eot"
   },
   {
     "revision": "680e114a9176e4788df4b0698f58e32a",
@@ -76,32 +76,36 @@ self.__precacheManifest = [
     "url": "/TL2/static/media/Tele2TextSans-Regular.c8d58107.eot"
   },
   {
-    "revision": "2d06bdb938f0bcf0ce63a0d78cdba186",
-    "url": "/TL2/static/media/Tele2TextSans-Regular.2d06bdb9.ttf"
+    "revision": "d47d56824df0fd7abb50b1bdd0e13f7e",
+    "url": "/TL2/static/media/Tele2TextSans-Regular.d47d5682.woff"
   },
   {
     "revision": "609bfeae8829cf4ff9333ae71046a477",
     "url": "/TL2/static/media/Tele2TextSans-Regular.609bfeae.svg"
   },
   {
-    "revision": "d47d56824df0fd7abb50b1bdd0e13f7e",
-    "url": "/TL2/static/media/Tele2TextSans-Regular.d47d5682.woff"
+    "revision": "2d06bdb938f0bcf0ce63a0d78cdba186",
+    "url": "/TL2/static/media/Tele2TextSans-Regular.2d06bdb9.ttf"
   },
   {
     "revision": "77057f290e6370f1238ea17daf5e12b3",
     "url": "/TL2/static/media/Tele2TextSans-Regular.77057f29.woff2"
   },
   {
-    "revision": "ac7cd9a4a20221104f3f",
-    "url": "/TL2/static/js/main.a78af5ca.chunk.js"
+    "revision": "3e8bf8667bd1348bed66",
+    "url": "/TL2/static/js/main.8fdc95fd.chunk.js"
+  },
+  {
+    "revision": "dafb99e4a1ffd8ccb9e68efcf47aa50a",
+    "url": "/TL2/static/media/Tele2DisplaySerif-Bold.dafb99e4.woff"
   },
   {
     "revision": "0c5af8bef2ad369da07d0c2562f9b4d6",
     "url": "/TL2/static/media/Tele2DisplaySerif-Bold.0c5af8be.ttf"
   },
   {
-    "revision": "dafb99e4a1ffd8ccb9e68efcf47aa50a",
-    "url": "/TL2/static/media/Tele2DisplaySerif-Bold.dafb99e4.woff"
+    "revision": "b52eec0fe3f000164215e8c05d6e921b",
+    "url": "/TL2/static/media/Tele2DisplaySerif-Bold.b52eec0f.woff2"
   },
   {
     "revision": "a7104be2cdc34117745c625702764707",
@@ -112,10 +116,6 @@ self.__precacheManifest = [
     "url": "/TL2/static/media/Tele2DisplaySerif-Regular.24c395ed.eot"
   },
   {
-    "revision": "b52eec0fe3f000164215e8c05d6e921b",
-    "url": "/TL2/static/media/Tele2DisplaySerif-Bold.b52eec0f.woff2"
-  },
-  {
     "revision": "610cf130e71abdcaa793ffa1dd267b98",
     "url": "/TL2/static/media/Tele2DisplaySerif-Regular.610cf130.svg"
   },
@@ -124,12 +124,12 @@ self.__precacheManifest = [
     "url": "/TL2/static/media/Tele2DisplaySerif-Regular.5b456832.ttf"
   },
   {
-    "revision": "0daeb7af1ece49f75d46973f40a82ab8",
-    "url": "/TL2/static/media/Tele2DisplaySerif-Regular.0daeb7af.woff2"
-  },
-  {
     "revision": "fe2e280d5ca8a06f654c0daa324bec28",
     "url": "/TL2/static/media/Tele2DisplaySerif-Regular.fe2e280d.woff"
+  },
+  {
+    "revision": "0daeb7af1ece49f75d46973f40a82ab8",
+    "url": "/TL2/static/media/Tele2DisplaySerif-Regular.0daeb7af.woff2"
   },
   {
     "revision": "ced611daf7709cc778da928fec876475",
@@ -180,11 +180,11 @@ self.__precacheManifest = [
     "url": "/TL2/static/media/startWave.347b5a33.svg"
   },
   {
-    "revision": "c4396b3c0a403d370c73",
+    "revision": "e6bc6868dbb9a0356a70",
     "url": "/TL2/static/css/2.6d5a55fc.chunk.css"
   },
   {
-    "revision": "648abb2d50e07999af09fab83d75ac90",
+    "revision": "e9c95ae49e8f32380d10f31d9e1fa720",
     "url": "/TL2/index.html"
   }
 ];

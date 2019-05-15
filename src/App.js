@@ -4,7 +4,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { TimelineLite, Power2 } from 'gsap';
-import { isMobile, isMobileSafari, isTablet } from 'react-device-detect';
+import { isMobile, isMobileSafari, isTablet, mobileModel } from 'react-device-detect';
 import * as Visibility from 'visibilityjs';
 
 import Header from './components/Header';
@@ -72,6 +72,9 @@ export default class App extends Component {
       if(support) {
         document.getElementsByTagName('body')[0].classList.add('no-mix-blend-mode');
       }
+    }
+    if(mobileModel){
+        console.log(mobileModel)
     }
     if(isMobileSafari) {
       document.getElementsByTagName('body')[0].classList.add('isMobileSafari');
