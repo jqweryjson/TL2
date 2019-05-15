@@ -716,7 +716,8 @@ code {
       font-size:1.250em;
       margin:0 auto;
       margin-bottom:1.875em;
-      width: 70%;
+      width: 100%;
+      max-width: 330px;
     }
     &:focus{
       outline:none;
@@ -1074,7 +1075,7 @@ header#logoWgite {
     left: 0;
     right: 0;
     margin: auto;
-    bottom: 3em;
+    bottom: 2em;
   }
   @include for-5S-only {
     bottom: 2em;
