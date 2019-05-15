@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/TL2/static/media/Tele2TextSans-Regular.609bfeae.svg"
   },
   {
-    "revision": "cc3a58b3d33e735fb507",
-    "url": "/TL2/static/css/main.c19df226.chunk.css"
+    "revision": "1d41ef07060a2b8b9979",
+    "url": "/TL2/static/css/main.2bebf3d0.chunk.css"
   },
   {
     "revision": "b89eb6a731983aedaebf",
@@ -56,20 +56,24 @@ self.__precacheManifest = [
     "url": "/TL2/static/media/StandardCTStencil-Bold.ff706bee.eot"
   },
   {
-    "revision": "3efb65e957adaa2c16b01eb97f7570c8",
-    "url": "/TL2/static/media/StandardCTStencil-Bold.3efb65e9.woff"
+    "revision": "2ec7fa340437e201a9bc1ac3b5d2f86b",
+    "url": "/TL2/static/media/StandardCTStencil-Bold.2ec7fa34.ttf"
   },
   {
-    "revision": "680e114a9176e4788df4b0698f58e32a",
-    "url": "/TL2/static/media/StandardCTStencil-Bold.680e114a.woff2"
+    "revision": "3efb65e957adaa2c16b01eb97f7570c8",
+    "url": "/TL2/static/media/StandardCTStencil-Bold.3efb65e9.woff"
   },
   {
     "revision": "cdf9c9ab32ee134b5d3055b7182d1aff",
     "url": "/TL2/static/media/StandardCTStencil-Bold.cdf9c9ab.svg"
   },
   {
-    "revision": "2ec7fa340437e201a9bc1ac3b5d2f86b",
-    "url": "/TL2/static/media/StandardCTStencil-Bold.2ec7fa34.ttf"
+    "revision": "680e114a9176e4788df4b0698f58e32a",
+    "url": "/TL2/static/media/StandardCTStencil-Bold.680e114a.woff2"
+  },
+  {
+    "revision": "c8d5810783ec15ebc58743d3f67db826",
+    "url": "/TL2/static/media/Tele2TextSans-Regular.c8d58107.eot"
   },
   {
     "revision": "77057f290e6370f1238ea17daf5e12b3",
@@ -80,10 +84,6 @@ self.__precacheManifest = [
     "url": "/TL2/static/media/Tele2TextSans-Regular.2d06bdb9.ttf"
   },
   {
-    "revision": "c8d5810783ec15ebc58743d3f67db826",
-    "url": "/TL2/static/media/Tele2TextSans-Regular.c8d58107.eot"
-  },
-  {
     "revision": "d47d56824df0fd7abb50b1bdd0e13f7e",
     "url": "/TL2/static/media/Tele2TextSans-Regular.d47d5682.woff"
   },
@@ -92,8 +92,16 @@ self.__precacheManifest = [
     "url": "/TL2/static/media/Tele2DisplaySerif-Bold.ae123fac.eot"
   },
   {
-    "revision": "cc3a58b3d33e735fb507",
+    "revision": "1d41ef07060a2b8b9979",
     "url": "/TL2/static/js/main.e3fc944a.chunk.js"
+  },
+  {
+    "revision": "0c5af8bef2ad369da07d0c2562f9b4d6",
+    "url": "/TL2/static/media/Tele2DisplaySerif-Bold.0c5af8be.ttf"
+  },
+  {
+    "revision": "b52eec0fe3f000164215e8c05d6e921b",
+    "url": "/TL2/static/media/Tele2DisplaySerif-Bold.b52eec0f.woff2"
   },
   {
     "revision": "a7104be2cdc34117745c625702764707",
@@ -104,32 +112,24 @@ self.__precacheManifest = [
     "url": "/TL2/static/media/Tele2DisplaySerif-Bold.dafb99e4.woff"
   },
   {
-    "revision": "0c5af8bef2ad369da07d0c2562f9b4d6",
-    "url": "/TL2/static/media/Tele2DisplaySerif-Bold.0c5af8be.ttf"
-  },
-  {
     "revision": "24c395ed2533537d10de8e87352afc03",
     "url": "/TL2/static/media/Tele2DisplaySerif-Regular.24c395ed.eot"
   },
   {
-    "revision": "fe2e280d5ca8a06f654c0daa324bec28",
-    "url": "/TL2/static/media/Tele2DisplaySerif-Regular.fe2e280d.woff"
-  },
-  {
-    "revision": "b52eec0fe3f000164215e8c05d6e921b",
-    "url": "/TL2/static/media/Tele2DisplaySerif-Bold.b52eec0f.woff2"
+    "revision": "5b456832b510700f74ea25f4f8c637be",
+    "url": "/TL2/static/media/Tele2DisplaySerif-Regular.5b456832.ttf"
   },
   {
     "revision": "0daeb7af1ece49f75d46973f40a82ab8",
     "url": "/TL2/static/media/Tele2DisplaySerif-Regular.0daeb7af.woff2"
   },
   {
-    "revision": "610cf130e71abdcaa793ffa1dd267b98",
-    "url": "/TL2/static/media/Tele2DisplaySerif-Regular.610cf130.svg"
+    "revision": "fe2e280d5ca8a06f654c0daa324bec28",
+    "url": "/TL2/static/media/Tele2DisplaySerif-Regular.fe2e280d.woff"
   },
   {
-    "revision": "5b456832b510700f74ea25f4f8c637be",
-    "url": "/TL2/static/media/Tele2DisplaySerif-Regular.5b456832.ttf"
+    "revision": "610cf130e71abdcaa793ffa1dd267b98",
+    "url": "/TL2/static/media/Tele2DisplaySerif-Regular.610cf130.svg"
   },
   {
     "revision": "b7c9e1e479de3b53f1e4e30ebac2403a",
@@ -184,7 +184,7 @@ self.__precacheManifest = [
     "url": "/TL2/static/css/2.6d5a55fc.chunk.css"
   },
   {
-    "revision": "1f9b497a17b9ea49b4f998aea9cb55cf",
+    "revision": "da92a2225fa06fa3cafee6a1d181f178",
     "url": "/TL2/index.html"
   }
 ];
