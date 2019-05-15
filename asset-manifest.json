@@ -1,11 +1,11 @@
 {
-  "main.css": "/TL2/static/css/main.e69cd100.chunk.css",
-  "main.js": "/TL2/static/js/main.8fdc95fd.chunk.js",
+  "main.css": "/TL2/static/css/main.e60794cc.chunk.css",
+  "main.js": "/TL2/static/js/main.45fb0964.chunk.js",
   "runtime~main.js": "/TL2/static/js/runtime~main.a5071174.js",
   "static/css/2.6d5a55fc.chunk.css": "/TL2/static/css/2.6d5a55fc.chunk.css",
   "static/js/2.258d009c.chunk.js": "/TL2/static/js/2.258d009c.chunk.js",
   "index.html": "/TL2/index.html",
-  "precache-manifest.823cc20e38a924e4f535ea2d52a5925e.js": "/TL2/precache-manifest.823cc20e38a924e4f535ea2d52a5925e.js",
+  "precache-manifest.41da34ea1b9661eb67e61a2b8bec4a69.js": "/TL2/precache-manifest.41da34ea1b9661eb67e61a2b8bec4a69.js",
   "service-worker.js": "/TL2/service-worker.js",
   "static/media/style.scss": "/TL2/static/media/Tele2TextSans-Regular.d47d5682.woff",
   "static/media/ball.8b804fbf.svg": "/TL2/static/media/ball.8b804fbf.svg",
@@ -23,7 +23,7 @@
   "static/media/robot-mobile.png": "/TL2/static/media/robot-mobile.e3749843.png",
   "static/media/robot.png": "/TL2/static/media/robot.21bb07fe.png",
   "static/media/slick-theme.css": "/TL2/static/media/slick.f97e3bbf.svg",
-  "static/media/startWave.347b5a33.svg": "/TL2/static/media/startWave.347b5a33.svg",
-  "static/media/startWaveMobile.a5ab3746.svg": "/TL2/static/media/startWaveMobile.a5ab3746.svg",
+  "static/media/startWave.6a7f1539.svg": "/TL2/static/media/startWave.6a7f1539.svg",
+  "static/media/startWaveMobile.636b70d6.svg": "/TL2/static/media/startWaveMobile.636b70d6.svg",
   "static/media/vk.36839e04.svg": "/TL2/static/media/vk.36839e04.svg"
 }

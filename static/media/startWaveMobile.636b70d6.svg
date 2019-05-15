@@ -1,0 +1,55 @@
+<svg 
+    class="svgST" 
+    width="100%" 
+    height="100%" 
+    viewBox="0 0 320 568" 
+	preserveAspectRatio="none"
+    xmlns="http://www.w3.org/2000/svg">
+  <style>
+    /* <![CDATA[ */
+        .svgST {
+            position: fixed;
+            top: auto;
+			bottom:0;
+            right: 0%;
+            height: auto;
+            width: 100%;
+            z-index: 10;
+            transition: all .75s;
+            opacity: 1;
+            mix-blend-mode: multiply;
+        }
+        .svgST #rectangle {
+			 transform: rotate(-43.7deg) translate3d(-100%, -1483px, 0);
+			 transition: all .75s .75s;
+        }
+        .svgST #line {
+		 transform: translate3d(100%, -307px, 0);
+		 transition: all .75s;
+        }
+    /* ]]> */
+  </style>
+    <defs>
+		<clipPath id="cutRectangle">
+			<rect id="rectangle" height="1200" width="800" y="100%" x="-107" stroke-opacity="null" />
+		</clipPath>
+    </defs>
+    <path 
+        id="svg_1" 
+        clip-path="url(#cutRectangle)"
+        d="m-317,823l963,-924l0,924l-963,0z"
+        fill="#C3E400" >
+	<animate 
+		class="waveAnimation" 
+		begin="indefinite" 
+		attributeName="d" 
+		values="m320,212c-107.5,102.85417 -212.5,204.14583 -320,307c0,16.33333 0,32.66667 0,49c107,0 213,0 320,0c0.83333,-119.52083 -0.83333,-236.47917 0,-356z;
+			m320,212c-82.5,127.85417 -212.5,204.14583 -320,307c0,16.33333 0,32.66667 0,49c107,0 213,0 320,0c0.83333,-119.52083 -0.83333,-236.47917 0,-356z;
+			m320,212c-136.5,72.85417 -200.5,214.14583 -320,307c0,16.33333 0,32.66667 0,49c107,0 213,0 320,0c0.83333,-119.52083 -0.83333,-236.47917 0,-356z;
+			m320,212c-58.5,120.85417 -272.5,179.14583 -320,307c0,16.33333 0,32.66667 0,49c107,0 213,0 320,0c0.83333,-119.52083 -0.83333,-236.47917 0,-356z;
+			m320,212c-131.5,53.85417 -192.5,213.14583 -320,307c0,16.33333 0,32.66667 0,49c107,0 213,0 320,0c0.83333,-119.52083 -0.83333,-236.47917 0,-356z;
+			m320,212c-119.5,132.85417 -227.5,157.14583 -320,307c0,16.33333 0,32.66667 0,49c107,0 213,0 320,0c0.83333,-119.52083 -0.83333,-236.47917 0,-356z;
+			m320,212c-107.5,102.85417 -212.5,204.14583 -320,307c0,16.33333 0,32.66667 0,49c107,0 213,0 320,0c0.83333,-119.52083 -0.83333,-236.47917 0,-356z" dur="2s" fill="freeze" />
+		</path> 
+		<line stroke-width="1" id="line" y2="519" x2="0" y1="212" x1="320" stroke="#C3E400" fill="none" />
+	</svg>
