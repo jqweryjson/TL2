@@ -67,6 +67,12 @@ export default class App extends Component {
   autoplayDelay = 10000;
   componentDidMount() {
     let self = this;
+    if('CSS' in window && 'supports' in window.CSS) {
+      var support = window.CSS.supports('mix-blend-mode','multiply');
+      if(support) {
+        document.getElementsByTagName('body')[0].classList.add('no-mix-blend-mode');
+      }
+    }
     if(isMobileSafari) {
       document.getElementsByTagName('body')[0].classList.add('isMobileSafari');
     }
