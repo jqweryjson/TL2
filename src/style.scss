@@ -4,17 +4,21 @@
 @mixin for-phone-only {
   @media only screen 
   and (min-device-width : 320px) 
-  and (max-device-width : 824px) { @content; }
+  and (max-device-width : 824px) and (max-height:823px){ @content; }
 }
-// @mixin for-phone-only {
-//   @media (max-width: 599px) { @content; }
-// }
+@mixin for5slans {
+  @media (min-width : 320px) and (max-width : 568px) and (orientation : landscape) { @content;}  
+}
 @mixin for-smallPhone-only {
   @media (max-width: 480px) { @content; }
 }
 @mixin for-5S-only {
-  @media (min-width : 320px) and (max-width: 568px) and (max-height:568px) and(-webkit-min-device-pixel-ratio: 2) { @content; }
+  @media (max-width : 320px)  and (max-height:568px) and(-webkit-min-device-pixel-ratio: 2) { @content; }
 }
+@mixin for-5S-only {
+  @media (max-width : 320px)  and (max-height:568px) and(-webkit-min-device-pixel-ratio: 2) { @content; }
+}
+
 @mixin landscape-mobile {
   @media only screen 
   and (min-device-width : 320px) 
@@ -22,12 +26,13 @@
   and (orientation : landscape) { @content; }
 }
 @mixin ipad{
-  @media (min-width : 768px) and (max-height:1024px){ @content; }
+  @media (min-width : 768px) and (max-device-width : 1024px) and (max-height:1024px) and (orientation : portrait) { @content; }
 }
+
 @mixin ipadLandscape {
   @media only screen 
-  and (min-device-width : 768px) 
-  and (max-device-width : 1024px) 
+  and (min-width : 768px) 
+  and (max-width : 1366px) 
   and (orientation : landscape)
   and (-webkit-min-device-pixel-ratio: 1)  { @content; }
 }
@@ -57,14 +62,15 @@ body {
   @include for-5S-only {
     font-size: 14px;
   }
-  @include ipad {
-    font-size: 23px;
+  @include for5slans {
+    font-size: 14px;
   }
+}
+body.isTablet {
   @include ipadLandscape {
     font-size: 19px;
   }
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -168,7 +174,7 @@ code {
   animation-delay: 2s;
   @include for-phone-only {
     //position:static;
-    height: 10vh;
+    height: 11vh;
     background:#fff;
     width:100%;
   }
@@ -202,11 +208,9 @@ code {
   @include landscape-mobile {
     width: 60%;
   }
-  @include ipadLandscape {
-    left: 3%;
-    top: 10%;
-  }
+
 }
+
 .mainImgWrap {
   position: absolute;
   right: 0;
@@ -359,7 +363,7 @@ code {
     width: 63vmax;
     top: 4vh;
     height: 20vmax;
-    min-height: 185px;
+    min-height: 158px;
   }
   background-color: #000;
   width:28.125em;
@@ -856,16 +860,16 @@ code {
     right: 0;
   }
   @include landscape-mobile {
-    width: 45vw;
+    width: 40vw;
     bottom:0;
     right:0;
   }
 }
 .subject-image {
   position: absolute;
-  top: 0;
   right: 0;
-  height: 100vh;
+  height: 100vmin;
+  bottom:0;
   width: auto;
   @include for-phone-only {
     //position: fixed;
@@ -884,15 +888,7 @@ code {
     bottom:0;
     right:0;
   }
-  @include ipad {
-    width: 80vw;
-  }
-  @include ipadLandscape {
-    width: 50vw;
-    height: auto;
-    bottom: 0;
-    top: auto;
-  }
+
 }
 
 #sec0{
@@ -1190,16 +1186,50 @@ header#logoWgite {
     background-color: rgba(129, 80, 108,0.6);
   }
 }
-.iconSec {
-  @include ipadLandscape {
-    display: none;
-  }
-}
+
 .mBth {
   @include ipad {
     display: none;
   }
-  @include ipadLandscape {
+
+}
+.isTablet {
+  .subject-image {
+    height: 68vh;
+    bottom: 0;
+    top: auto
+  }
+  .wrapInfoBlock {
+    left: 3vmin;
+    top: 10vmin;
+  }
+  .iconSec {
     display: none;
+  }
+  .blackSection {
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+  }
+  .blackSection__block{
+    position: relative;
+    margin: auto;
+    left: 0;
+    top: 0;
+    width: 90%;
+    justify-content: center;
+  }
+  .blackSection__block_m .blackSection__block-row {
+    flex-flow: row wrap;
+  }
+  .blackSection-last .blackSection__block_m .blackSection__block-row .blackSection__row {
+    margin-top: 5%;
+    justify-content: space-between;
+  }
+  .footer__soc svg {
+    width: 70px;
+    height: 70px;
   }
 }

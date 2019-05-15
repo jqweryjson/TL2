@@ -70,6 +70,9 @@ export default class App extends Component {
     if(isMobileSafari) {
       document.getElementsByTagName('body')[0].classList.add('isMobileSafari');
     }
+    if(isTablet) {
+      document.getElementsByTagName('body')[0].classList.add('isTablet');
+    }
     if(isMobile) {
       window.addEventListener("orientationchange",()=> {
         window.location.reload()
@@ -547,8 +550,10 @@ export default class App extends Component {
         // const $appElem = document.getElementById("app");
         // enablePageScroll($appElem);
         //$body.classList.remove("iosFixModal");
-        this.tl
-        .to('.mBth',.4,{opacity:1,immediateRender:true})    
+        if(!isTablet){
+          this.tl
+          .to('.mBth',.4,{opacity:1,immediateRender:true})    
+        }
       } else {
         const $body = document.getElementsByTagName("body")[0];
         //$body.classList.add("iosFixModal");
@@ -639,7 +644,7 @@ export default class App extends Component {
     return (
       <>
         <Header isBlackScreen={this.state.isBlackScreen} />
-        {isMobile ? <MobileBtnBlock currentSlideNumber={this.currentSlideNumber} /> : null}
+        {isMobile && !isTablet ? <MobileBtnBlock currentSlideNumber={this.currentSlideNumber} /> : null}
         {isMobile && !isTablet ? <StartWaveMobile id="svgWave" /> : <StartWave id="svgWave" />}
         {isMobile ? null : <BlackSection
           header="воспользуйтесь прямо сейчас"
