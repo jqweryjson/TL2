@@ -32,7 +32,7 @@
 @mixin ipadLandscape {
   @media only screen 
   and (min-width : 768px) 
-  and (max-width : 1366px) 
+  and (max-width : 1024px) 
   and (orientation : landscape)
   and (-webkit-min-device-pixel-ratio: 1)  { @content; }
 }
@@ -1212,24 +1212,47 @@ header#logoWgite {
     justify-content: center;
     align-items: center;
     font-size: 16px;
+    @include ipad {
+      font-size: 13px;
+    }
   }
   .blackSection__block{
     position: relative;
     margin: auto;
     left: 0;
     top: 0;
-    width: 90%;
-    justify-content: center;
+    width: 70%;
+    justify-content: flex-start;
+    height: 70vh;
+    @include ipad {
+      width: 80%;
+    }
+    @include ipadLandscape {
+      height: 90vh;
+    }
+  }
+  .blackSection-last .blackSection__block{
+    width: 80%;
+  }
+  .blackSection__block-op {
+    justify-content: flex-start;
   }
   .blackSection__block_m .blackSection__block-row {
     flex-flow: row wrap;
   }
   .blackSection-last .blackSection__block_m .blackSection__block-row .blackSection__row {
     margin-top: 5%;
-    justify-content: space-between;
+    justify-content: flex-start;
+    flex-basis: 100%;
+  }
+  .footer__soc {
+    margin-top: 5%;
   }
   .footer__soc svg {
     width: 70px;
     height: 70px;
+  }
+  .blackSection-last .blackSection__button {
+    margin-right: 5%;
   }
 }
