@@ -71,8 +71,7 @@ export default class InfoBlock extends React.Component {
           .to(this.buttonRef.current, .2, {scale :0,immediateRender:false,onComplete:()=>{}}, this.btnTDEL)
           .set(this.headerRef.current,{x :'-100%',immediateRender:true})
           .set(this.titleRef.current,{x :'-100%',immediateRender:true})
-          .set(this.buttonRef.current,{opacity :0,immediateRender:true})
-
+          .set(this.buttonRef.current,{opacity :0,immediateRender:true,onComplete:()=>{}})
         }
       }
       if( this.props.animateTextDirection === 'fromLeft') {
@@ -88,7 +87,7 @@ export default class InfoBlock extends React.Component {
           .to(this.headerRef.current, this.headerT, {x :'0%',opacity:1,immediateRender:false})
           .to(this.titleRef.current, this.textT, {x :'0%',opacity:1,immediateRender:false},this.textTDEL)
           .to(this.buttonRef.current, this.btnT, {opacity :1,immediateRender:true})
-          .from(this.buttonRef.current, this.btnT, {width :0,immediateRender:true,onComplete:()=>{}},this.btnTDEL)
+          .from(this.buttonRef.current, this.btnT, {width :0,immediateRender:true,onComplete:()=>{window.inProgress = false}},this.btnTDEL)
           return;
         }
         this.tl
@@ -104,7 +103,7 @@ export default class InfoBlock extends React.Component {
         .to(this.headerRef.current, this.headerT, {x :'0%',opacity:1,immediateRender:false})
         .to(this.titleRef.current, this.textT, {x :'0%',opacity:1,immediateRender:false},this.textTDEL)
         .to(this.buttonRef.current, this.btnT, {opacity :1,immediateRender:true}, this.btnTDEL)
-        .from(this.buttonRef.current, this.btnT, {width :0,immediateRender:true,onComplete:()=>{}},this.btnTDEL)
+        .from(this.buttonRef.current, this.btnT, {width :0,immediateRender:true,onComplete:()=>{window.inProgress = false}},this.btnTDEL)
       }
   }
   componentDidMount() {

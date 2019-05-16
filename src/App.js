@@ -42,7 +42,7 @@ export default class App extends Component {
     this.tl.defaultEase = Power2.easeIn;
     this.isMobile = isMobile;
     this.isSwipe = isMobile ? true : false;
-   
+    window.inProgress = true;
   }
   state = {
     isBlackScreen: false,
@@ -61,12 +61,33 @@ export default class App extends Component {
   blackSection1Ref = React.createRef();
   blackSection2Ref = React.createRef();
   currentSlideNumber = 0;
-  inProgress = true;
   fromFourSlide = false;
   autoplay;
   autoplayDelay = 10000;
+  ee = function(e){e.stopPropagation()};
   componentDidMount() {
     let self = this;
+    document.addEventListener('keydown', (event) => {
+      let keyName = event.keyCode;
+            if(keyName === 9 || keyName === 37 || keyName === 39){
+              event.stopPropagation();
+              event.preventDefault()
+            }
+            if(keyName === 37 && self.currentSlideNumber !== 0 && !window.inProgress) {
+              document.getElementById('svgWave').getElementsByTagName('line')[0].style.display = 'none';
+              self.lock();
+              window.inProgress = true;
+              self.resetAutoPlay();
+              self.prePrev();
+            }
+            if(keyName === 39 && self.currentSlideNumber !== 5 && !window.inProgress) {
+              document.getElementById('svgWave').getElementsByTagName('line')[0].style.display = 'none';
+              self.lock();
+              window.inProgress = true;
+              self.resetAutoPlay();
+              self.preNext();
+            }
+    },true);
     if('CSS' in window && 'supports' in window.CSS) {
       var support = window.CSS.supports('mix-blend-mode','multiply');
       if(support === false) {
@@ -83,6 +104,7 @@ export default class App extends Component {
       document.getElementsByTagName('body')[0].classList.add('isTablet');
     }
     if(isMobile) {
+      document.body.addEventListener('touchmove', self.ee, true);
       window.addEventListener("orientationchange",()=> {
         window.location.reload()
         //debugger;
@@ -92,8 +114,9 @@ export default class App extends Component {
       var body = document.body,
       timer;
       window.addEventListener("mousemove", this.resetAutoPlay.bind(this));
+
       window.addEventListener('scroll', function() {
-      clearTimeout(timer);
+        clearTimeout(timer);
       if(!body.classList.contains('disable-hover')) {
       body.classList.add('disable-hover')
       }
@@ -102,20 +125,31 @@ export default class App extends Component {
       body.classList.remove('disable-hover')
       },500);
       }, false);
+
       document.getElementById('svgWave').classList += ' initial-animation';
       document.getElementById('specialID').classList +=
       ' initial-animation';
       this.manageActiveClass(0);
-    
+
+      if(!this.isMobile){
+        window.addEventListener('wheel', event => this.mouseWheelHandler(event), {
+          passive: false
+        });
+      }
     setTimeout(() => {
       document.getElementsByTagName('body')[0].classList.add('startesSub');
-    }, 6000);
-    setTimeout(() => {
       self.hideStartScgAnim();
-      self.resetAutoPlay();
-      self.inProgress = false;
-      //document.getElementsByTagName('body')[0].classList.remove('startesSub');
-    }, 8000);
+      window.inProgress = false;
+      if(isMobile) {
+        document.body.removeEventListener('touchmove', self.ee, true);
+      }
+    }, 4300);
+    // setTimeout(() => {
+     
+    //   //self.resetAutoPlay();
+    //   window.inProgress = false;
+    //   //document.getElementsByTagName('body')[0].classList.remove('startesSub');
+    // }, 8000);
   }
   autoplayStart() {
     if (!isMobile && this.currentSlideNumber === 5) {
@@ -144,30 +178,26 @@ export default class App extends Component {
   }
   hideStartScgAnim() {
     document.getElementById('svgWave').getElementsByTagName('line')[0].style.display = 'none'
-    if(!this.isMobile){
-      window.addEventListener('wheel', event => this.mouseWheelHandler(event), {
-        passive: false
-      });
-    }
   }
 
   mouseWheelHandler(event) {
+
     this.resetAutoPlay();
 
-    if (this.inProgress) {
+    if (window.inProgress) {
       return false;
     }
     event.preventDefault();
     const delta = event.wheelDelta;
     if (delta >= 100 && delta <= 150 && this.currentSlideNumber !== 0) {
-      this.inProgress = true;
+      window.inProgress = true;
       this.prePrev();
     } else if (
       delta <= -100 &&
       delta >= -150 &&
       this.currentSlideNumber !== 5
     ) {
-      this.inProgress = true;
+      window.inProgress = true;
       this.preNext();
     }
   }
@@ -199,7 +229,7 @@ export default class App extends Component {
   goToThree(){
     this.fromFourSlide = true;
     this.sliderRef.current.slickGoTo(3,true);
-    this.inProgress = false;
+    window.inProgress = false;
     return;
   }
   prePrev(index) {
@@ -232,7 +262,7 @@ export default class App extends Component {
       .to(ReactDOM.findDOMNode(this.blackSection1Ref.current),.6,{width:'0%',immediateRender:true})
       .set('.isFour',{opacity:1,immediateRender:true})
       .set('#svgWave',{opacity:1,immediateRender:true})
-      .set('.isFourInfoBlock',{opacity:1,immediateRender:true})
+      .set('.isFourInfoBlock',{opacity:1,immediateRender:true,onComplete:()=>{window.inProgress = false}})
       return;
     }
     if(index != undefined ) {
@@ -310,24 +340,24 @@ export default class App extends Component {
 
   resetAutoPlay(){
     Visibility.stop(this.autoplay);
-    //this.autoplay = Visibility.every(this.autoplayDelay, this.autoplayStart.bind(this) );
+    this.autoplay = Visibility.every(this.autoplayDelay, this.autoplayStart.bind(this) );
   }
   onSwipeMove(position, event) {
+    let self = this;
     document.getElementById('svgWave').getElementsByTagName('line')[0].style.display = 'none';
-    let ee = function(e){
-      e.stopPropagation()
-    }
-    document.body.addEventListener('touchmove', ee, true);
+    document.body.addEventListener('touchmove', self.ee, true);
     setTimeout(()=>{
-      document.body.removeEventListener('touchmove', ee, true);
+      document.body.removeEventListener('touchmove', self.ee, true);
     },1000)
     this.resetAutoPlay();
     return;
-    if (this.inProgress) {
+
+
+    if (window.inProgress) {
       document.getElementById('svgWave').getElementsByTagName('line')[0].style.display = 'none'
       return true;
     }
-    debugger;
+
     if (position === 'left' && this.currentSlideNumber !== 5) {
       if (this.currentSlideNumber === 4 || this.currentSlideNumber === 5) {
         document
@@ -345,7 +375,7 @@ export default class App extends Component {
 
   preNext(index) {
 
-
+console.log('prenext')
     if(index && this.currentSlideNumber !== 3 && this.currentSlideNumber !== 4) {
       this.animateImage();
       this.animateText(null, 'next');
@@ -428,7 +458,7 @@ export default class App extends Component {
 
   manageClick(index) {
 
-    if(index === this.currentSlideNumber || this.inProgress){
+    if(index === this.currentSlideNumber || window.inProgress){
       return;
     }
 
@@ -526,6 +556,7 @@ export default class App extends Component {
     }
   }
   beforeChange(oldIndex, newIndex) {
+    //window.inProgress = true;
     this.currentSlideNumber = newIndex;
     this.manageActiveClass(this.currentSlideNumber)
     this.resetAutoPlay();
@@ -584,13 +615,11 @@ export default class App extends Component {
     this.manageDots();
   }
   lock(){
-    console.log(this.inProgress)
-    this.inProgress = true;
 
-
-    setTimeout(() => {
-      this.inProgress = false;
-    }, 1000);
+    // window.inProgress = true;
+    // setTimeout(() => {
+    //   window.inProgress = false;
+    // }, 1500);
   }
   afterChange(index) {
 
@@ -605,7 +634,7 @@ export default class App extends Component {
       .to(ReactDOM.findDOMNode(this.blackSection1Ref.current),.8,{width:'100%',immediateRender:true})
       .set('.isFourInfoBlock',{opacity:0})
       .set('.isFour',{opacity:0})
-      .set('.slick-slide',{backgroundColor:'#000'});
+      .set('.slick-slide',{backgroundColor:'#000',onComplete:()=>{window.inProgress = false}});
       this.lock();
       this.manageDots();
       return;
@@ -613,7 +642,7 @@ export default class App extends Component {
     if(!isMobile && this.currentSlideNumber === 5){
       this.tl
         .set('#svgWave',{opacity:0,immediateRender:true})
-        .to(ReactDOM.findDOMNode(this.blackSection2Ref.current),.8,{width:'100%',immediateRender:true});
+        .to(ReactDOM.findDOMNode(this.blackSection2Ref.current),.8,{width:'100%',immediateRender:true,onComplete:()=>{window.inProgress = false}});
       this.lock();
       return;
     }
@@ -635,17 +664,17 @@ export default class App extends Component {
     let settings = {
       dots: false,
       arrows: false,
-      easing: 'ease-in',
+      easing: 'ease-in-out',
       infinite: false,
       draggable: false,
       swipe: this.isSwipe,
-      swipeToSlide: this.isSwipe,
-      touchMove:this.state.isTouchMove,
+      swipeToSlide: true,
+      touchMove:true,
       adaptiveHeight: true,
       //autoplay:true,
       //autoplaySpeed:6000,
       //initialSlide:5,
-      speed: 400,
+      speed: 200,
       slidesToShow: 1,
       slidesToScroll: 1
     };

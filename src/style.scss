@@ -621,6 +621,7 @@ code {
     @include for-phone-only{
       font-size: 1.875em;
       padding-top: 1.438rem;
+      text-align: center;
     }
   }
   &__text{
@@ -669,6 +670,7 @@ code {
     @include for-phone-only{
       flex-flow: column nowrap;
       margin-top: 1rem;
+          //align-items: flex-start;
     }
   }
   &__button{
