@@ -340,6 +340,9 @@ export default class App extends Component {
 
   resetAutoPlay(){
     Visibility.stop(this.autoplay);
+    if(window.resetAutoPlayFalse){
+      return;
+    }
     this.autoplay = Visibility.every(this.autoplayDelay, this.autoplayStart.bind(this) );
   }
   onSwipeMove(position, event) {
