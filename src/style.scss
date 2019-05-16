@@ -26,7 +26,7 @@
   and (orientation : landscape) { @content; }
 }
 @mixin ipad{
-  @media (min-width : 768px) and (max-device-width : 1024px) and (max-height:1024px) and (orientation : portrait) { @content; }
+  @media (min-width : 768px) and (max-device-width : 1024px) and (max-height:1334px) and (orientation : portrait) { @content; }
 }
 
 @mixin ipadLandscape {
