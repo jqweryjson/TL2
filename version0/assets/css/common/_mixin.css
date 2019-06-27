@@ -1,0 +1,20 @@
+@define-mixin i $image, $type: png {
+    background: url('/images/common/$(image).$(type)') 0 0 no-repeat;
+    background-size: size('public/images/common/$(image).$(type)', 2);
+    width: width('public/images/common/$(image).$(type)', 2);
+    height: height('public/images/common/$(image).$(type)', 2);
+}
+
+@define-mixin i15 $image, $type: png {
+    background: url('/images/common/$(image).$(type)') 0 0 no-repeat;
+    background-size: size('public/images/common/$(image).$(type)', 1.5);
+    width: width('public/images/common/$(image).$(type)', 1.5);
+    height: height('public/images/common/$(image).$(type)', 1.5);
+}
+
+@define-mixin io $image, $type: png {
+    background: url('/images/common/$(image).$(type)') 0 0 no-repeat;
+    background-size: size('public/images/common/$(image).$(type)');
+    width: width('public/images/common/$(image).$(type)');
+    height: height('public/images/common/$(image).$(type)');
+}
