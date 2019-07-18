@@ -29,6 +29,34 @@
       display: none;
     }
   }
+  &__button-back {
+    position: relative;
+    pointer-events: all;
+    display: block;
+    margin-top: 10px;
+    padding-left: 2vw;
+    font-size: 1vw;
+    text-transform: uppercase;
+    &:hover &-arrow-box {
+      left: -0.5vw;
+    }
+    &-arrow-box {
+      position: absolute;
+      height: 100%;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: 0.3s;
+    }
+    &-arrow {
+      display: block;
+      position: relative;
+      height: 100%;
+      font-family: arial, sans-serif;
+      font-size: 1.5vw;
+      top: -35%;
+    }
+  }
 }
 
 .theme-white {
@@ -79,6 +107,18 @@
         font-size: 14px;
         padding-left: 35px;
         padding-right: 35px;
+      }
+    }
+    &__button-back {
+      margin-top: 10px;
+      padding-left: 20px;
+      font-size: 9px;
+      &:hover &-arrow-box {
+        left: -10px;
+      }
+      &-arrow {
+        font-size: 14px;
+        top: -35%;
       }
     }
   }
