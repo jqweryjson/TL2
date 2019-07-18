@@ -9,7 +9,11 @@ const Header = ({ isBlackScreen }) => {
     });
     return (
         <header className={headerClass}>
-            <Logo className="logoClass" id="logoBlac"/> 
+        <Logo className="logoClass" id="logoBlac"/> 
+        <a href="../" 
+            className="header__button-back">
+            <span className="header__button-back-arrow-box">
+            <span className="header__button-back-arrow">←</span> </span>Назад</a>
         </header>
     );
 }

@@ -167,6 +167,21 @@ code {
     transform:translate3d(100%,0,0);
   }
 }
+.header__button-back {
+  font-family: Standard CT Stencil;
+  color:#000;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  @include for-phone-only {
+    position: absolute;
+    top: 20px;
+    right: 5%;
+  }
+}
+#logoWgite .header__button-back {
+  color:#fff;
+}
 .header {
   position: fixed;
   left: 0;
