@@ -1,0 +1,135 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    > * {
+      pointer-events: all;
+    }
+  }
+  &__social {
+    ul {
+      display: flex;
+      margin: 0;
+      margin-bottom: 5vh;
+      li {
+        margin-right: 1.5vw;
+        a {
+          svg {
+            width: 1.75vw;
+            height: auto;
+            path {
+              transition: fill .2s linear;
+            }
+          }
+          &:hover {
+            svg {
+              .white {
+                fill: #C3E400;
+              }
+              .black {
+                fill: #31353F;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.scroll {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 110;
+  pointer-events: none;
+  .down {
+    display: block;
+  }
+  .up {
+    display: none;
+  }
+  &.up  {
+    .down {
+      display: none;
+    }
+    .up {
+      display: block;
+    }
+  }
+  .up {
+    pointer-events: all;
+  }
+  .down {
+    pointer-events: all;
+  }
+  span {
+    font-family: var(--font-sans);
+    font-size: 1.25vw;
+    line-height: 1;
+    transition: color .2s linear,background-color .2s linear,border-color .2s linear;
+  }
+  i {
+    display: block;
+    margin-top: 1vh;
+    margin-left: auto;
+    margin-right: auto;
+    width: 5px;
+    height: 4vh;
+    background-color: #000;
+    transition: color .2s linear,background-color .2s linear,border-color .2s linear;
+  }
+}
+
+.theme-white {
+  .footer {
+    &__social {
+      a {
+        svg {
+          .white {
+            fill: #000;
+          }
+          .black {
+            fill: #fff;
+          }
+          
+        }
+        &:hover {
+          svg {
+            .white {
+              fill: #000;
+            }
+            .black {
+              fill: #C3E400;
+            }
+          }
+        }
+      }
+    }
+  }
+  .scroll {
+    span {
+      color: #fff;
+    }
+    i {
+      background-color: #fff;
+    }
+  }
+}
+
+@media (width < 920px) {
+  .footer {
+    display: none;
+  }
+  .scroll {
+    display: none;
+  }
+}

@@ -1,0 +1,144 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 100;
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 3vh;
+    > * {
+      pointer-events: all;
+    }
+  }
+  &__logo {
+    a {
+      display: inline-block;
+      svg {
+        display: block;
+        width: 7vw;
+        height: auto;
+      }
+    }
+  }
+  &__button {
+    &_mobile {
+      display: none;
+    }
+  }
+  &__button-back {
+    position: relative;
+    pointer-events: all;
+    display: block;
+    margin-top: 10px;
+    padding-left: 2vw;
+    font-size: 1vw;
+    text-transform: uppercase;
+    &:hover &-arrow-box {
+      left: -0.5vw;
+    }
+    &-arrow-box {
+      position: absolute;
+      height: 100%;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: 0.3s;
+    }
+    &-arrow {
+      display: block;
+      position: relative;
+      height: 100%;
+      font-family: arial, sans-serif;
+      font-size: 1.5vw;
+      top: -35%;
+    }
+  }
+}
+
+.theme-white {
+  .header {
+    &__logo {
+      a {
+        svg {
+          * {
+            fill: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (width < 920px) {
+  .header {
+    z-index: 200;
+    &__inner {
+      padding-top: 24px;
+    }
+    &__logo {
+      a {
+        svg {
+          width: 50px;
+        }
+      }
+    }
+    &__button {
+      position: fixed;
+      bottom: 20px;
+      /* left: 20px;
+      width: calc(100vw - 40px); */
+
+      left: auto;
+      right: 20px;
+      width: auto;
+
+      bottom: auto;
+      top: 10px;
+      .button-primary {
+        width: 100%;
+        height: 40px;
+        border-radius: 100px;
+        text-align: center;
+        line-height: 40px;
+        font-size: 14px;
+        padding-left: 35px;
+        padding-right: 35px;
+      }
+    }
+    &__button-back {
+      margin-top: 10px;
+      padding-left: 20px;
+      font-size: 9px;
+      &:hover &-arrow-box {
+        left: -10px;
+      }
+      &-arrow {
+        font-size: 14px;
+        top: -35%;
+      }
+    }
+  }
+}
+
+@media (orientation: portrait) {
+  .header {
+    &__button {
+      top: auto;
+      bottom: 20px;
+      left: 20px;
+      right: auto;
+      width: calc(100vw - 40px);
+      z-index: 100;
+      &_desktop {
+        display: none;
+      }
+      &_mobile {
+        display: block;
+      }
+    }
+  }
+}

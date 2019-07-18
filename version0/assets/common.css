@@ -1,0 +1,8 @@
+@import url(css/common/_reset.css);
+@import url(css/common/_mixin.css);
+/* @import url(css/common/_default.css); */
+
+@import url(blocks/modal/bootstrap.css);
+@import url(blocks/modal/index.css);
+
+@import url(css/common/main.css);

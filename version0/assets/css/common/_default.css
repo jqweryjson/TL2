@@ -1,0 +1,100 @@
+:root {
+    --font-base: 'Standard CT Stencil', sans-serif;
+    --font-sans: 'Tele2 TextSans', sans-serif;
+    --font-serif: 'Tele2 DisplaySerif', sans-serif;
+}
+
+html {
+    touch-action: manipulation;
+}
+
+html, body {
+    font-family: var(--font-base);
+    line-height: 1.21;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    position: relative;
+}
+
+body {
+    > img {
+        display: none;
+    }
+}
+
+input, button {
+    font-family: var(--font-base);
+    outline: none !important;
+    box-shadow: none !important;
+    &:focus {
+      outline: none;
+    }
+}
+
+button {
+    cursor: pointer;
+    transition: color .2s linear,background-color .2s linear,border-color .2s linear;
+    &[disabled] {
+        color: inherit;
+        cursor: default;
+    }
+}
+
+a {
+    font-family: var(--font-base);
+    transition: color .2s linear,background-color .2s linear,border-color .2s linear;
+    &:focus {
+    }
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+ul, ol {
+    list-style: none;
+    list-style-type: none;
+    li {
+        list-style: none;
+        list-style-type: none;
+        list-style-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7);
+    }
+}
+
+
+input, button, a {
+    &:focus {
+      outline: none;
+    }
+}
+
+
+.frame {
+    margin-left: 3vw;
+    width: 94vw;
+}
+
+.container {
+    margin-left: 5vw;
+    width: 90vw;
+}
+
+@media (width < 920px) {
+    .frame {
+        margin-left: 6.25vw;
+        width: 87.5vw;
+    }
+    .container {
+        margin-left: 6.25vw;
+        width: 87.5vw;
+    }
+}
+
+@media (orientation: portrait) {
+    html, body {
+        line-height: 1.4;
+    }
+}
